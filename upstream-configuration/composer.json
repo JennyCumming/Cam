@@ -1,27 +1,26 @@
 {
     "name": "pantheon-upstreams/upstream-configuration",
     "type": "project",
-    "repositories": [
-        {
+    "repositories": {
+        "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
-		{
-			"url": "https://gitlab.developers.cam.ac.uk/uis/webcms/2023-platform/drupal-10-cambridge-profile.git",
-			"type": "vcs"
-		},
-        {
-			"url": "https://gitlab.developers.cam.ac.uk/uis/webcms/2023-platform/cambridge_theme_d9.git",
-			"type": "vcs"
-		},
-        {
-            "type": "git",
-            "url": "https://git.drupalcode.org/issue/sdc_display-3452441.git"
+        "uis-drupal-team": {
+            "url": "https://gitlab.developers.cam.ac.uk/uis/webcms/2023-platform/drupal-10-cambridge-profile.git",
+            "type": "vcs"
+        },
+        "uis-drupal-theme": {
+            "url": "https://gitlab.developers.cam.ac.uk/uis/webcms/2023-platform/cambridge_theme_d9.git",
+            "type": "vcs"
+        },
+        "uis-drupal": {
+            "url": "https://gitlab.developers.cam.ac.uk/uis/devops/webcms/2023-platform/custom-modules/cam-admin-ui-tweaks.git",
+            "type": "vcs"
         }
-    ],
+    },
     "require": {
-        "uis-drupal-team/drupal-10-cambridge-profile": "dev-main",
-        "uis-drupal/cambridge_tailwind": "dev-main"
+        "uis-drupal-team/drupal-10-cambridge-profile": "dev-main"
     },
 	"minimum-stability": "dev",
 	"prefer-stable": true,
