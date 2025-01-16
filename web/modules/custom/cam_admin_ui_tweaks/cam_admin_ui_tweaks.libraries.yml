@@ -1,0 +1,20 @@
+paragraph-preview:
+  css:
+    component:
+      css/cam-paragraph-preview.css: {}
+
+ckeditor:
+  css:
+    layout:
+      css/ckeditor.css: {}
+
+paragraphs_ee:
+  css:
+    theme:
+      css/paragraphs_ee.css: {}
+
+gin-overrides:
+  css:
+    theme:
+      css/gin-overrides.css: {}
+

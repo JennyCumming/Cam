@@ -1,0 +1,37 @@
+.ck-dropdown,
+.ck-button:not(.ck-splitbutton__arrow) {
+    padding-right: var(--gin-spacing-s) !important;
+    justify-content: unset !important;
+    border-width: 0 !important;
+}
+.ck-button:not(.ck-splitbutton__arrow, .ck-splitbutton__action) {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+}
+
+.ck-button:not(.ck-splitbutton__arrow) .ck-button__label {
+    display: inline-block !important;
+    padding-left: var(--gin-spacing-xs) !important;
+    padding-top: 2px !important;
+    width: auto !important;
+}
+.ck-button.ck-splitbutton__arrow .ck-button__label {
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+
+[dir=ltr] .ck.ck-dropdown .ck-dropdown__arrow {
+    margin-left: var(--ck-spacing-large) !important;
+    right: var(--ck-spacing-large) !important;
+}
+
+.ck a {
+    color: blue !important;
+    text-decoration: underline dotted;
+}
+
+.ck a:hover {
+    color: blue !important;
+    text-decoration: underline solid;
+}

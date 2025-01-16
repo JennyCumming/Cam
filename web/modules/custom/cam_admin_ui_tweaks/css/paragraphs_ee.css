@@ -1,0 +1,6 @@
+.paragraphs-add-dialog .paragraphs-ee-buttons .paragraphs-button--icon {
+  background-size: cover!important;
+  object-fit: cover!important;
+  padding-bottom: 46%!important;
+}
+tr.paragraphs-features__add-in-between__row, tr.paragraphs-features__add-in-between__row > td { display: block }

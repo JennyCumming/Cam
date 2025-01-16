@@ -1,0 +1,8 @@
+{
+    "name": "uis-drupal/cam_admin_ui_tweaks",
+    "description": "Tiny touch ups to the admin UI",
+    "type": "drupal-custom-module",
+    "require": {
+        "drupal/core": "^10"
+    }
+}

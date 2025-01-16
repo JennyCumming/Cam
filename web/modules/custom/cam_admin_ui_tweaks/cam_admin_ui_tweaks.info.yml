@@ -1,0 +1,7 @@
+name: Cambridge Admin UI Tweaks
+type: module
+description: Tiny touch ups to the admin UI
+core_version_requirement: ^10
+package: Custom
+version: 1.0
+
