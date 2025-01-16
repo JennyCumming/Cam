@@ -1,0 +1,14 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: events_wrapper
+name: Events wrapper
+description: Adds a consistent header to events displays.
+status: "experimental"
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+    events_display:
+      type: string
+      title: Events

@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: link_arrow
+name: Link with arrow
+status: "experimental"
+props:
+  type: object
+  properties:
+    text:
+      type: string
+      title: Text
+    url:
+      type: string
+      title: URL

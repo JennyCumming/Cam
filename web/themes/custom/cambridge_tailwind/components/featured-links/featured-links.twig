@@ -1,0 +1,26 @@
+{#
+/**
+ * The Featured links component may also be called a Primary Signpost
+ *
+ * Heading - a required string
+ * Sub-heading - an optional string
+ * Description - an optional string
+ * Image - optional
+ * Links - Optional (up to 6)
+ */
+#}
+<div class="flex flex-col gap-8 border-b-1 mt-8 mb-4 container">
+  <div class="w-full flex flex-col items-start gap-3">
+    <h6>{{ content.field_sub_heading.0 }}</h6>
+    <h3>{{ content.field_heading.0 }}</h3>
+  </div>
+
+  <div{{ content_attributes.addClass(content_classes) }}>
+    <div class="w-1/2 flex flex-col gap-3 w-[600px]">
+      <p>{{ content.field_featured_links_description }}</p>
+    </div>
+    <div class="w-1/2 flex flex-col gap-3 mb-8">
+      {{ content.field_link }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,87 @@
+uuid: bb45252e-7b90-417c-a435-b215ba03afca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_card
+    - paragraphs.paragraphs_type.text_card
+    - paragraphs.paragraphs_type.text_cards
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: NNhB2jiqw1mTGExHSDsdyU4-ImeTeKRgC2tmNZ-dkZA
+id: paragraph.text_cards.field_card
+field_name: field_card
+entity_type: paragraph
+bundle: text_cards
+label: 'Group of cards'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text_card: text_card
+    negate: 0
+    target_bundles_drag_drop:
+      basic_limited:
+        weight: 20
+        enabled: false
+      compact_callout:
+        weight: 21
+        enabled: false
+      events_from_view:
+        weight: 22
+        enabled: false
+      featured_links:
+        weight: 14
+        enabled: false
+      image:
+        weight: 15
+        enabled: false
+      image_card:
+        weight: 25
+        enabled: false
+      image_cards:
+        weight: 26
+        enabled: false
+      image_media:
+        weight: 16
+        enabled: false
+      layout:
+        weight: 17
+        enabled: false
+      link_grid:
+        weight: 29
+        enabled: false
+      news:
+        weight: 30
+        enabled: false
+      notification:
+        weight: 18
+        enabled: false
+      related_content:
+        weight: 19
+        enabled: false
+      section_divider:
+        weight: 33
+        enabled: false
+      summary:
+        weight: 20
+        enabled: false
+      text:
+        weight: 21
+        enabled: false
+      text_card:
+        weight: 24
+        enabled: true
+      text_cards:
+        weight: 23
+        enabled: false
+      youtube:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

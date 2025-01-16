@@ -1,0 +1,19 @@
+{#
+/**
+ * Section Divider component
+ *
+ * Header - a required string
+ * Description - an optional string
+ * Link - one link, optional
+ */
+#}
+
+<div class="pt-11 pb-7 container" id="paragraph--{{ paragraph.id() }}">
+  <h2 class="w-[600px] mt-[80px] mb-[20px] text-4xl font-medium font-serif"> {{ content.field_section_divider_header.0 }} </h2>
+
+  <p class="text-base">{{ content.field_section_divider_descriptio.0 }}</p>
+
+  {% if content.field_section_divider_link %}
+    <p class="mt-7 text-base">{{content.field_section_divider_link}}</p>
+  {% endif %}
+</div>

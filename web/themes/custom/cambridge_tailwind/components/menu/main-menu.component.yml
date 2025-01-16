@@ -1,0 +1,79 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: main-menu
+name: Main menu
+description: The main navigation within a single site.
+group: Site components
+status: "experimental"
+props:
+  type: object
+  properties:
+    menu_items:
+      type: array
+      title: Menu items
+      description: An array of menu items
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+            title: Title
+          section_heading:
+            type: string
+            title: Section heading
+          section_description:
+            type: string
+            title: Section description
+          url:
+            type: object
+            title: url
+            description: The url for a top level menu item
+          menu_with_headings:
+            type: boolean
+          call_to_action:
+            type: object
+            title: Call to action
+            description: The call to action content for a top level menu item
+            properties:
+              url:
+                type: string
+                title: Call to action URL
+              title:
+                type: object
+                title: Call to action title
+              description:
+                type: object
+                title: Call to action description
+              properties:
+                type: array
+          below:
+            type: array
+            title: Items below
+            description: An array of items that sit under this menu item
+            items:
+              type: object
+              properties:
+                url:
+                  type: string
+                  title: Sub-item URL
+                title:
+                  type: string
+                  title: Sub-item title
+                below:
+                  type: array
+                  title: Items below
+                  description: An array of items that sit under this menu item
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        title: Sub-sub-item URL
+                      title:
+                        type: string
+                        title: Sub-sub-item title
+libraryOverrides:
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/once

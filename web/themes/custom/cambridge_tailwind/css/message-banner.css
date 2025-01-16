@@ -1,0 +1,52 @@
+#message-banner {
+  background-color: #EAEEF3 !important;
+  border-left: solid 5px #3491FD;
+}
+
+.user-logged-in #message-banner {
+  /* Only for logged in users with admin sidebar */
+  margin-left: 65px;
+}
+
+#message-banner .message-banner__text {
+  color: #0F2125;
+  width: fit-content;
+}
+
+#message-banner .message-banner__content {
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  padding: 5px 5px;
+}
+
+#message-banner .message-banner__text blockquote {
+  background-color: #9BCAFF;
+  display: inline-block;
+  font-size: 18px;
+  margin: 0px;
+  padding: 5px 10px 5px 0px;
+  width: fit-content;
+}
+
+#message-banner .message-banner__text blockquote::before {
+  background: none;
+}
+
+#message-banner .message-banner__text p {
+  color: #0F2125;
+  display: inline-block;
+  margin: 0;
+  padding-left: 10px;
+  width: fit-content;
+}
+
+#message-banner .message-banner__close-button {
+  padding: 10px 0px 5px 0px;
+}
+
+#message-banner .message-banner__close-button button {
+  background: inherit;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}

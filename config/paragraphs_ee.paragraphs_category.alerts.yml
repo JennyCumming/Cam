@@ -1,0 +1,11 @@
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: UoE-SrijnBcHXMIVTaxSBx-ayvmo_PoE5s8L6gBNThg
+id: alerts
+label: Alerts
+description:
+  value: 'Add an alert to tell users about something important.'
+  format: basic_html
+weight: 8

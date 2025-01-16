@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: expressive-compact-callout
+name: Expressive compact callout
+group: Compact callout
+status: "experimental"
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+    description:
+      type: ["string", "null"]
+      title: Description
+    link:
+      type: string
+      title: Link

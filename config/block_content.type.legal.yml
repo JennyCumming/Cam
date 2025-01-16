@@ -1,0 +1,8 @@
+uuid: ad305290-c051-4fd5-ae4e-ad11ad911f61
+langcode: en
+status: true
+dependencies: {  }
+id: legal
+label: Legal
+revision: 0
+description: ''

@@ -1,0 +1,195 @@
+{% stories prose_id with
+  {
+    title: 'Components/Prose',
+    argTypes: {
+      content: {
+        control: { type: "text" },
+      }
+    },
+  }
+%}
+
+  {% story prose_1 with
+    {
+      name: '1. Typography',
+      args: {
+        content: "
+          <h2>Materials research in the Melville Lab (h2)</h2>
+
+          <p>Sit quos voluptatum ducimus omnis maiores enim quas. Hic aut labore sequi praesentium et ipsum. Maiores expedita nihil aliquid molestias ea deserunt nisi dolorem non.</p>
+
+          <p>Est incidunt nulla officiis rerum incidunt sapiente amet repellendus. Aperiam et unde atque. Est rerum error et quisquam aut in esse. Ratione est voluptas alias odio.</p>
+
+          <p>Accusamus eum quasi ullam fugiat doloribus laboriosam. Aut natus nam eos qui ut necessitatibus atque corporis. Pariatur dolorem architecto repellat eos velit veniam provident quaerat. Omnis quasi delectus et repellendus consequatur. A voluptas vero velit alias fugit unde praesentium possimus ea. Qui assumenda eligendi non est omnis exercitationem a ratione.</p>
+
+          <h3>Temperature of fjord waters close to a glacier (h3)</h3>
+
+          <p>Corporis harum ratione nemo ut. Sunt fuga aperiam non enim sint sint. Dolore distinctio quisquam perspiciatis velit asperiores.</p>
+
+          <h2>A second heading two (h2)</h2>
+
+          <h3>Immediately followed by a heading three (h3)</h3>
+
+          <h4>Earth Science students on a field trip to Spain (h4)</h4>
+
+          <p>Autem deleniti libero dolores quidem doloribus accusamus iste. Ipsum et necessitatibus quibusdam. Rerum similique autem sequi est eaque at.</p>
+
+          <p>Earum temporibus aspernatur velit ad quos cupiditate sit asperiores. Qui iusto nesciunt ex. Molestias quia dolorem amet eveniet cumque delectus atque perferendis enim. Libero deserunt odio. Earum voluptas eos quisquam.</p>
+
+          <p>Minima eos cupiditate iusto eius. Natus minus aut harum facere nesciunt vel iure esse. Omnis qui provident voluptates nobis dolor cum. Assumenda dolorum totam libero et odit temporibus hic voluptates consequatur. Nam repellendus dolores aut praesentium.</p>
+
+          <h5>Professor awarded AstraZeneca prize in synthetic chemistry (h5)</h5>
+
+          <p>Voluptatibus sint et deserunt consequatur soluta. Perspiciatis deserunt quam distinctio temporibus suscipit voluptatum et suscipit quaerat. Ullam iusto assumenda explicabo aut nemo eos voluptates possimus voluptates.</p>
+
+          <h6>Efficient zinc batteries demand smooth electrodes (h6)</h6>
+
+          <p>Molestiae ullam non illum. Dolorum illo magni eligendi et ipsa ipsam consequatur voluptas tempore. Officia est similique quisquam repudiandae est consequatur quod sint ratione.</p>
+
+          <p>Ducimus velit possimus consequatur. Eum amet alias distinctio accusamus explicabo nisi aut esse asperiores. Ut libero rem omnis voluptatem labore voluptate qui et veniam. Odit saepe repudiandae iste mollitia dolore fuga. Sed beatae nemo velit accusantium.</p>
+        ",
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% set demo %}
+      {% include '@cambridge_tailwind/../components/prose/prose.twig' with { content } %}
+    {% endset %}
+    {% include '@cambridge_tailwind/../components/prose/demo-wrapper.twig' with { demo } %}
+  {% endstory %}
+
+  {% story prose_2 with
+    {
+      name: '2. List',
+      args: {
+        content: "
+          <h2>Lists</h2>
+          <h3>Unordered</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <ul>
+            <li>Maintain semantic HTML structure</li>
+            <li>Ensure responsive design</li>
+            <li>Optimize performance</li>
+            <li>Consider accessibility</li>
+          </ul>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <h3>Ordered</h3>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <ol>
+            <li>First list item</li>
+            <li>Second list item</li>
+            <li>Third list item, which is surprisingly long, in fact much longer than all of the other items, so much so that it spans multiple lines.</li>
+            <li>Fourth list item</li>
+          </ol>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        ",
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% set demo %}
+      {% include '@cambridge_tailwind/../components/prose/prose.twig' with { content } %}
+    {% endset %}
+    {% include '@cambridge_tailwind/../components/prose/demo-wrapper.twig' with { demo } %}
+  {% endstory %}
+
+  {% story prose_3 with
+    {
+      name: '3. Table',
+      args: {
+        content: "
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Department</th>
+                <th>Students</th>
+                <th>Faculty</th>
+                <th>Research Projects</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Physics</td>
+                <td>450</td>
+                <td>35</td>
+                <td>78</td>
+              </tr>
+              <tr>
+                <td>Chemistry</td>
+                <td>380</td>
+                <td>28</td>
+                <td>62</td>
+              </tr>
+              <tr>
+                <td>Earth Sciences</td>
+                <td>210</td>
+                <td>22</td>
+                <td>45</td>
+              </tr>
+              <tr>
+                <td>Materials Science</td>
+                <td>180</td>
+                <td>18</td>
+                <td>39</td>
+              </tr>
+          </tbody>
+        </table>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        ",
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% set demo %}
+      {% include '@cambridge_tailwind/../components/prose/prose.twig' with { content } %}
+    {% endset %}
+    {% include '@cambridge_tailwind/../components/prose/demo-wrapper.twig' with { demo } %}
+  {% endstory %}
+
+  {% story prose_4 with
+    {
+      name: '4. Quote',
+      args: {
+        content: "
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <blockquote>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </blockquote>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        ",
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% set demo %}
+      {% include '@cambridge_tailwind/../components/prose/prose.twig' with { content } %}
+    {% endset %}
+    {% include '@cambridge_tailwind/../components/prose/demo-wrapper.twig' with { demo } %}
+  {% endstory %}
+
+  {% story prose_5 with
+    {
+      name: '5. Link',
+      args: {
+        content: "
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <a href=\"http://www.google.com\">Read more</a>.
+          </p>
+          <p>
+            <a href=\"http://www.google.com\">A lone link</a>
+          </p>
+          <p>Duis aute irure dolor <a href=\"http://www.example.com\">in reprehenderit</a> in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        ",
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% set demo %}
+      {% include '@cambridge_tailwind/../components/prose/prose.twig' with { content } %}
+    {% endset %}
+    {% include '@cambridge_tailwind/../components/prose/demo-wrapper.twig' with { demo } %}
+  {% endstory %}
+
+{% endstories %}

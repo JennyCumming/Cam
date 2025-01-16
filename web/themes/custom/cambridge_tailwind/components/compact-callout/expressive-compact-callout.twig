@@ -1,0 +1,29 @@
+{#
+/**
+ * A highlight compact callout to point to information in a visually appealing way.
+ *
+ * Title - a required string of the page title
+ * Description
+ * Link
+ * 1 - 2 images
+ */
+#}
+
+<div class="bg-gray-100">
+  <div class="container pt-10 pb-12 flex gap-20">
+    <div class="p-[32px] md:w-1/2 relative flex flex-col justify-between">
+      <div>
+        <h2 class="text-lg font-semibold font-sans mb-3">{{ title }}</h2>
+        <p class="text-3xl font-serif">{{ description }}</p>
+      </div>
+        <span>{{ link }}</span>
+    </div>
+    <div class="md:w-1/2">
+      {% if image_count == '1' %}
+        {% include "@cambridge_tailwind/components/compact-callout/1-image-expressive.twig"  %}
+      {% else %}
+        {% include "@cambridge_tailwind/components/compact-callout/2-image-expressive.twig"  %}
+      {% endif %}
+    </div>
+  </div>
+</div>

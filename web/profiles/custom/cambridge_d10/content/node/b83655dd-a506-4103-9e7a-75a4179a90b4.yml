@@ -1,0 +1,44 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: b83655dd-a506-4103-9e7a-75a4179a90b4
+  bundle: home_page
+  default_langcode: en
+  depends:
+    f9eec691-7c0e-4b3b-b901-01fb38dbae81: taxonomy_term
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Sociology
+  created:
+    -
+      value: 1723107563
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /homepage
+      langcode: en
+      pathauto: 0
+  field_page_summary:
+    -
+      value: 'Homepage of the Department of Sociology'
+  field_title_prefix:
+    -
+      entity: f9eec691-7c0e-4b3b-b901-01fb38dbae81

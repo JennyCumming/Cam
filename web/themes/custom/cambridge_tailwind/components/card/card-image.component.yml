@@ -1,0 +1,25 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: card_image
+name: Image card
+group: Cards
+status: "experimental"
+props:
+  type: object
+  required:
+    - image
+  properties:
+    heading:
+      type: string
+      title: Heading
+    subheading:
+      type: ["string", "null"]
+      title: Sub-heading
+    description:
+      type: ["string", "null"]
+      title: Description
+    link:
+      type: string
+      title: Link
+    image:
+      type: string
+      title: Image

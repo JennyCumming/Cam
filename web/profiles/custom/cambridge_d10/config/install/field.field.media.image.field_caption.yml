@@ -1,0 +1,26 @@
+uuid: 03c596e4-a38a-4a4a-b67f-df5b53cfdbfe
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_caption
+    - filter.format.plain_text
+    - media.type.image
+  module:
+    - text
+_core:
+  default_config_hash: MUa86jYtmyFlu3lM3NwZ6r4k2vci0G_YgSkdhvL0RgA
+id: media.image.field_caption
+field_name: field_caption
+entity_type: media
+bundle: image
+label: Caption
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

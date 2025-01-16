@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+  theme:
+    - cambridge_tailwind
+id: cambridge_tailwind_mainmenu
+theme: cambridge_tailwind
+region: navbar
+weight: -6
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Nav menu'
+  label_display: visible
+  provider: menu_block
+  follow: false
+  follow_parent: active
+  label_link: true
+  label_type: parent
+  level: 2
+  depth: 0
+  expand_all_items: false
+  parent: 'main:'
+  render_parent: false
+  suggestion: main
+  hide_on_nonactive: false
+visibility: {  }

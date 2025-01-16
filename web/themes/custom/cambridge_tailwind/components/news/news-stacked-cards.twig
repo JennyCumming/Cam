@@ -1,0 +1,19 @@
+{#
+/**
+ * A stack of text cards
+ * heading
+ * news_items
+ * highlighted_news
+ *
+ */
+#}
+<div class="container pt-9 pb-10">
+  <div class="grid grid-cols-1 sm:grid-cols-2 pb-5">
+    {% include "cambridge_tailwind:component-heading" with {
+        heading: heading
+    }%}
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-[20px]">
+      {{ news_items}}
+    </div>
+  </div>
+</div>

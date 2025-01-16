@@ -1,0 +1,14 @@
+{#
+/**
+ * The Related links component is the replacement for the signposting component on the basic page. Signposting was a broad term and become confusing with the amount of options. It’s been stripped back to a simple list of links without the option to add images and descriptions at this stage.
+ *
+ * Title - a required string that labels the group of links by their purpose
+ * Links - A collection of links that will be displayed in order. Each link has a required title and a required URL. Each link can either be link to an internal page (searchable by autocomplete) or a external pasted URL. The styling treatment will differ based on this.
+ *
+ */
+#}
+
+<div class="border-t">
+  <h2 class="text-[26px] font-serif font-semibold mb-[24px] mt-[48px]">{{ title }}</h2>
+  {{ links }}
+</div>

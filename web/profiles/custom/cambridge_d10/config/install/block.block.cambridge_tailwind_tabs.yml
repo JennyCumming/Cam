@@ -1,0 +1,19 @@
+langcode: en-gb
+status: true
+dependencies:
+  theme:
+    - cambridge_tailwind
+id: cambridge_tailwind_tabs
+theme: cambridge_tailwind
+region: content
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,34 @@
+.home-page-topper {
+  background: var(--Colour-Grey-Grey-50, #F3F4F6);
+}
+
+.home-page-topper__inner {
+  display: flex;
+  min-height: 16.5rem;
+  padding: var(--Spacing-spacing-6, 1.5rem) 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: var(--Spacing-spacing-1, 0.25rem);
+}
+
+.home-page-topper__title-prefix {
+  color: var(--Colour-Text-text-tertiary, #4B5563);
+  /* Heading/XS (H6) */
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 142%;
+}
+
+.home-page-topper__title {
+  color: var(--Colour-Text-text-secondary, #131922);
+    font-variant-numeric: lining-nums proportional-nums;
+    /* Heading/Title (H1) */
+    font-family: "Feijoa Medium";
+    font-size: 2.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 136%;
+}

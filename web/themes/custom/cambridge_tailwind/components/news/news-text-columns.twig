@@ -1,0 +1,13 @@
+{#
+/**
+ * List of news items without images
+ */
+#}
+<div class="container pt-9 pb-10 flex flex-col gap-4">
+  {% include "cambridge_tailwind:component-heading" with {
+    heading: heading
+  } %}
+  <div class="sm:columns-2 gap-11 pb-5">
+    {{ news_items}}
+  </div>
+</div>

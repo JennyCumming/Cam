@@ -1,0 +1,14 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: news_stacked_cards
+name: News stacked cards
+description: Adds a consistent header to news displays.
+status: "experimental"
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+slots:
+  news_items:
+    title: News items

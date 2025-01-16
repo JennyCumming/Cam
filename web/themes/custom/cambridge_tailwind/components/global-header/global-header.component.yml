@@ -1,0 +1,8 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: global-header
+name: Global header
+group: Site components
+status: "experimental"
+props:
+  type: object
+  properties: {}

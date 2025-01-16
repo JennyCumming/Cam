@@ -1,0 +1,24 @@
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_image
+    - media.type.image
+    - paragraphs.paragraphs_type.image_link
+id: paragraph.image_link.field_paragraph_image
+field_name: field_paragraph_image
+entity_type: paragraph
+bundle: image_link
+label: Image
+description: 'Add an image that will be displays as 250 pixels by 250 pixels'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      image_private: image_private
+field_type: entity_reference

@@ -1,0 +1,27 @@
+uuid: 420a434d-7d55-4b0e-aa8f-9f53b7a68487
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.legal
+    - field.field.block_content.legal.field_legal_link
+  module:
+    - link
+id: block_content.legal.default
+targetEntityType: block_content
+bundle: legal
+mode: default
+content:
+  field_legal_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

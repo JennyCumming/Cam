@@ -1,0 +1,66 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx tailwindcss --input css/tailwind.pcss --output css/tailwind.css --watch",
+    "dev:css": "postcss css/**/*[!tailwind].pcss --use autoprefixer --base --ext css --dir css",
+    "build:css": "npx tailwindcss --input css/tailwind.pcss --output css/tailwind.css --minify",
+    "build:ts": "tsc",
+    "build": "npm run build:css && npm run build:ts",
+    "format": "prettier --write .",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "build-storybook": "storybook build",
+    "drupal-storybook": "drush storybook:generate-all-stories",
+    "test:format": "prettier --check .",
+    "test:lint": "eslint .",
+    "test:types": "tsc --noEmit",
+    "watch:drupal-storybook": "npm-watch drupal-storybook",
+    "watch": "npm run storybook & npm run watch:drupal-storybook"
+  },
+  "watch": {
+    "drupal-storybook": {
+      "patterns": [
+        "components"
+      ],
+      "extensions": "*.stories.twig",
+      "quiet": false,
+      "legacyWatch": true,
+      "delay": 500
+    }
+  },
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.8",
+    "autoprefixer": "^10.4.19",
+    "npm-watch": "^0.13.0",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.12"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.8.0",
+    "@eslint/js": "^9.15.0",
+    "@storybook/addon-essentials": "^8.4",
+    "@storybook/addon-interactions": "^8.4",
+    "@storybook/addon-links": "^8.4",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/blocks": "^8.4",
+    "@storybook/html": "^8.4",
+    "@storybook/html-vite": "^8.4",
+    "@storybook/server": "^8.4.5",
+    "@storybook/server-webpack5": "^8.4.5",
+    "@storybook/test": "^8.4",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.12.0",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "storybook": "^8.4",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0",
+    "vite-plugin-twig-drupal": "^1.4.0"
+  }
+}

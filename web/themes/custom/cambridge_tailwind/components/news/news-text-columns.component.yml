@@ -1,0 +1,14 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: news-text-columns
+name: News text columns
+group: news
+status: "experimental"
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+slots:
+  news_items:
+    title: News items

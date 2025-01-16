@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: summary
+name: Summary
+description: A summary of content on a page. Always placed at the top.
+status: "experimental"
+
+props:
+  type: object
+  properties:
+    title:
+      title: Title
+      description: The heading of the summary section
+      type: string
+    points:
+      title: Points
+      description: A collection of bullet-points summarising the current page
+      type: string

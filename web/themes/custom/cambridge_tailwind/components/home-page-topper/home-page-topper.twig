@@ -1,0 +1,17 @@
+{#
+/**
+ * The Home page Topper component is at the top of the home page.
+ *
+ * title - a required string of the page title, rendered as an h1 element
+ * title_prefix - a taxonomy term from a predefined list to be rendered in smaller text above the title - eg "Department of"
+ */
+#}
+
+<div{{ attributes.addClass(['home-page-topper']) }}>
+  <h1 class="home-page-topper__inner container">
+      {% if title_prefix %}
+        <div class="home-page-topper__title-prefix">{{ title_prefix }}</div>
+      {% endif %}
+      <div class="home-page-topper__title">{{title}}</div>
+  </h1>
+</div>

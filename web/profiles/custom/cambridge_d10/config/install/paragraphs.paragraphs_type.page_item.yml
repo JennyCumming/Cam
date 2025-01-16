@@ -1,0 +1,9 @@
+langcode: en-gb
+status: true
+dependencies: {  }
+id: page_item
+label: 'Accordion'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from field_collection field_page_item'
+behavior_plugins: {  }

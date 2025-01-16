@@ -1,0 +1,71 @@
+.events-calendar-block {
+   padding: 10px;
+ }
+ 
+.calendar-calendar td {
+  text-align: center;
+}
+
+.calendar-calendar tr td.today {
+  border: 2px solid #404040;
+  background-color: white;
+}
+
+.calendar-calendar th.days {
+  border: none;
+  background-color: #404040;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.events-calendar-block .date-nav-wrapper .date-prev,
+.events-calendar-block .date-nav-wrapper .date-next {
+  background-color: transparent;
+}
+
+.date-nav-wrapper ul.pager {
+  list-style-type: none;
+}
+
+.events-calendar-block .date-nav-wrapper .date-prev a,
+.events-calendar-block .date-nav-wrapper .date-next a {
+  font-size: 18px;
+}
+
+.has-mini-pager .date-nav-wrapper a span.nav_text {
+  display: none;
+}
+
+.events-calendar-block .item-list ul li.date-prev,
+.events-calendar-block .item-list ul li.date-next {
+  margin: 0;
+}
+
+.events-calendar-block .date-nav-wrapper .date-nav {
+  margin-bottom: -10px;
+}
+
+.campl-theme-1 .calendar-calendar th.days {
+  background: #004e8f;
+}
+
+.campl-theme-2 .calendar-calendar th.days {
+  background: #0c5963;
+}
+
+.campl-theme-3 .calendar-calendar th.days {
+  background: #612d70;
+}  
+
+.campl-theme-4 .calendar-calendar th.days {  
+  background: #355918;
+}
+
+.campl-theme-5 .calendar-calendar th.days {    
+  background: #ab3901;
+}
+
+.campl-theme-6 .calendar-calendar th.days {      
+  background: #a51137;
+}

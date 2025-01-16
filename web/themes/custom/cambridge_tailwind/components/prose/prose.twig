@@ -1,0 +1,81 @@
+{#
+/**
+ * The prose component of a page.
+ *
+ * content - HTML content
+ */
+#}
+
+<div class="
+  {# Base prose styles #}
+  prose
+  max-w-none
+
+  {# Heading styles #}
+  prose-headings:text-text-primary
+  prose-h2:text-style-heading-display
+  prose-h2:mb-[20px]
+  prose-h2:mt-[40px]
+  prose-h3:text-style-heading-lg
+  prose-h3:mb-[20px]
+  prose-h3:mt-[40px]
+  prose-h4:text-style-heading-md
+  prose-h4:mb-16
+  prose-h4:mt-32
+  prose-h5:text-style-heading-sm
+  prose-h5:mb-12
+  prose-h5:mt-32
+  prose-h6:text-style-heading-xs
+  prose-h6:mb-12
+  prose-h6:mt-24
+
+  {# Paragraph styles #}
+  prose-p:text-text-secondary
+  prose-p:text-style-body-lg
+  prose-p:mt-12
+  prose-p:mb-[18px]
+
+  {# Link styles #}
+  prose-a:text-style-link-inline
+
+  {# List styles #}
+  prose-bullets:text-text-secondary
+  prose-li:text-style-body-lg
+
+  {# Table styles #}
+  prose-table:border-spacing-40
+  prose-table:overflow-hidden
+  prose-table:rounded-4
+  prose-table:bg-white
+  prose-table:shadow-sm
+
+  prose-tbody:text-text-secondary
+
+  prose-th:table-cell
+  prose-th:p-16
+  prose-th:text-size-2
+  prose-th:text-left
+  prose-th:font-semibold
+  prose-th:leading-[1.5]
+  prose-th:tracking-wide
+  prose-th:text-text-primary
+  prose-th:bg-surface-tertiary
+
+  prose-td:table-cell
+  prose-td:p-16
+  prose-td:text-text-secondary
+  prose-td:text-style-body-sm
+
+  {# Blockquote styles #}
+  prose-blockquote:font-serif
+  prose-blockquote:text-[23px]
+  prose-blockquote:not-italic
+  prose-blockquote:text-text-primary
+  prose-blockquote:leading-[1.55]
+  prose-blockquote:pl-24
+  prose-blockquote:border-divider-strong
+  prose-blockquote:border-l-2
+  prose-blockquote:my-40
+">
+    {{ content | raw }}
+</div>

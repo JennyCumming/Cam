@@ -1,0 +1,16 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 169604b1-b781-4322-951f-2dfddcdebf05
+  bundle: site_info
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Site information'
+  reusable:
+    -
+      value: true

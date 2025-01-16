@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: link
+name: Link
+description: Links help the user to navigate to another place. The link text should describe where it will take the user or the purpose of the link.
+status: "experimental"
+props:
+  type: object
+  properties:
+    text:
+      type: string
+      title: Text
+    url:
+      type: string
+      title: URL
+    external:
+      type: string
+      title: external

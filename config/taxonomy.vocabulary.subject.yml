@@ -1,0 +1,10 @@
+git slangcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: LgS04zLWm0xW6-vjNBciFnCBaabqRqdHJ2t5J92Xr4Y
+name: Subject
+vid: subject
+description: null
+weight: 0
+new_revision: false

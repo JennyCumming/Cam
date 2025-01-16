@@ -1,0 +1,89 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph
+    - node.type.home_page
+    - paragraphs.paragraphs_type.featured_links
+    - paragraphs.paragraphs_type.image_cards
+    - paragraphs.paragraphs_type.link_grid
+    - paragraphs.paragraphs_type.text_cards
+    - paragraphs.paragraphs_type.events_from_view
+    - paragraphs.paragraphs_type.news
+    - paragraphs.paragraphs_type.compact_callout
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: EIawnG65tSxVwSJh0tQER8yqOVaK4xP4UWLdkv6yz1U
+id: node.home_page.field_paragraph
+field_name: field_paragraph
+entity_type: node
+bundle: home_page
+label: 'Main Content' 
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      featured_links: featured_links
+      image_cards: image_cards
+      link_grid: link_grid
+      text_cards: text_cards
+      events_from_view: events_from_view
+      news: news
+      compact_callout: compact_callout
+    negate: 0
+    target_bundles_drag_drop:
+      basic_limited:
+        weight: 17
+        enabled: false
+      featured_links:
+        weight: 18
+        enabled: true
+      image:
+        weight: 5
+        enabled: false
+      image_card:
+        weight: 19
+        enabled: false
+      image_cards:
+        weight: 20
+        enabled: true
+      image_media:
+        weight: 21
+        enabled: false
+      layout:
+        weight: 6
+        enabled: false
+      link_grid:
+        weight: 24
+        enabled: true
+      notification:
+        weight: 24
+        enabled: false
+      related_content:
+        weight: 25
+        enabled: false
+      section_divider:
+        weight: 27
+        enabled: false
+      summary:
+        weight: 26
+        enabled: false
+      text:
+        weight: 7
+        enabled: false
+      text_card:
+        weight: 28
+        enabled: false
+      text_cards:
+        weight: 29
+        enabled: true
+      youtube:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

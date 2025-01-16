@@ -1,0 +1,22 @@
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: jMAjr1_sDVQCU02TVfz2MKUpdJ6ZD9-EO1aVtoR8daY
+id: node.field_contact_phone
+field_name: field_contact_phone
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

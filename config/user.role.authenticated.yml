@@ -1,0 +1,85 @@
+uuid: ca49f1b4-e420-447c-a1b9-d862667c8b88
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.basic_html_no_h2
+    - filter.format.links_only
+    - media.type.image
+    - node.type.event
+    - node.type.home_page
+    - node.type.page
+    - node.type.top_level_page
+  module:
+    - file
+    - filter
+    - media
+    - navigation
+    - node
+    - path
+    - search
+    - simple_menu_permissions
+    - system
+    - gin_toolbar
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access files overview'
+  - 'access media overview'
+  - 'access navigation'
+  - 'access toolbar'
+  - 'add new links to main menu'
+  - 'administer menu'
+  - 'create image media'
+  - 'create media'
+  - 'create page content'
+  - 'create top_level_page content'
+  - 'create url aliases'
+  - 'create website feedback'
+  - 'delete any image media'
+  - 'delete any page content'
+  - 'delete any top_level_page content'
+  - 'delete links in main menu'
+  - 'delete media'
+  - 'delete own files'
+  - 'delete own image media'
+  - 'delete own page content'
+  - 'delete own top_level_page content'
+  - 'edit any event content'
+  - 'edit any home_page content'
+  - 'edit any image media'
+  - 'edit any page content'
+  - 'edit any top_level_page content'
+  - 'edit links in main menu'
+  - 'edit main menu'
+  - 'edit own event content'
+  - 'edit own image media'
+  - 'edit own page content'
+  - 'edit own top_level_page content'
+  - 'revert event revisions'
+  - 'revert home_page revisions'
+  - 'revert page revisions'
+  - 'revert top_level_page revisions'
+  - 'search content'
+  - 'update any media'
+  - 'update media'
+  - 'use text format basic_html'
+  - 'use text format basic_html_no_h2'
+  - 'use text format links_only'
+  - 'view all media revisions'
+  - 'view home_page revisions'
+  - 'view main menu in menu list'
+  - 'view media'
+  - 'view message banner'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view the administration theme'
+  - 'view message banner'
+  - 'view top_level_page revisions'

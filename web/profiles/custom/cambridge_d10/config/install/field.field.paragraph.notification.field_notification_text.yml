@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_notification_text
+    - filter.format.links_only
+    - paragraphs.paragraphs_type.notification
+  module:
+    - text
+id: paragraph.notification.field_notification_text
+field_name: field_notification_text
+entity_type: paragraph
+bundle: notification
+label: 'Notification text'
+description: 'Tell the user clearly if they need to do something. Use plain English, do not use acronyms, jargon or Cambridge-only terminology.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - links_only
+field_type: text_long

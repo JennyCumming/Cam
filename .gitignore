@@ -59,12 +59,9 @@
 /web/core/
 /web/modules/contrib/
 /web/themes/contrib/
-/web/themes/custom/cambridge_tailwind
 /web/profiles/contrib/
-/web/profiles/custom/drupal-10-cambridge-profile
 /web/libraries/
 /web/private/scripts/quicksilver
-/web/modules/custom/cam_admin_ui_tweaks
 /web/modules/contrib/sdc_display
 
 

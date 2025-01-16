@@ -1,0 +1,43 @@
+{% stories notification_id with
+  {
+    title: 'Components/Notification',
+    argTypes: {
+      notification_text: {
+        control: { type: "text" },
+      },
+      notification_type: {
+        control: { type: "select" },
+        options: ["information", "warning", "other"],
+      },
+    }
+
+  }
+%}
+
+  {% story notification_1 with
+    {
+      name: '1. Default',
+      args: {
+        notification_text: "This is the notification text",
+        notification_type: "information",
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/notification/notification.twig' with { notification_text, notification_type } %}
+  {% endstory %}
+
+  {% story notification_2 with
+    {
+      name: '2. Warning',
+      args: {
+      notification_text: "This is the notification text",
+      notification_type: "warning",
+    }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/notification/notification.twig' with { notification_text, notification_type } %}
+  {% endstory %}
+
+{% endstories %}

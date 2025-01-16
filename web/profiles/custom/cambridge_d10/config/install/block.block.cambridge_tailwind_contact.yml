@@ -1,0 +1,25 @@
+uuid: 759bf7bd-2dcd-43d0-b488-b4dac79fb595
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:contact:c32ada71-ed32-4eac-9a28-70220267872b'
+  module:
+    - block_content
+  theme:
+    - cambridge_tailwind
+id: cambridge_tailwind_contact
+theme: cambridge_tailwind
+region: footer_2
+weight: -8
+provider: null
+plugin: 'block_content:c32ada71-ed32-4eac-9a28-70220267872b'
+settings:
+  id: 'block_content:c32ada71-ed32-4eac-9a28-70220267872b'
+  label: Contact
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

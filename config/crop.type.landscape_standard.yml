@@ -1,0 +1,12 @@
+uuid: d1aa98ae-19c3-4f73-990e-d3e6874f9d00
+langcode: en-gb
+status: true
+dependencies: {  }
+label: 'Landscape standard'
+id: landscape_standard
+description: ''
+aspect_ratio: '3:2'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

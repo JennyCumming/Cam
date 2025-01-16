@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: text
+name: Text
+description: A text component including headings, paragraphs, lists, and more
+status: "experimental"
+props:
+  type: object
+  required:
+    - content
+  properties:
+    content:
+      type: string
+      title: Content

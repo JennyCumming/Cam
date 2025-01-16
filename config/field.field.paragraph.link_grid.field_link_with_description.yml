@@ -1,0 +1,25 @@
+uuid: 1d1f8c21-1274-4f07-a002-475ff3c1b8f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_with_description
+    - paragraphs.paragraphs_type.link_grid
+  module:
+    - link_description
+_core:
+  default_config_hash: 4dsB4WD5PSNkQpruLFCXP0gk-yDUoSgAzh06V7X2hgY
+id: paragraph.link_grid.field_link_with_description
+field_name: field_link_with_description
+entity_type: paragraph
+bundle: link_grid
+label: 'List of links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link_description

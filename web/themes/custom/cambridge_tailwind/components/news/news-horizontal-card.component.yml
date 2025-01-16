@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: news-horizontal-card
+name: News horizontal card
+status: "experimental"
+props:
+  type: object
+  properties:
+    title:
+      type: string
+      title: Title
+    date:
+      type: string
+      title: Date
+    url:
+      type: string
+      title: url
+slots:
+  image:
+    title: Image

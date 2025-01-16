@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: default
+label: Default
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parent:url:path]/[node:title]'
+selection_criteria:
+  cfb3f36c-de37-43da-9e74-fcca684c20e9:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: cfb3f36c-de37-43da-9e74-fcca684c20e9
+    context_mapping:
+      node: node
+    bundles:
+      page: page
+      top_level_page: top_level_page
+selection_logic: and
+weight: -5
+relationships: {  }

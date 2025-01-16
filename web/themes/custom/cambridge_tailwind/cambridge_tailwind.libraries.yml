@@ -1,0 +1,22 @@
+global-styling:
+  css:
+    base:
+      css/tailwind.css: {}
+      css/breadcrumbs.css: {}
+    component:
+      /core/themes/claro/css/base/variables.css: {}
+      /core/themes/claro/css/components/form.css: {}
+      /core/themes/claro/css/components/form--text.css: {}
+      /core/themes/claro/css/components/form--select.css: {}
+    theme:
+      /web/themes/contrib/gin/dist/css/theme/dialog.css: {}
+
+message-banner-styling:
+  css:
+    base:
+      css/message-banner.css: {}
+
+tabs:
+  css:
+    component:
+      /core/themes/claro/css/components/tabs.css: {}

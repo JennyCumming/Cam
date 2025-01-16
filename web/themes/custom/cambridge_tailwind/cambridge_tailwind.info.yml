@@ -1,0 +1,69 @@
+name: cambridge_tailwind
+type: theme
+"base theme": stable9
+version: VERSION
+enforce_prop_schemas: true
+libraries:
+  - cambridge_tailwind/base
+  - cambridge_tailwind/messages
+  - core/normalize
+  - cambridge_tailwind/global-styling
+  - cambridge_tailwind/global-scripts
+  - cambridge_tailwind/message-banner-styling
+libraries-override:
+  # Disable only some core system css files
+  system/base:
+    css:
+      component:
+        /core/themes/stable9/css/system/components/align.module.css: false
+        /core/themes/stable9/css/system/components/fieldgroup.module.css: false
+        /core/themes/stable9/css/system/components/container-inline.module.css: false
+        /core/themes/stable9/css/system/components/clearfix.module.css: false
+        /core/themes/stable9/css/system/components/details.module.css: false
+        # /core/themes/stable9/css/system/components/hidden.module.css: false
+        /core/themes/stable9/css/system/components/item-list.module.css: false
+        # /core/themes/stable9/css/system/components/js.module.css: false
+        # /core/themes/stable9/css/system/components/nowrap.module.css: false
+        # /core/themes/stable9/css/system/components/position-container.module.css: false
+        # /core/themes/stable9/css/system/components/reset-appearance.module.css: false
+        /core/themes/stable9/css/system/components/resize.module.css: false
+        /core/themes/stable9/css/system/components/system-status-counter.css: false
+        /core/themes/stable9/css/system/components/system-status-report-counters.css: false
+        /core/themes/stable9/css/system/components/system-status-report-general-info.css: false
+        /core/themes/stable9/css/system/components/tablesort.module.css: false
+
+  website_feedback/website_feedback:
+    css:
+      component:
+        css/website-feedback.css: css/website-feedback.css
+
+  paragraphs/drupal.paragraphs.unpublished: false
+
+  core/internal.jquery_ui:
+    css:
+      theme:
+        assets/vendor/jquery.ui/themes/base/theme.css: false
+
+  core/drupal.dialog:
+    css:
+      component:
+        assets/vendor/jquery.ui/themes/base/dialog.css: false
+
+  claro/claro.drupal.dialog:
+    css:
+      theme:
+        css/components/dialog.css: false
+
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:components
+regions:
+  header: "Header"
+  pre_content: "Pre content"
+  content: "Content"
+  footer_1: "Footer 1"
+  footer_2: "Footer 2"
+  footer_3: "Footer 3"
+  footer_4: "Footer 4"
+  page_top: "Page top"
+  page_bottom: "Page bottom"

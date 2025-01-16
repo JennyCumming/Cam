@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements template_preprocess_HOOK() for views.
+ */
+function cambridge_tailwind_preprocess_views_view(&$variables) {
+  $variables['view_array']['#theme_wrappers'] = array();
+  $variables['view_array']['#attributes']['class'] = array();
+}
+
+/**
+ * Implements template_preprocess_HOOK() for blocks.
+ */
+function cambridge_tailwind_preprocess_block(&$variables) {
+  $variables['content']['#theme_wrappers'] = array();
+}

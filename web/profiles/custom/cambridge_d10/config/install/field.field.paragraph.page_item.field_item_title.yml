@@ -1,0 +1,18 @@
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_item_title
+    - paragraphs.paragraphs_type.page_item
+id: paragraph.page_item.field_item_title
+field_name: field_item_title
+entity_type: paragraph
+bundle: page_item
+label: 'Accordion title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

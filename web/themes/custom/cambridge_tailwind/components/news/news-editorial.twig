@@ -1,0 +1,23 @@
+{#
+/**
+ * Editorial news wrapper:
+ * Available variables:
+ *
+ * heading: The heading of the section
+ * highlighted_news: A highlighted news item
+ * news_items: A list of additional news items
+ *
+ */
+#}
+
+<div class="container pt-9 pb-10 flex flex-col gap-4">
+  {% include "cambridge_tailwind:component-heading" with {
+        heading: heading
+  }%}
+  <div class="grid grid-rows-1 grid-cols-1 sm:grid-cols-2 gap-20 pb-5">
+      {{ highlighted_news }}
+      <div class="flex flex-col">
+        {{ news_items}}
+      </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail.
+ *
+ * Available variables:
+ * - breadcrumb: Breadcrumb trail items.
+ */
+#}
+{% if breadcrumb %}
+  <div itemscope="" class="easy-breadcrumb campl-breadcrumb" id="breadcrumb"
+       itemtype="http://data-vocabulary.org/Breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
+    <ul class="campl-unstyled-list campl-horizontal-navigation clearfix">
+    {% for key, item in breadcrumb %}
+    {% if key == 0 %}
+      <li class="first-child">
+        <span itemprop="title">
+          <a href="{{ item.url }}" class="easy-breadcrumb_segment easy-breadcrumb_segment-front campl-home ir">{{ item.text }}</a></span>
+      </li>
+    {% else %}
+      <li>
+        {% if item.url %}
+          <span itemprop="title"><a href="{{ item.url }}" class="easy-breadcrumb_segment easy-breadcrumb_segment-{{ key }}">{{ item.text }} </a></span>
+        {% else %}
+          <span class="easy-breadcrumb_segment easy-breadcrumb_segment-title" itemprop="title">{{ item.text }}</span>
+        {% endif %}
+      </li>
+    {% endif %}
+    {% endfor %}
+      <li>  <span class="easy-breadcrumb_segment easy-breadcrumb_segment-title" itemprop="title">{{ current_page_title }}</span></li>
+    </ul>
+  </div>
+{% endif %}

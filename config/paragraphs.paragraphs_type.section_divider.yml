@@ -1,0 +1,12 @@
+uuid: 8aa19795-1360-4c18-8ef7-8b0097c91219
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Jso4jyrNyQAjuJ8EIzcFKjr2IQLHEzmVM6hFRJDjIAA
+id: section_divider
+label: 'Section divider'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

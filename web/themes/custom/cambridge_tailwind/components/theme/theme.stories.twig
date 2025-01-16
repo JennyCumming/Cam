@@ -1,0 +1,31 @@
+{% stories theme_id with
+  {
+    title: 'Components/Theme'
+  }
+%}
+
+  {% story theme_1 with
+    {
+      name: '1. Colours'
+    }
+  %}
+    {% include '@cambridge_tailwind/../components/theme/colours.twig' %}
+  {% endstory %}
+
+  {% story theme_2 with
+    {
+      name: '2. Typography'
+    }
+  %}
+    {% include '@cambridge_tailwind/../components/theme/typography.twig' %}
+  {% endstory %}
+
+  {% story theme_3 with
+    {
+      name: '3. Links'
+    }
+  %}
+    {% include '@cambridge_tailwind/../components/theme/links.twig' %}
+  {% endstory %}
+
+{% endstories %}

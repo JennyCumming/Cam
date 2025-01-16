@@ -1,0 +1,16 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: topper
+name: Topper
+decription: Displays title and description at the top of a page
+status: "experimental"
+props:
+  type: object
+  required:
+    - title
+  properties:
+    title:
+      type: string
+      title: Title
+    description:
+      type: string
+      title: Description

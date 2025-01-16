@@ -1,0 +1,44 @@
+name: cambridge_theme
+type: theme
+'base theme': stable9
+description: The University of Cambridge's house style.
+starterkit: true
+version: VERSION
+libraries:
+  - cambridge_theme/base
+  - cambridge_theme/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - cambridge_theme/user
+  core/drupal.dropbutton:
+    - cambridge_theme/dropbutton
+  core/drupal.dialog:
+    - cambridge_theme/dialog
+  file/drupal.file:
+    - cambridge_theme/file
+  core/drupal.progress:
+    - cambridge_theme/progress
+core_version_requirement: ^10
+generator: 'starterkit_theme:10.2.4'
+
+regions:
+  header: Header
+  breadcrumb: Breadcrumb
+  horizontal_navigation: Horizontal Navigation
+  secondary_menu: Secondary menu
+  carousel: Carousel
+  pre_content: Pre-content
+  highlighted: Highlighted
+  help: Help
+  left_navigation: Left Navigation
+  content: Content
+  sub_content: Sub-content
+  page_top: Page top
+  page_bottom: Page bottom
+  sidebar: Sidebar
+  partnerships: Partnership branding
+  footer_1: Footer 1
+  footer_2: Footer 2
+  footer_3: Footer 3
+  footer_4: Footer 4

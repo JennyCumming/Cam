@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.section_divider.field_section_divider_descriptio
+    - field.field.paragraph.section_divider.field_section_divider_header
+    - field.field.paragraph.section_divider.field_section_divider_link
+    - paragraphs.paragraphs_type.section_divider
+  module:
+    - link
+id: paragraph.section_divider.default
+targetEntityType: paragraph
+bundle: section_divider
+mode: default
+content:
+  field_section_divider_descriptio:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_section_divider_header:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_section_divider_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

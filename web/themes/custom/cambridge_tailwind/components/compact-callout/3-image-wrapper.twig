@@ -1,0 +1,12 @@
+{#
+/**
+ * Part of the functional compact callout to point to information in a visually appealing way.
+ *
+ */
+#}
+<div class="grid grid-cols-1 md:grid-cols-3 gap-[20px]">
+      {% for image in image_multiple %}
+            {% set image_uri = file_url(image.uri) %}
+            <img src="{{ image_uri }}" alt="{{ image_alt }}" class="object-cover h-[320px] w-[100%] rounded">
+      {% endfor %}
+</div>

@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title_prefix
+    - node.type.home_page
+    - taxonomy.vocabulary.title_prefix
+id: node.home_page.field_title_prefix
+field_name: field_title_prefix
+entity_type: node
+bundle: home_page
+label: 'Title prefix'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      title_prefix: title_prefix
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

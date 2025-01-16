@@ -1,0 +1,39 @@
+{#
+/**
+ * The Featured links component may also be called a Primary Signpost
+ *
+ * Heading - a required string
+ * Sub-heading - an optional string
+ * Description - an optional string
+ * Image - optional
+ * Links - Optional (up to 6)
+ */
+#}
+
+{#
+/**
+ * @file
+ * Custom template for displaying rows of events with images, titles, dates, and locations in a two-column layout.
+ */
+#}
+
+<div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 py-4">
+  {% for row in view.result %}
+  <a href="{{ path('entity.node.canonical', {'node': row._entity.id}) }}" class="block hover:bg-stone-200">
+     <div class="flex flex-col sm:flex-row items-start gap-4 py-[16px] border-b-1">
+        <div class="bg-stone-200 px-5 py-3 text-center">
+          <p class="text-2xl font-serif leading-[30px]">{{ row._entity.field_date.value|date("j") }}</p>
+          <p class="text-xl font-serif leading-[30px]">{{ row._entity.field_date.value|date("M") }}</p>
+        </div>
+      <div class="flex flex-col py-[16px]">
+        <p class="font-bold text-lg">{{ row._entity.title.value }}</p>
+        <p class="text-sm">
+        {{ row._entity.field_location.value }}
+          <span class="mx-2">·</span>
+        {{ row._entity.field_date.value|date("ga") }}
+        </p>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>

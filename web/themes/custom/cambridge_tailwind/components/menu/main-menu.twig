@@ -1,0 +1,106 @@
+{#
+/**
+ * The main menu navigation within a site.
+ *
+ * menu_item - An array of link objects
+ *
+ */
+#}
+
+{# <div class="md:hidden flex justify-end m-[20px]">
+  <button id="hamburger" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-900 hover:border-gray-900 focus:outline-none">
+    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <title>Menu</title>
+      <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+    </svg>
+  </button>
+</div> #}
+<div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-20"></div>
+<ul class="container flex justify-stretch py-2 gap-3 z-30 relative" role="menubar">
+  {% set count = 0 %}
+  {% for item in menu_items %}
+    {% set count = count + 1 %}
+    <li class="js-dropdown overflow-hidden" data-expanded="false">
+        {% if item.below %}
+          <button class="js-dropbtn text-gray-600 text-base px-3 py-2 gap-2 hover:bg-gray-100 rounded flex items-center" data-menu-item-count="{{ count }}">{{ item.title }}
+            {{ source(componentMetadata.path ~ '/images/caret-down.svg') }}
+          </button>
+        {% else %}
+          <a href="{{ item.url }}" class="dropbtn text-gray-600 text-base px-3 py-2 hover:bg-gray-100 rounded block">{{ item.title }}</a>
+        {% endif %}
+        </button>
+      {% if item.below %}
+        <div class="js-dropdown-content hidden absolute left-0 top-[100%] bg-white w-[90%] p-6 rounded border-1 border-gray-100 z-10 container shadow-md" data-menu-item-count="{{ count }}" aria-hidden="true">
+          <div class="flex flex-wrap">
+            <div class="w-full md:w-1/4 p-2 flex flex-col justify-between border-r-1 pr-10 gap-10">
+              <div class="flex flex-col gap-4">
+                <h3 class="text-2xl font-semibold">
+                  {% if item.section_heading %}
+                    {{ item.section_heading }}
+                  {% else %}
+                    {{ item.title }}
+                  {% endif %}
+                </h3>
+                <p class="text-gray-600">{{ item.section_description }}</p>
+                {% if item.url %}
+                  {% if item.url.routename != '<nolink>' %}
+                    <a href="{{ item.url }}" class="underline hover:no-underline" aria-label="Learn more about {{ item.title }}">Learn more</a>
+                  {% endif %}
+                {% endif %}
+              </div>
+              {% if item.call_to_action %}
+                <a href="{{ item.call_to_action.url }}"  class="p-4 bg-gradient-to-br from-gray-700 to-gray-600 rounded group flex flex-col gap-7">
+                  <h4 class="text-white text-lg font-semibold flex items-center gap-2 group-hover:underline">
+                    <span>{{ item.call_to_action.title }}</span>
+                    {{ source(componentMetadata.path ~ '/images/arrow-right.svg') }}
+                  </h4>
+                  <p class="text-white">
+                    {{ item.call_to_action.description }}
+                  </p>
+                </a>
+              {% endif %}
+            </div>
+            <div class="w-full md:w-3/4 p-2 pl-10">
+              {% set countitems = item.below|length %}
+              {% set subItemWrapperAttributes = create_attribute({'class' : ['grid', 'grid-cols-1', 'gap-x-16', 'col-span-1']}) %}
+              {% if item.menu_with_headings =='1' and countitems < 5 %}
+                {% if countitems < 3 %}
+                  {% do subItemWrapperAttributes.addClass('md:grid-cols-3') %}
+                {% else %}
+                  {% do subItemWrapperAttributes.addClass('md:grid-cols-4') %}
+                {% endif %}
+                <div{{ subItemWrapperAttributes }}>
+                  {% for subitem in item.below %}
+                    <div>
+                      <a href="{{ subitem.url }}" class="block text-gray-400" role="menuitem">
+                        {{ subitem.title }}
+                      </a>
+                      {% if subitem.below %}
+                        {% for subsubitem in subitem.below %}
+                          <a href="{{ subsubitem.url }}" role="menuitem"><p class="py-[16px] border-b-1 hover:bg-gray-100 text-lg"  role="none">{{ subsubitem.title }}</p></a>
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+              {% else %}
+                {% do subItemWrapperAttributes.addClass('md:grid-cols-3') %}
+                <div{{ subItemWrapperAttributes }}>
+                  {% for subitem in item.below %}
+                    <a href="{{ subitem.url }}" class="flex flex-col sm:flex-row items-start py-[16px] border-b-1 hover:bg-gray-100 text-lg" role="menuitem">
+                      {{ subitem.title }}
+                    </a>
+                    {% if subitem.below %}
+                      {% for subsubitem in subitem.below %}
+                        <a href="{{ subsubitem.url }}" role="menuitem"><p class="flex flex-col sm:flex-row items-start py-[16px] border-b-1 hover:bg-gray-100 text-lg"  role="none">{{ subsubitem.title }}</p></a>
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

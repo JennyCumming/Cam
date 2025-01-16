@@ -1,0 +1,16 @@
+{#
+/**
+ * Wrapper to put events on a card
+ */
+ #}
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 p-[16px] gap-[20px]">
+  {% for row in view.result %}
+    {% include "@cambridge_tailwind/components/card/card.twig" with {
+     subheading: row._entity.field_date.value|date("F j ga"),
+      heading: row._entity.title.value,
+      description: row._entity.location.value,
+      card_link_url: path('entity.node.canonical', {'node': row._entity.id})
+      }
+    %}
+  {% endfor %}
+</div>

@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: related_content
+name: Related content
+description: Multiple links relevant to the content presented on a page, often found above the footer
+status: "experimental"
+
+props:
+  type: object
+  properties:
+    title:
+      title: Title
+      type: string
+
+slots:
+  links:
+    title: Links
+    type: string

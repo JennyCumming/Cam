@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: component-heading
+name: Component heading
+description: Adds a consistent header to listings
+status: "experimental"
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+    url:
+      type: string
+      title: Url
+    link_text:
+      type: string
+      title: Link text

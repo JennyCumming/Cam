@@ -1,0 +1,21 @@
+uuid: 2b90db12-f169-40e7-b228-092021384a66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sub_heading
+    - paragraphs.paragraphs_type.image_cards
+_core:
+  default_config_hash: kC0-M_y3ZZY2lQIwGvJEVS-75PNEutqYiL3aqzZ8H0Q
+id: paragraph.image_cards.field_sub_heading
+field_name: field_sub_heading
+entity_type: paragraph
+bundle: image_cards
+label: Label
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

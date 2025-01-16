@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_media.field_image_media
+    - paragraphs.paragraphs_type.image_media
+  module:
+    - media_library
+id: paragraph.image_media.default
+targetEntityType: paragraph
+bundle: image_media
+mode: default
+content:
+  field_image_media:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

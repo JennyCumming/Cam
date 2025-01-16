@@ -1,0 +1,9 @@
+langcode: en-gb
+status: true
+dependencies: {  }
+id: content_teaser
+label: 'Content teaser'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle Content teaser'
+behavior_plugins: {  }

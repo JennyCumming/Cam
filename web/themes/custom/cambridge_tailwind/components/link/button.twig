@@ -1,0 +1,16 @@
+{#
+/**
+ * Styles a link as a button
+ */
+#}
+{% set link_base_class = link_base_class|default('link') %}
+
+
+{% set classes = [
+    'bg-stone-300', 'btn-primary', 'border-2','hover:underline', 'flex', 'items-center',
+  ] %}
+
+
+	<a {% for attribute, value in link_attributes %} {{ attribute }}="{{ value }}" {% endfor %} href="{{item.content['#url']}}" class="p-2 border-1 rounded w-70 btn btn-primary hover:bg-stone-100">
+		{{item.content['#title']}}
+	</a>

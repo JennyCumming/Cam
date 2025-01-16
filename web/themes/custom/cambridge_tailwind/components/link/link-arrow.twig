@@ -1,0 +1,10 @@
+{#
+/**
+ * Styles a link as a arrow
+ */
+#}
+{% set link_base_class = link_base_class|default('link') %}
+
+	<a {% for attribute, value in link_attributes %} {{ attribute }}="{{ value }}" {% endfor %} href="{{ url }}" class="">
+		>
+	</a

@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.notification.field_notification_text
+    - field.field.paragraph.notification.field_notification_typ
+    - paragraphs.paragraphs_type.notification
+  module:
+    - maxlength
+    - text
+id: paragraph.notification.default
+targetEntityType: paragraph
+bundle: notification
+mode: default
+content:
+  field_notification_text:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 1
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 150
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+  field_notification_typ:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

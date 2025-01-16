@@ -1,0 +1,31 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: c32ada71-ed32-4eac-9a28-70220267872b
+  bundle: contact
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: Contact
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  field_address_line_1:
+    -
+      value: 'Sidgwick avenue'
+  field_email:
+    -
+      value: YourEmail@cam.ac.uk
+  field_post_code:
+    -
+      value: 'CB3 9DA'
+  field_telephone_number:
+    -
+      value: '01223 000000'

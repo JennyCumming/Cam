@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: landing-page-topper
+name: Landing Page Topper
+decription: Displays title and description at the top of a Landing Page
+status: "experimental"
+props:
+  type: object
+  required:
+    - title
+  properties:
+    title:
+      type: string
+      title: Title
+  slots:
+    description:
+      type: ["string", "null"]
+      title: Description

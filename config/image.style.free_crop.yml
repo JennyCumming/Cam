@@ -1,0 +1,26 @@
+uuid: 906051ee-311c-43f2-bd43-d90e89c394e8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - crop.type.free_crop
+  module:
+    - crop
+name: free_crop
+label: 'Free crop'
+effects:
+  9a2ca1a0-945e-4b9f-891a-d687f9f5f924:
+    uuid: 9a2ca1a0-945e-4b9f-891a-d687f9f5f924
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: free_crop
+      automatic_crop_provider: null
+  e4f178e1-6973-4a03-b8d6-372b5d4eec58:
+    uuid: e4f178e1-6973-4a03-b8d6-372b5d4eec58
+    id: image_scale
+    weight: 2
+    data:
+      width: 800
+      height: null
+      upscale: false

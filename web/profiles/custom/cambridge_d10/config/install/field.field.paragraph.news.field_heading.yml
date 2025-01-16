@@ -1,0 +1,21 @@
+uuid: d214b1ea-27fd-48bf-8c1f-56941dc070ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.news
+_core:
+  default_config_hash: niG1yNovalgK40yTibClQ9HVfxD9FDRsbCsnuoMZeoQ
+id: paragraph.news.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: news
+label: Heading
+description: 'Add a list of recent news. The list is automatically populated from published news on your site. Choose one of 5 ways to display news.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

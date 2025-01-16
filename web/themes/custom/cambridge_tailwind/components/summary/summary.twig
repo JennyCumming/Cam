@@ -1,0 +1,19 @@
+{#
+/**
+ * The summary component is the bullet pointed tldr of a page.
+ *
+ * Title -  a required string for example “Key support actions“
+ * Points - A list of points that will be displayed in order. A point may contain links.
+ *
+ */
+#}
+<div class="relative mb-[64px] mx-[-32px] mt-[-16px] overflow-hidden">
+    <div class="bg-[#F3F4F6] rounded px-[40px] py-[32px] text-formatted">
+        <h2 class="text-[26px] font-semibold mb-[16px]">{{ title }}</h2>
+        <div>
+            <ul>
+                {{ points }}
+            </ul>
+        </div>
+    </div>
+</div>

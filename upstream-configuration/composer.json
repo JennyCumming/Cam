@@ -5,22 +5,7 @@
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        "uis-drupal-team": {
-            "url": "https://gitlab.developers.cam.ac.uk/uis/webcms/2023-platform/drupal-10-cambridge-profile.git",
-            "type": "vcs"
-        },
-        "uis-drupal-theme": {
-            "url": "https://gitlab.developers.cam.ac.uk/uis/webcms/2023-platform/cambridge_theme_d9.git",
-            "type": "vcs"
-        },
-        "uis-drupal": {
-            "url": "https://gitlab.developers.cam.ac.uk/uis/devops/webcms/2023-platform/custom-modules/cam-admin-ui-tweaks.git",
-            "type": "vcs"
         }
-    },
-    "require": {
-        "uis-drupal-team/drupal-10-cambridge-profile": "dev-main"
     },
 	"minimum-stability": "dev",
 	"prefer-stable": true,

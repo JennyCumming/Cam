@@ -1,0 +1,33 @@
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.questions_and_answers.field_answer
+    - field.field.paragraph.questions_and_answers.field_question
+    - paragraphs.paragraphs_type.questions_and_answers
+  module:
+    - text
+id: paragraph.questions_and_answers.default
+targetEntityType: paragraph
+bundle: questions_and_answers
+mode: default
+content:
+  field_answer:
+    type: text_textarea
+    weight: 32
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_question:
+    type: string_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

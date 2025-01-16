@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.summary.field_summary_point
+    - field.field.paragraph.summary.field_summary_title
+    - paragraphs.paragraphs_type.summary
+  module:
+    - maxlength
+    - text
+id: paragraph.summary.default
+targetEntityType: paragraph
+bundle: summary
+mode: default
+content:
+  field_summary_point:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 1
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 150
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+  field_summary_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

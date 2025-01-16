@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "UMD",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": [
+    "components/**/*.ts",
+    "storybook/global.d.ts",
+    "templates/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.stories.ts",
+    "components/index.ts"
+  ]
+}

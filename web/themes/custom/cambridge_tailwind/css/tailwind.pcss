@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "feijoa";
+    src: url("../fonts/Feijoa/feijoa-medium.woff2") format("woff");
+  }
+
+  @font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/Open_Sans/OpenSans-Variable.ttf") format("ttf");
+  }
+
+  canvas,
+  img,
+  picture,
+  svg,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  *:focus {
+    background-color: #fd0;
+    color: #000102;
+    outline: none;
+    /* @TODO: This should pull from Tailwind's color variables */
+    box-shadow:
+      0 -2px #fd0,
+      0 2px #000102;
+  }
+
+  .text-formatted {
+    ul,
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul > li {
+      list-style-type: disc;
+      margin-left: 24px;
+      color: #131922;
+      line-height: 1.5;
+      padding: 6px 0;
+      font-size: 18px;
+    }
+
+    > p {
+      padding-bottom: 16px;
+      color: #131922;
+    }
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    > p > a {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+  }
+}

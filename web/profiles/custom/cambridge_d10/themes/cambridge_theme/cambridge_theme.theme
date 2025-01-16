@@ -1,0 +1,559 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\search\SearchPageInterface;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function cambridge_theme_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  global $base_url;
+
+  $form['cambridge'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Theme settings'),
+    '#weight' => 0,
+  );
+  $form['cambridge']['colour_scheme'] = array(
+    '#type' => 'select',
+    '#title' => t('Colour scheme'),
+    '#options' => array(
+      1 => 'Blue',
+      2 => 'Turquoise',
+      3 => 'Purple',
+      4 => 'Green',
+      5 => 'Orange',
+      6 => 'Red',
+      7 => 'Grey',
+      8 => 'Lime',
+      9 => 'Blue-grey',
+    ),
+    '#default_value' => theme_get_setting('colour_scheme'),
+  );
+
+  $form['cambridge']['search_box'] = array(
+    '#type' => 'radios',
+    '#title' => t('Search box'),
+    '#description' => t('Choose what the search box in the global navigation searches.'),
+    '#options' => array(
+      0 => t('Whole University'),
+      1 => t('This site (ie ' . $base_url . ')'),
+      2 => t('Search engine filter'),
+    ),
+    '#default_value' => theme_get_setting('search_box'),
+  );
+
+  $form['cambridge']['search_box_filter'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Filter settings'),
+    '#description' => t('These details must match a filter configured in the University\'s search engine.'),
+    '#states' => array(
+      'visible' => array(
+        ':input[name="search_box"]' => array('value' => 2),
+      ),
+    ),
+  );
+
+  $form['cambridge']['search_box_filter']['search_box_filter_inst'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Institution filter code'),
+    '#default_value' => theme_get_setting('search_box_filter_inst'),
+    '#states' => array(
+      'visible' => array(
+        ':input[name="search_box"]' => array('value' => 2),
+      ),
+      'required' => array(
+        ':input[name="search_box"]' => array('value' => 2),
+      ),
+    ),
+  );
+
+  $form['cambridge']['search_box_filter']['search_box_filter_tag'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Tag'),
+    '#default_value' => theme_get_setting('search_box_filter_tag'),
+    '#states' => array(
+      'visible' => array(
+        ':input[name="search_box"]' => array('value' => 2),
+      ),
+    ),
+  );
+
+  /*
+  // This was inside cambridge_staff.
+  $options = array(
+    'never'  => t('Never show profiles as a contact card'),
+    'always' => t('Always show profiles as a contact card'),
+    'auto'   => t('Only show sparce profiles as a contact card'),
+  );
+
+  $form['cambridge']['cambridge_staff_card'] = array(
+    '#type'        => 'radios',
+    '#default_value' => theme_get_setting('cambridge_staff_card'),
+    '#title'       => t('Contact card'),
+    '#description' => t('Note: sparce profiles are those where all long text fields are empty'),
+    '#options' => $options,
+  );
+  */
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function cambridge_theme_preprocess_page(array &$variables) {
+  // Load the site name out of configuration.
+  $config = \Drupal::config('system.site');
+  $variables['site_name'] = $config->get('name');
+  $variables['base_url'] = \Drupal\Core\Url::fromUserInput('/', ['absolute' => TRUE])->toString();
+  $variables['site_slogan'] = $config->get('slogan');
+  $variables['search_box'] = theme_get_setting('search_box');
+  if ($search_box_filter_inst = theme_get_setting('search_box_filter_inst')) {
+    $variables['search_box_filter_inst'] = htmlspecialchars($search_box_filter_inst);
+  }
+  if ($search_box_filter_tag = theme_get_setting('search_box_filter_tag')) {
+    $variables['search_box_filter_tag'] = htmlspecialchars($search_box_filter_tag);
+  }
+  $variables['has_sidebar'] = false;
+  if (!empty($variables['page']['sidebar'])) {
+    $result = \Drupal::service('renderer')->render($variables['page']['sidebar']);
+    $sidebar_html = trim(strip_tags($result->__toString()));
+    $variables['has_sidebar'] = !empty($sidebar_html);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Add a body class for the specific colour theme.
+ */
+function cambridge_theme_preprocess_html(&$variables) {
+  $variables['attributes']['class'][] = 'campl-theme-' . theme_get_setting('colour_scheme');
+}
+
+/**
+ * Implements template_preprocess_HOOK() for views_view_table.
+ */
+function cambridge_theme_preprocess_views_view_table(&$variables) {
+  $variables['attributes']['class'][] = 'campl-table campl-table-bordered campl-table-striped campl-vertical-stacking-table';
+}
+
+/**
+ * Implements hook_preprocess_table().
+ */
+function cambridge_theme_preprocess_table(&$variables) {
+  $variables['attributes']['class'][] = 'campl-table campl-table-bordered campl-table-striped campl-vertical-stacking-table';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function cambridge_theme_preprocess_node(&$variables) {
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  if ($variables['node']->bundle() === 'staff_profile') {
+    switch ($variables['view_mode']) {
+      case 'contact_card':
+        $variables['attributes']['class'][] = 'campl-contact-card clearfix';
+        break;
+      case 'staff_profile_right_part':
+        $variables['label'] = false;
+    }
+  }
+
+  /** @var \Drupal\smart_date\Plugin\Field\FieldType\SmartDateFieldItemList $field_event_date_2 */
+  // $field_event_date_2 = $variables['node']->get('field_event_date_2');
+  /*
+  foreach ($field_event_date_2 as $date_value) {
+    dpm( $date_value );
+  }
+  */
+  /*
+    "value" => "1722423600"
+    "end_value" => "1722430800"
+    "duration" => "120"
+    "rrule" => "2"
+    "rrule_index" => "1"
+    "timezone" => ""
+   */
+}
+
+/**
+ * Implements hook_preprocess_image_widget().
+ */
+function cambridge_theme_preprocess_image_widget(array &$variables) {
+  $data = &$variables['data'];
+
+  // This prevents image widget templates from rendering preview container HTML
+  // to users that do not have permission to access these previews.
+  // @todo revisit in https://drupal.org/node/953034
+  // @todo revisit in https://drupal.org/node/3114318
+  if (isset($data['preview']['#access']) && $data['preview']['#access'] === FALSE) {
+    unset($data['preview']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_image().
+ */
+function cambridge_theme_preprocess_image(&$variables) {
+  if (isset($variables['attributes']['class']) && FALSE === is_array($variables['attributes']['class'])) {
+    $variables['attributes']['class'] = array($variables['attributes']['class']);
+  }
+
+  // Make sure class is added to all images.
+  $variables['attributes']['class'][] = 'campl-scale-with-grid';
+
+  // We should always output the alt attribute even if its not set
+  if (!isset($variables['alt'])) {
+    $variables['alt'] = "";
+  }
+}
+
+/**
+ * Implements hook_theme_theme_suggestions_menu_alter() for menu block content.
+ *
+ * We want to use a different template for the main menu when displayed on the left side bar.
+ */
+function cambridge_theme_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  if ($variables['menu_name'] == 'main' && isset($variables['menu_block_configuration']['depth']) && $variables['menu_block_configuration']['depth'] == 0) {
+    $suggestions[] = $variables['theme_hook_original'] . '__main__left__sidebar';
+  }
+}
+
+/**
+ * Implements hook_preprocess_breadcrumb().
+ */
+function cambridge_theme_preprocess_breadcrumb(&$variables) {
+  // We are creating a variable for the Current Page Title, to allow us to print
+  // it after the breadcrumbs loop has run.
+  $route_match = \Drupal::routeMatch();
+  $entity = $route_match->getParameter('entity');
+  if ($entity instanceof SearchPageInterface) {
+    $variables['current_page_title'] = $entity->getPlugin()->suggestedTitle();
+  }
+  else {
+    $variables['current_page_title'] = \Drupal::service('title_resolver')->getTitle(\Drupal::request(), $route_match->getRouteObject());
+  }
+  // Since we are printing the 'Current Page Title', add the URL cache context.
+  // If we don't, then we might end up with something like
+  // "Home > Articles" on the Recipes page, which should read "Home > Recipes".
+  $variables['#cache']['contexts'][] = 'url';
+}
+
+/**
+ * Implements hook_preprocess_block() for block content.
+ *
+ * Disables contextual links for all blocks except for layout builder blocks.
+ */
+function cambridge_theme_preprocess_block(&$variables) {
+  $region = '';
+  if (!empty($variables['elements']['#id'])) {
+    /** @var \Drupal\block\BlockInterface $block */
+    $block = \Drupal::entityTypeManager()
+      ->getStorage('block')
+      ->load($variables['elements']['#id']);
+    if ($block) {
+      $region = $block->getRegion();
+    }
+  }
+  if (empty($region)) return;
+
+  if ($variables['plugin_id'] == 'menu_block:main' && $region == 'left_navigation') {
+    $variables['attributes']['class'][] = 'campl-vertical-breadcrumb-navigation';
+
+    $in_active_trail = [];
+    $not_active_trail = [];
+
+    foreach ($variables['content']['#items'] as $key => $item) {
+
+      unset($variables['content']['#items'][$key]);
+
+      if ($key == 'standard.front_page') {
+        continue;
+      }
+
+      if ($item['in_active_trail']) {
+        /** @var Drupal\Core\Template\Attribute $attributes */
+        $attributes = $item['attributes'];
+        $attributes->addClass('campl-selected');
+
+        $in_active_trail[$key] = $item;
+      } else {
+        $not_active_trail[$key] = $item;
+      }
+    }
+
+    foreach ($in_active_trail as $key => $item) {
+      $variables['content']['#items'][$key] = $item;
+    }
+
+    foreach ($not_active_trail as $key => $item) {
+      $variables['content']['#items'][$key] = $item;
+    }
+
+  }
+
+  // Add the overview items to the main horizontal navigation.
+  elseif ($variables['plugin_id'] == 'menu_block:main' && $region == 'horizontal_navigation') {
+    foreach ($variables['content']['#items'] as $key => $item) {
+      if (!$item['is_expanded'] || empty($item['below'])) continue;
+      /** @var \Drupal\menu_link_content\Plugin\Menu\MenuLinkContent $original_link */
+      $original_link = $item['original_link'];
+      $options = $original_link->getOptions();
+      $is_firstchild = false;
+      if (isset($options['menu_firstchild'])) {
+        $is_firstchild = $options['menu_firstchild']['enabled'];
+      }
+      if ($is_firstchild) continue;
+
+      $overview = $item;
+      $overview['title'] .= ' overview';
+      $overview['below'] = [];
+
+      // pre-pend it to existing tree
+      $temp = $item['below'];
+      $temp = array($key => $overview) + $temp;
+      $variables['content']['#items'][$key]['below'] = $temp;
+    }
+  }
+
+  $is_content_block = false;
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $block_content = $variables['elements']['content']['#block_content'];
+    $is_content_block = $block_content instanceof BlockContent;
+  }
+
+  if (in_array($region, ['sidebar', 'content']) && $is_content_block) {
+    $variables['attributes']['class'][] = 'campl-content-container';
+  }
+
+  elseif ($region === 'sub_content') {
+    $variables['attributes']['class'][] = 'campl-content-container';
+  }
+
+  // This is still work in progress:
+  elseif ($region === 'partnerships') {
+    $variables['attributes']['class'][] = 'campl-content-container campl-logo-container campl-bottom-padding';
+    // $variables['title_attributes']['class'][] = 'campl-branding-title';
+  }
+
+  elseif (in_array($region, array('footer_1', 'footer_2', 'footer_3', 'footer_4'))) {
+    $variables['attributes']['class'][] = 'campl-content-container campl-navigation-list';
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for block().
+ */
+function cambridge_theme_theme_suggestions_block_alter(&$suggestions, array $variables) {
+  if (!empty($variables['elements']['#id'])) {
+
+    /** @var \Drupal\block\BlockInterface $block */
+    $block = \Drupal::entityTypeManager()
+      ->getStorage('block')
+      ->load($variables['elements']['#id']);
+    if ($block) {
+
+      // Add region-specific block theme suggestions.
+      $region = $block
+        ->getRegion();
+
+      if (in_array($region, array('footer_1', 'footer_2', 'footer_3', 'footer_4'))) {
+        $suggestions[] = 'block__footer_x';
+      }
+      else {
+        if (strpos($variables['elements']['#plugin_id'], 'views_block:') === 0) {
+          $suggestion = str_replace('views_block:', '', $variables['elements']['#plugin_id']);
+          $parts = explode('-', $suggestion);
+          if (!empty($parts[0])) {
+            $suggestions[] = 'block__' . $parts[0] . '_' . $region;
+          }
+        }
+        $suggestions[] = 'block__' . $region;
+        $suggestions[] = 'block__' . $variables['elements']['#id'] . '_' . $region;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Add views template suggestions.
+ *
+ * @inheritdoc
+ */
+function cambridge_theme_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'views_view__' . $variables['view']->id();
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * Add views template suggestions.
+ *
+ * @inheritdoc
+ */
+function cambridge_theme_theme_suggestions_views_view_fields_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'views_view_fields__' . $variables['view']->id();
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function cambridge_theme_preprocess_views_view(&$variables) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $variables['view'];
+
+  if ($view->id() == 'event_calendar') {
+    $view_display = $view->getDisplay();
+    $variables['page_url'] = false;
+    if (isset($view_display->options['path'])) {
+      $variables['page_url'] = $view_display->options['path'];
+    }
+    $args = $view->args;
+    $date = $args[0];
+    // This is a day.
+    if (strlen($date) == 8 ) {
+      $timestamp = strtotime($date);
+      $variables['nav_title'] = date('d F Y', $timestamp);
+    }
+    // This is a month.
+    elseif (strlen($args[0]) == 6 ) {
+      $timestamp = strtotime($date . '01');
+      $variables['nav_title'] = date('F Y', $timestamp);
+    }
+    // This is a year.
+    elseif (strlen($args[0]) == 4 ) {
+      $variables['nav_title'] = $args[0];
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_views_view_unformatted().
+ *
+ * Add an extra div wrapper each N row.
+ */
+function cambridge_theme_preprocess_views_view_unformatted(&$variables) {
+  $columns = FALSE;
+  $rows = $variables['rows'];
+
+  // Get the row class name to know how many columns we need.
+  foreach ($rows as $id => $row) {
+    $attributes = $variables['rows'][$id]['attributes']->toArray();
+    if (!empty($attributes['class'])) {
+      preg_match('/campl-column([0-9]+)/', $attributes['class'][0], $matches);
+      if (isset($matches[1])) {
+        $columns = (int) $matches[1];
+        break;
+      }
+    }
+  }
+
+  if (!$columns) {
+    return;
+  }
+
+  $columnsInRow = 0;
+  $i = 0;
+  $variables['custom_html'] = [];
+
+  foreach ($rows as $id => $row) {
+    $i++;
+    $variables['custom_html'][$id] = [];
+
+    if (0 === $columnsInRow) {
+      // start of a new row
+      $variables['rows'][$id]['attributes']->addClass('campl-column-first');
+      $variables['custom_html'][$id]['prefix'] = '<div class="campl-row clearfix">';
+    }
+
+    elseif (($columnsInRow + $columns) > 12) {
+      // we're going to overflow a row (ie it doesn't add up to 12), so start again
+      $variables['rows'][$id]['attributes']->addClass('campl-column-last');
+      $variables['custom_html'][$id]['suffix'] = '</div>';
+      $variables['custom_html'][$id]['suffix'] .= '<div class="campl-row clearfix">';
+      $columnsInRow = 0;
+    }
+
+    elseif (($columnsInRow + $columns) == 12) {
+      $variables['rows'][$id]['attributes']->addClass('campl-column-last');
+      $variables['rows'][$id]['attributes']->addClass('campl-column-end');
+    }
+
+    if ($i === count($rows) && ($columnsInRow + $columns) < 12) {
+      $variables['rows'][$id]['attributes']->addClass('campl-column-last');
+    }
+
+    if (($columnsInRow + $columns) == 12) {
+      $variables['custom_html'][$id]['suffix'] = '</div>';
+      $columnsInRow = 0;
+    }
+
+    else {
+      $columnsInRow += $columns;
+    }
+
+  } // foreach row.
+
+  if ($columnsInRow > 0) {
+    // the last row is open, so close it
+    $variables['custom_html'][$id]['suffix'] = '</div>';
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page title templates.
+ */
+function cambridge_theme_preprocess_page_title(&$variables) {
+  $term = \Drupal::routeMatch()->getParameter('taxonomy_term');
+  if ($term instanceof Term) {
+    $variables['rss_feed_url'] = '/taxonomy/term/' . $term->id() . '/feed';
+    $variables['rss_feed_title'] = $term->getName();
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function cambridge_theme_preprocess_menu(&$variables) {
+
+  if ($variables['menu_name'] == 'main' && false) {
+    foreach ($variables['items'] as $key => $item) {
+      if (!$item['is_expanded'] || empty($item['below'])) continue;
+      /** @var \Drupal\menu_link_content\Plugin\Menu\MenuLinkContent $original_link */
+      $original_link = $item['original_link'];
+      $options = $original_link->getOptions();
+      $is_firstchild = false;
+      if (isset($options['menu_firstchild'])) {
+        $is_firstchild = $options['menu_firstchild']['enabled'];
+      }
+      if ($is_firstchild) continue;
+
+      $overview = $item;
+      $overview['title'] .= ' overview';
+      $overview['below'] = [];
+
+      // pre-pend it to existing tree
+      $temp = $item['below'];
+      $temp = array($key => $overview) + $temp;
+      $variables['items'][$key]['below'] = $temp;
+    }
+  }
+
+}
+
+/*
+function cambridge_theme_preprocess_media(array &$variables) {
+  // dpm( ($variables['media']) );
+}
+*/

@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: news-text-cards
+name: News text cards
+status: "experimental"
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Heading
+slots:
+  news_items:
+    title: News items

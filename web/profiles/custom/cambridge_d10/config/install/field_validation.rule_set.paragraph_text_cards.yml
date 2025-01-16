@@ -1,0 +1,25 @@
+uuid: 09b2650e-fdcd-4029-b5ac-7089f0aa3244
+langcode: en
+status: true
+dependencies: {  }
+name: paragraph_text_cards
+label: 'paragraph text_cards validation'
+entity_type: paragraph
+bundle: text_cards
+field_validation_rules:
+  b5f07c73-ef5f-4189-9af8-6bab6ba05c49:
+    id: item_count_field_validation_rule
+    title: 'Min 2, Max 4'
+    data:
+      min: 2
+      max: 4
+    weight: 1
+    uuid: b5f07c73-ef5f-4189-9af8-6bab6ba05c49
+    field_name: field_card
+    column: target_id
+    error_message: 'Add at least 2 cards'
+    roles: {  }
+    condition:
+      field: ''
+      operator: ''
+      value: ''

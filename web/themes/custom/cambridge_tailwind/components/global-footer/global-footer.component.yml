@@ -1,0 +1,20 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: global-footer
+name: Global footer
+group: Site components
+status: "experimental"
+props:
+  type: object
+  properties:
+    site_name:
+      type: string
+      title: Site name
+    contact_address:
+      type: string
+      title: Contact address
+    legal_links:
+      type: string
+      title: Legal links
+    social_links:
+      type: string
+      title: Social links

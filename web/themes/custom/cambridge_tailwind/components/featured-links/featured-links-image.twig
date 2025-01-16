@@ -1,0 +1,38 @@
+{#
+/**
+ * The Featured links component may also be called a Primary Signpost
+ *
+ * Heading - a required string
+ * Sub-heading - an optional string
+ * Description - an optional string
+ * Image - optional
+ * Links - Optional (up to 6)
+ */
+#}
+{% set image = content.field_image_media %}
+
+ <div class="flex flex-col gap-8 border-b-1 mb-4 mt-8 container">
+    <div class="flex flex-col md:flex-row items-stretch gap-8 lg:gap-16 mb-[48px]">
+          <div class="w-full md:w-1/2 flex {% if 'left' in content.field_image_position.0 %} md:order-1 {% else %} md:order-2 {% endif %}">
+            <div class="rounded overflow-hidden h-full w-full max-h-[568px] w-[616px] md:max-h-[500px] p-[4px]">
+            {% if image_uri %}
+                <img src="{{ image_uri | image_style('featured_links_image') }}" alt="{{ image_alt }}">
+                {% endif %}
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 flex flex-col {% if 'left' in content.field_image_position.0 %} md:order-2 {% else %} md:order-1 {% endif %}">
+            <div class="flex flex-col gap-8 mt-6 md:mt-0">
+                <div class="flex flex-col gap-3">
+                    <p class="text-lg font-semibold">{{ content.field_sub_heading.0 }}</p>
+                    <h2 class="text-3xl font-medium">{{ content.field_heading.0 }}</h2>
+                </div>
+                <div class="w-full flex flex-col gap-3 w-[600px]">
+                    <p>{{ content.field_featured_links_description }}</p>
+                </div>
+                <div class="w-full flex flex-col gap-3">
+                    {{ content.field_link }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

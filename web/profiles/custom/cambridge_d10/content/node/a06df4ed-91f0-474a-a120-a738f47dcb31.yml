@@ -1,0 +1,68 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: a06df4ed-91f0-474a-a120-a738f47dcb31
+  bundle: page
+  default_langcode: en
+default:
+  revision_uid:
+    -
+      target_id: 2
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 2
+  title:
+    -
+      value: 'Page not found'
+  created:
+    -
+      value: 1721119620
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /page-not-found
+      langcode: en
+      pathauto: 0
+  field_page_summary:
+    -
+      value: 'This page cannot be found.'
+  field_paragraph:
+    -
+      entity:
+        _meta:
+          version: '1.0'
+          entity_type: paragraph
+          uuid: 5d8d61e7-7e2d-493e-b105-c1a0c2502ea3
+          bundle: text
+          default_langcode: en
+        default:
+          status:
+            -
+              value: true
+          created:
+            -
+              value: 1721119740
+          behavior_settings:
+            -
+              value:
+                layout_paragraphs:
+                  parent_uuid: null
+                  region: null
+          revision_translation_affected:
+            -
+              value: true
+          field_text:
+            -
+              value: '<p>If you typed the web address, check it is correct.</p><p>If you pasted the web address, check the whole address got copied.&nbsp;</p><p>Or, you can try:</p><ul><li>visiting this <a href="&lt;front&gt;">site''s homepage</a></li><li>using the University search</li></ul><p>If you have found a problem with our site, you can email <a href="mailto:webmaster@admin.cam.ac.uk">webmaster@admin.cam.ac.uk</a> to let us know.</p>'
+              format: basic_html
