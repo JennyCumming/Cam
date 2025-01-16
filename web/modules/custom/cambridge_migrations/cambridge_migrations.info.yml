@@ -1,0 +1,7 @@
+name: 'Drupal 10 migrations'
+type: module
+description: 'Drupal 10 migrations from cambridge drupal 7 websites.'
+package: Custom
+core_version_requirement: '>=10.0'
+dependencies:
+  - drupal:migrate

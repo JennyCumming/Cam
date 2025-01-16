@@ -1,0 +1,40 @@
+langcode: en-gb
+status: true
+dependencies: {  }
+id: upgrade_d7_paragraphs_event_image
+class: Drupal\migrate\Plugin\Migration
+label: 'Paragraphs (Event Image)'
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Paragraphs Content'
+migration_group: migrate_drupal_7
+source:
+  plugin: d7_node_complete
+  node_type: event
+process:
+  nid:
+    plugin: get
+    source: tnid
+  field_image_media:
+    -
+      plugin: media_migration_delta_sort
+      source: field_image
+    -
+      plugin: sub_process
+      process:
+        target_id:
+          plugin: migration_lookup
+          source: fid
+          migration:
+            - upgrade_d7_file_entity_image_public
+            - upgrade_d7_file_entity_document_public
+          no_stub: true
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: image_media
+migration_dependencies:
+  required: {  }
+  optional: {  }

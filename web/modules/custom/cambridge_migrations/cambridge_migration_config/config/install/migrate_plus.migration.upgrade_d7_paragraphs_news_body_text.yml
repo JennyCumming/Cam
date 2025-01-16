@@ -1,0 +1,40 @@
+langcode: en-gb
+status: true
+dependencies: {  }
+id: upgrade_d7_paragraphs_news_body_text
+class: Drupal\migrate\Plugin\Migration
+label: 'Paragraphs (News body text)'
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Paragraphs Content'
+migration_group: migrate_drupal_7
+source:
+  plugin: d7_node_complete
+  node_type: news_article
+process:
+  nid:
+    plugin: get
+    source: tnid
+  field_text/value:
+    - plugin: extract
+      source: body
+      index:
+        - 0
+        - value
+    - plugin: media_wysiwyg_filter
+    - plugin: img_tag_to_embed
+  field_text/format:
+    plugin: extract
+    source: body
+    index:
+      - 0
+      - format
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: text
+migration_dependencies:
+  required: {  }
+  optional: {  }

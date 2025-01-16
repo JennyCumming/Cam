@@ -1,0 +1,30 @@
+langcode: en-gb
+status: true
+dependencies: {  }
+id: upgrade_d7_paragraphs_relatedlinks
+class: Drupal\migrate\Plugin\Migration
+label: 'Paragraphs (Related Links)'
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Paragraphs Content'
+migration_group: migrate_drupal_7
+source:
+  plugin: d7_node_complete
+  node_type: page
+process:
+  nid:
+    plugin: get
+    source: tnid
+  field_link:
+    -
+      plugin: field_link
+      source: field_related_links
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: related_content
+migration_dependencies:
+  required: {  }
+  optional: {  }

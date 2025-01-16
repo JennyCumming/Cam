@@ -1,0 +1,8 @@
+name: 'Cambridge Migration_config'
+description: 'These YML files are needed to run all the custom Cambridge Migrations.'
+type: module
+core_version_requirement: '^9.4 || ^10'
+package: Custom
+dependencies:
+  - 'migrate_plus:migrate_plus'
+version: '10.2'
