@@ -1,0 +1,36 @@
+uuid: e0f0fd1c-9a42-4437-99fe-578450fc50cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: Jw2iB_l0oKIFvw1asjRkoMagYwvDi0Pb5vPlQItaf9w
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: -10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    weight: -1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  contact: true
+  langcode: true
+  language: true
+  path: true
+  timezone: true

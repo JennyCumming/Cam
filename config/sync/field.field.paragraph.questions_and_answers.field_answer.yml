@@ -1,0 +1,24 @@
+uuid: 3277bd2a-4619-4f7e-98ab-ff1f1b4ceda4
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_answer
+    - paragraphs.paragraphs_type.questions_and_answers
+  module:
+    - text
+_core:
+  default_config_hash: HXTneObCgNPOKcg-utqYKrn2uY7N7KnPurlmEf2qxhU
+id: paragraph.questions_and_answers.field_answer
+field_name: field_answer
+entity_type: paragraph
+bundle: questions_and_answers
+label: Answer
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

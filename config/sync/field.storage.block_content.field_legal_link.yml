@@ -1,0 +1,21 @@
+uuid: ef58328e-8153-4c77-9619-b6fad06693e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+_core:
+  default_config_hash: nsZwLLHsyLPg_NmAOdDiuarsBa3s1QBXTU3OvKuYuVk
+id: block_content.field_legal_link
+field_name: field_legal_link
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 10
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

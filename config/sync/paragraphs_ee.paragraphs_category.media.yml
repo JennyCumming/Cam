@@ -1,0 +1,12 @@
+uuid: 882983f5-a8d6-4d56-9269-2589e08338ee
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wmLStdYi0fjn77F7Dmr_Ai6sMToeBDRtE3tVMtKR7WU
+id: media
+label: Media
+description:
+  value: "Add media. Don't add images only to enhance the appearance of a page."
+  format: basic_html
+weight: 4

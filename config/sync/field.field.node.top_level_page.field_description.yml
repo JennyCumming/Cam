@@ -1,0 +1,21 @@
+uuid: f5c974d2-0fd4-41cf-b008-f3a8ec0d469b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.top_level_page
+_core:
+  default_config_hash: 5Hf0OxBUYgjfWUwgYzVqmwghc0Lzvrl3RO4Txded15E
+id: node.top_level_page.field_description
+field_name: field_description
+entity_type: node
+bundle: top_level_page
+label: Introduction
+description: "Add an optional introduction that displays on the banner, under the page title. A banner is a horizontal rectangle that displays at the top of the page. Don't duplicate the page title or the first paragraph of text here."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

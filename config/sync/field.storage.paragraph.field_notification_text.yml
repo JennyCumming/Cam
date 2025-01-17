@@ -1,0 +1,21 @@
+uuid: c03c95aa-f6e5-41f6-9939-9bf8c3b1a079
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+_core:
+  default_config_hash: kAtptEvkld8eAmmpMpdcRsVD-6xfNNeGNj6yYxZw9fc
+id: paragraph.field_notification_text
+field_name: field_notification_text
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

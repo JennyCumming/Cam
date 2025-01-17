@@ -1,0 +1,12 @@
+uuid: 601dc9e8-789a-4fa5-9380-1a786d7b703b
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6V_HPKeNqpiXpB0f4K5ZO92MQXCJPaI6vkAxDX3XdHY
+id: promo_block
+label: 'Promo block'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle Promo block'
+behavior_plugins: {  }

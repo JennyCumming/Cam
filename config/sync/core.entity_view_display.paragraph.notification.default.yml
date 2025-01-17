@@ -1,0 +1,68 @@
+uuid: 759a4d50-6d25-47d8-9fdc-46db56fbc6b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.notification.field_notification_text
+    - field.field.paragraph.notification.field_notification_typ
+    - paragraphs.paragraphs_type.notification
+  module:
+    - nomarkup
+    - options
+    - sdc_display
+    - text
+third_party_settings:
+  sdc_display:
+    enabled: true
+    component:
+      machine_name: 'cambridge_tailwind:notification'
+      show_deprecated: null
+    mappings:
+      static:
+        props:
+          notification_text: 'This is required'
+          notification_type: ''
+      dynamic:
+        props:
+          notification_text: field_notification_text
+          notification_type: field_notification_typ
+_core:
+  default_config_hash: ol5PjgEMQcWQz0pfMujikHeB6-ZM_j7aFHPZ1trrXpQ
+id: paragraph.notification.default
+targetEntityType: paragraph
+bundle: notification
+mode: default
+content:
+  field_notification_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+      sdc_display:
+        enabled: 0
+        component:
+          machine_name: null
+          show_deprecated: 0
+    weight: 1
+    region: content
+  field_notification_typ:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+      sdc_display:
+        enabled: 0
+        component:
+          machine_name: null
+          show_deprecated: 0
+    weight: 0
+    region: content
+hidden: {  }

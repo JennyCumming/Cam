@@ -1,0 +1,30 @@
+uuid: 86998dd6-ea9e-4b23-8485-a0e2b2644ea4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_highlight_story
+    - paragraphs.paragraphs_type.news
+_core:
+  default_config_hash: NenkS41Xf7TGbJQRyxF8MQUuRdovHN15lUZoiKm51SQ
+id: paragraph.news.field_highlight_story
+field_name: field_highlight_story
+entity_type: paragraph
+bundle: news
+label: 'Featured news 1'
+description: "Optional setting. Only use this if you need to promote a specific news story. Leave blank and a list of most recent news will be displayed automatically.\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      news: news
+    sort:
+      field: created
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

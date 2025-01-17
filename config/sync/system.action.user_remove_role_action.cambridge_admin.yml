@@ -1,0 +1,14 @@
+uuid: 85d25107-a90b-4226-88b2-1824dffa0ac5
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cambridge_admin
+  module:
+    - user
+id: user_remove_role_action.cambridge_admin
+label: 'Remove the Cambridge admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cambridge_admin

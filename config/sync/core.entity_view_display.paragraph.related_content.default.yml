@@ -1,0 +1,78 @@
+uuid: d721cd9f-bb88-46d1-9732-6f150b06fba5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_content.field_link
+    - field.field.paragraph.related_content.field_related_content_title
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - link
+    - nomarkup
+    - sdc_display
+third_party_settings:
+  sdc_display:
+    enabled: true
+    component:
+      machine_name: 'cambridge_tailwind:related-content'
+      show_deprecated: null
+    mappings:
+      static:
+        props:
+          title: ''
+        slots:
+          links:
+            value: ''
+            format: basic_html
+      dynamic:
+        props:
+          title: field_related_content_title
+        slots:
+          links:
+            field_link: field_link
+            field_related_content_title: null
+_core:
+  default_config_hash: 8whO-nZJ2UfeZzsW9L37dXfk4G4Sb79yZBgSlNBgkiE
+id: paragraph.related_content.default
+targetEntityType: paragraph
+bundle: related_content
+mode: default
+content:
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      nomarkup:
+        enabled: false
+        separator: '|'
+        referenced_entity: ''
+      sdc_display:
+        component:
+          machine_name: 'cambridge_tailwind:link'
+          show_deprecated: 0
+        mappings:
+          static:
+            props:
+              text: ''
+              url: ''
+              external: ''
+          dynamic:
+            mapped: ''
+        enabled: 0
+    weight: 1
+    region: content
+  field_related_content_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

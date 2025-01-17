@@ -1,0 +1,33 @@
+uuid: 10a0c48b-0892-48fb-bd91-38693578101c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_youtube_video
+    - media.type.youtube_video
+    - paragraphs.paragraphs_type.youtube
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: 9IyD8bm3pW8yqvfEfJVsjqFpMfCkK5PzImyHFw5RU_g
+id: paragraph.youtube.field_youtube_video
+field_name: field_youtube_video
+entity_type: paragraph
+bundle: youtube
+label: 'Youtube video'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      youtube_video: youtube_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference_revisions

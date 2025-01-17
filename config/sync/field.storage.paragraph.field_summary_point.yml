@@ -1,0 +1,21 @@
+uuid: 62f316f4-b1dc-47b7-874d-eafbc76bee77
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+_core:
+  default_config_hash: '-seq9oqPFmR1asczPXMlpdszUS-_F3r3CN-2lNkWRxI'
+id: paragraph.field_summary_point
+field_name: field_summary_point
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 5
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

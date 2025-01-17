@@ -1,0 +1,27 @@
+uuid: 44b3da44-4467-4625-9051-10ae22d22d10
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: XbWx_WlfBeooPv37fvemhGuBq-tQn5oVgwAKE5vVhKs
+name: paragraph_featured_links
+label: 'paragraph featured_links validation'
+entity_type: paragraph
+bundle: featured_links
+field_validation_rules:
+  5344894b-738f-456f-8ae7-586f8f2ee61d:
+    uuid: 5344894b-738f-456f-8ae7-586f8f2ee61d
+    id: item_count_field_validation_rule
+    title: 'Minimum 2 links'
+    weight: 1
+    field_name: field_link
+    column: title
+    error_message: 'Add at least 2 links'
+    roles: {  }
+    condition:
+      field: ''
+      operator: empty
+      value: ''
+    data:
+      min: 2
+      max: 6

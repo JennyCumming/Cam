@@ -1,0 +1,11 @@
+uuid: 36b3e63c-7816-4140-ac8a-1d1d9c674b13
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7P7bMFvaKH4g41nADvgmyosR37G64mAnn4kNSRwe_jU
+name: 'Restricted Content'
+vid: restricted_content
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,12 @@
+uuid: 879931da-05b0-459d-8619-9f4e4ae6d17d
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 01_toohKujaoUtqpWYYs_LYtVkhmStYTPHqKSSSr1r8
+id: questions_and_answers
+label: 'Questions and answers'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from field_collection field_questions_and_answers'
+behavior_plugins: {  }

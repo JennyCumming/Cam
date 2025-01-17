@@ -1,0 +1,21 @@
+uuid: 45357495-803a-402c-85d6-c26aa51d3eb1
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: DSI2eKy8h_LwDxApPXuVsOMWjoGLqXCM5ER9bDrpSHk
+id: paragraph.field_section_divider_link
+field_name: field_section_divider_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 41e9e2fe-5e4c-4563-a0a2-c5bf169014ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.contact
+    - field.storage.block_content.field_email
+_core:
+  default_config_hash: 4PRpdZD_1hjxrcPLJpVZ201Dzg9nX6mSw9x4hzDFQeo
+id: block_content.contact.field_email
+field_name: field_email
+entity_type: block_content
+bundle: contact
+label: email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

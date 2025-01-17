@@ -1,0 +1,40 @@
+uuid: 2d2b7a11-29e9-4631-be7f-310865cbd9bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.legal
+    - field.field.block_content.legal.field_legal_link
+  module:
+    - link
+_core:
+  default_config_hash: VSw4Tro53yEupTSn1v9LX9rcwKiwOnupithmEKeY4UQ
+id: block_content.legal.default
+targetEntityType: block_content
+bundle: legal
+mode: default
+content:
+  field_legal_link:
+    type: link_default
+    weight: 26
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

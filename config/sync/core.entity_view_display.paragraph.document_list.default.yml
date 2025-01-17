@@ -1,0 +1,43 @@
+uuid: 70c3b60c-aef8-44bf-a371-79cc6b21bba8
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.document_list.field_paragraph_document_ref
+    - field.field.paragraph.document_list.field_paragraph_heading
+    - field.field.paragraph.document_list.field_paragraph_text_content
+    - paragraphs.paragraphs_type.document_list
+  module:
+    - text
+_core:
+  default_config_hash: j1_6R4aiKXGGSHWTYWOhg4UFOELyn7EfiWGYcTZ7gE8
+id: paragraph.document_list.default
+targetEntityType: paragraph
+bundle: document_list
+mode: default
+content:
+  field_paragraph_document_ref:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: download_list_item
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_paragraph_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_paragraph_text_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

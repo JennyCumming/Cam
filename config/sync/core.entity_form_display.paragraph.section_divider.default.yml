@@ -1,0 +1,54 @@
+uuid: 9e5b355b-4bf2-46ff-b498-a9c09e562173
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.section_divider.field_section_divider_descriptio
+    - field.field.paragraph.section_divider.field_section_divider_header
+    - field.field.paragraph.section_divider.field_section_divider_link
+    - paragraphs.paragraphs_type.section_divider
+  module:
+    - link
+    - maxlength
+_core:
+  default_config_hash: IUZj-WY9I7fBPPlBILdwQiZGH8nYBp38_LFFRG1n4Fk
+id: paragraph.section_divider.default
+targetEntityType: paragraph
+bundle: section_divider
+mode: default
+content:
+  field_section_divider_descriptio:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 150
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+  field_section_divider_header:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 60
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+  field_section_divider_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

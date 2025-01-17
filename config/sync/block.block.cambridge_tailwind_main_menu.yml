@@ -1,0 +1,27 @@
+uuid: 0a6997a6-338f-4edb-b383-7118f1144958
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: 0VRp-rVXGYaFsBUFdaBpuazBuaDH6H2BHw8bUqveRLY
+id: cambridge_tailwind_main_menu
+theme: cambridge_tailwind
+region: pre_content
+weight: -4
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 3
+  expand_all_items: true
+visibility: {  }

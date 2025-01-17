@@ -1,0 +1,85 @@
+uuid: 00775b01-426c-4205-a14d-6a50448b3411
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text_card.field_card_link
+    - field.field.paragraph.text_card.field_featured_links_description
+    - field.field.paragraph.text_card.field_heading
+    - field.field.paragraph.text_card.field_sub_heading
+    - paragraphs.paragraphs_type.text_card
+  module:
+    - link
+    - nomarkup
+    - sdc_display
+third_party_settings:
+  sdc_display:
+    enabled: true
+    component:
+      machine_name: 'cambridge_tailwind:card'
+      show_deprecated: null
+    mappings:
+      static:
+        props:
+          heading: ''
+          subheading: ''
+          description: ''
+          link: ''
+      dynamic:
+        props:
+          heading: field_heading
+          subheading: field_sub_heading
+          description: field_featured_links_description
+          link: field_card_link
+_core:
+  default_config_hash: A6UZ02laXD59S6ILtGztOxohBwSmOugtXDsujnxfQL4
+id: paragraph.text_card.default
+targetEntityType: paragraph
+bundle: text_card
+mode: default
+content:
+  field_card_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+      sdc_display:
+        enabled: 0
+        component:
+          machine_name: null
+          show_deprecated: 0
+    weight: 4
+    region: content
+  field_featured_links_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_sub_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

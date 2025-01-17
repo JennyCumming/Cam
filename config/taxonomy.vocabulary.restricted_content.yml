@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Restricted Content'
-vid: restricted_content
-description: ''
-weight: 0

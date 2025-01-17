@@ -1,0 +1,21 @@
+uuid: c48b62dd-3c7d-4b03-808f-01bd58c0632a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_summary
+    - node.type.staff_profile
+_core:
+  default_config_hash: iTH4X26ixJ7ek45UzUppZosJiP8wbyFdm1KtelQ-ACI
+id: node.staff_profile.field_page_summary
+field_name: field_page_summary
+entity_type: node
+bundle: staff_profile
+label: 'Page Summary'
+description: "Page summary should be between 50 and 160 characters long. It doesn't display on the web page, only in search results. Make it actionable. Don’t use jargon, do use words that you think your users would type into search engines to find your page."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

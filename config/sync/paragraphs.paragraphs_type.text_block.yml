@@ -1,0 +1,12 @@
+uuid: 04f3a509-7a11-4ad6-aff5-661a1087b733
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: IwQE1cd95ytrmyWGcNTi91B_e3FJUxKUy5BgDWRLyM0
+id: text_block
+label: 'Text block'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle Text block'
+behavior_plugins: {  }

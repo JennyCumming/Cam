@@ -1,0 +1,27 @@
+uuid: 6803c1df-6100-407b-95c3-15277d700db5
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: 2uzmPIZLO_uEcMYWC3OxmBCWgdtQkTtwNLSuX-IJucA
+id: cambridge_tailwind_account_menu
+theme: cambridge_tailwind
+region: header
+weight: -5
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

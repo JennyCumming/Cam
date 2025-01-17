@@ -1,0 +1,21 @@
+uuid: 1109c870-cc02-4d6c-9baf-e00d8c245273
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.layout
+_core:
+  default_config_hash: v1jbgTkJzvM9L2ehX5ZYKpboc9oYfLsWJhw13Q7-jZk
+id: paragraph.layout.default
+targetEntityType: paragraph
+bundle: layout
+mode: default
+content:
+  layout_paragraphs_fields:
+    weight: -200
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

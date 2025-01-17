@@ -1,0 +1,11 @@
+uuid: 6977f1dd-a2c3-4bc8-b936-eea2beb6a8ee
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dXBU53b97EpphrzIMVNyOqAoG7AeAY9w02SBBXPlw3c
+name: 'Title prefix'
+vid: title_prefix
+description: 'Small text that appears before a department name on a homepage'
+weight: 0
+new_revision: false

@@ -1,0 +1,12 @@
+uuid: f629a7b0-2395-4126-a1c7-e1dc5be9f027
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Y63vIuzSgn34avg2xT5rQnq-Q4SOSqA5ie3Ae7XiH8k
+id: links
+label: Links
+description:
+  value: 'Add links displayed in cards or lists. Tell users what they need to do or where to go next.'
+  format: basic_html
+weight: 6

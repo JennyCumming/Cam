@@ -1,0 +1,62 @@
+uuid: d1374d5c-a87d-4d34-b87d-7664bb8ab23d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - filter.format.basic_html
+    - filter.format.filtered_html
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.text
+  module:
+    - better_formats
+    - text
+third_party_settings:
+  better_formats:
+    allowed_formats_toggle: false
+    allowed_formats:
+      filtered_html: filtered_html
+      aggregator_html: aggregator_html
+      basic_html: basic_html
+      basic_html_no_h2: basic_html_no_h2
+      links_only: links_only
+      restricted_html: restricted_html
+      full_html: full_html
+      webform_default: webform_default
+    default_order_toggle: false
+    default_order_wrapper:
+      formats:
+        filtered_html:
+          weight: '-10'
+        aggregator_html:
+          weight: '0'
+        basic_html:
+          weight: '0'
+        basic_html_no_h2:
+          weight: '0'
+        links_only:
+          weight: '0'
+        restricted_html:
+          weight: '1'
+        full_html:
+          weight: '2'
+        webform_default:
+          weight: '100'
+_core:
+  default_config_hash: YWmR4DSqufRPs68ppV2SyaLfnfFhctOB_TJDQyzoot8
+id: paragraph.text.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: text
+label: Text
+description: 'Use plain English and short sentences. Each paragraph should cover one subject and have up to 5 sentences. Style text using options in the toolbar. If you paste text here all of the formatting will be removed automatically. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - filtered_html
+    - basic_html
+    - full_html
+field_type: text_long

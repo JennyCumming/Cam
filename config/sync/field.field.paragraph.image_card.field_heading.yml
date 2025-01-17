@@ -1,0 +1,21 @@
+uuid: fda76df0-add1-452a-98f3-d6eb4d0842ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.image_card
+_core:
+  default_config_hash: pAKk53eqUeWFbO7nswF0opIwP7uWL0GGTwG2iZ4RX-g
+id: paragraph.image_card.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: image_card
+label: 'Card heading'
+description: "This should be the same or very similar to the title of the web page you're linking to. Use plain English."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

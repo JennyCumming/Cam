@@ -1,0 +1,12 @@
+uuid: 2f04daf8-ab02-48c2-91ef-efa8323727cf
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1LEjMr06SGzQYdPqcKIb6WPdY-1S1khXQ7GjLZFTXLo
+id: text
+label: Text
+description:
+  value: 'Add text to the page.'
+  format: basic_html
+weight: 2

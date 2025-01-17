@@ -1,0 +1,12 @@
+uuid: 68b3e824-a55b-402f-80d2-d4785ed7be52
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ExKk34PX6yiQeZbQkXu3HuZ-70D3K2YvCCFC0KrzpWM
+id: content_teaser
+label: 'Content teaser'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle Content teaser'
+behavior_plugins: {  }

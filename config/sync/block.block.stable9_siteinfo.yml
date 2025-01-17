@@ -1,0 +1,23 @@
+uuid: a1ee7775-ee91-4085-9dd4-485bb26bc8e9
+langcode: en
+status: true
+dependencies:
+  theme:
+    - stable9
+_core:
+  default_config_hash: 5wv7KZvff1O0Af0lk1iAL3kQMqKR4kO1RosNJT1sTKM
+id: stable9_siteinfo
+theme: stable9
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'block_content:169604b1-b781-4322-951f-2dfddcdebf05'
+settings:
+  id: 'block_content:169604b1-b781-4322-951f-2dfddcdebf05'
+  label: 'Site information'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

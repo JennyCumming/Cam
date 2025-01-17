@@ -1,0 +1,21 @@
+uuid: 9388cf93-94f3-4517-940f-d8bea45a2858
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_summary
+    - node.type.landing_page
+_core:
+  default_config_hash: '-ypBrrmkgK1VP4XHRE5zrlhDqPSBlJGlkjizYaKdOQQ'
+id: node.landing_page.field_page_summary
+field_name: field_page_summary
+entity_type: node
+bundle: landing_page
+label: 'Page Summary'
+description: "Page summary should be between 50 and 160 characters long. It doesn't display on the web page, only in search results. Make it actionable. Don’t use jargon, do use words that you think your users would type into search engines to find your page."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

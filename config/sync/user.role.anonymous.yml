@@ -1,0 +1,22 @@
+uuid: 592feee3-def0-438f-85ae-3cee1c33b7bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - contact
+    - message_banner
+    - search
+    - system
+_core:
+  default_config_hash: w88UkJyaUFvnHD28DVtYzc65s26HNqItof73SDMO6Po
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'search content'
+  - 'view message banner'

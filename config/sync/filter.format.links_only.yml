@@ -1,0 +1,10 @@
+uuid: a4ad0b2a-471e-4fc6-b5e4-beeb99ae0948
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yepZz1l1hQb5_LtrmTQGg36kkb8F_QpZBbEpEU9Bwzw
+name: 'Links only'
+format: links_only
+weight: 0
+filters: {  }

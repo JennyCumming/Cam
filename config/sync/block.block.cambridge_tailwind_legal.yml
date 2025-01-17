@@ -1,0 +1,23 @@
+uuid: 13e56b2f-ddb8-4f2b-b32f-728c50993ba0
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: dVLIQTP39uqNTMlqDzPjqfWpiTeMQAswf8h3BKeQjv0
+id: cambridge_tailwind_legal
+theme: cambridge_tailwind
+region: footer_3
+weight: -8
+provider: null
+plugin: 'block_content:b83f51bf-1de0-4327-93a1-687e79fb16e2'
+settings:
+  id: 'block_content:b83f51bf-1de0-4327-93a1-687e79fb16e2'
+  label: Legal
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

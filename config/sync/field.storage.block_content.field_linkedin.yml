@@ -1,0 +1,21 @@
+uuid: 3e48c8ad-adcf-4cb4-8f36-0d4bfcba4259
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+_core:
+  default_config_hash: ojoMg2KsuwuvCfY2L3LCQHxEKLSBGLrcel2BYZTjjy0
+id: block_content.field_linkedin
+field_name: field_linkedin
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

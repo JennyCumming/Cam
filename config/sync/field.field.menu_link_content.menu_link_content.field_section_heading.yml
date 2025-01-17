@@ -1,0 +1,23 @@
+uuid: 5d650c90-cc70-49c0-a4f7-1db710722fa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_section_heading
+  module:
+    - menu_link_content
+    - menu_item_fields
+_core:
+  default_config_hash: xRArBDAsSqibTvZ26xPJ489XDZ1SJk2-Mp9Spymoips
+id: menu_link_content.menu_link_content.field_section_heading
+field_name: field_section_heading
+entity_type: menu_link_content
+bundle: menu_link_content
+label: 'Section heading'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

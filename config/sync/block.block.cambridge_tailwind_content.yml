@@ -1,0 +1,22 @@
+uuid: 3be6c8ac-1965-42df-85ff-1d2d23372871
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: _JEoLkUZpQZSSXeU3mE3Y_1Fi52e09ezVIh2cDPj0fo
+id: cambridge_tailwind_content
+theme: cambridge_tailwind
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

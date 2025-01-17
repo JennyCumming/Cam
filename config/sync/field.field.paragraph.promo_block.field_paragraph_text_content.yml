@@ -1,0 +1,24 @@
+uuid: 44a342e7-11c8-4235-a05a-28f12c5bb478
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_text_content
+    - paragraphs.paragraphs_type.promo_block
+  module:
+    - text
+_core:
+  default_config_hash: ulrqWb_aYiW56jfz6oUMQzmNbep2BdKSpHcEl2FvL4g
+id: paragraph.promo_block.field_paragraph_text_content
+field_name: field_paragraph_text_content
+entity_type: paragraph
+bundle: promo_block
+label: 'Text content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,46 @@
+uuid: aa5156b8-ffcf-40f4-b015-6e81cfb993e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_grid.field_link_grid_description
+    - field.field.paragraph.link_grid.field_link_grid_title
+    - field.field.paragraph.link_grid.field_link_with_description
+    - paragraphs.paragraphs_type.link_grid
+  module:
+    - link_description
+_core:
+  default_config_hash: qpeuCYH3z7y5LNJip7eoT7wR4CiwaIkermpxe5qBg-E
+id: paragraph.link_grid.default
+targetEntityType: paragraph
+bundle: link_grid
+mode: default
+content:
+  field_link_grid_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link_grid_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link_with_description:
+    type: link_description
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

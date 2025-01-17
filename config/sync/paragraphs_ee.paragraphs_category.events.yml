@@ -1,0 +1,12 @@
+uuid: 30e6f87d-2980-4e5a-96bd-cc1a37fdfff5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Att3S7P2xNrkbCtgoG5X9_9WVzS1FUDC0E3fIY7bzco
+id: events
+label: Events
+description:
+  value: 'Add a list of upcoming events. This list is automatically populated from published events on your site.'
+  format: basic_html
+weight: 12

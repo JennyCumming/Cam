@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: oF4uM642qMqY0AqkLPecTWFdX1_IDk-LOlI1EkEWt1c
+langcode: en
+banner_enabled: 1
+banner_enabled_on_admin_routes: 1
+banner_show_again_minutes: 0
+banner_color: default--black
+banner_text:
+  value: '<blockquote><p>Beta</p></blockquote><p>This is the new Drupal platform. We are currently testing and improving it.&nbsp;</p>'
+  format: basic_html

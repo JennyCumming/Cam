@@ -1,0 +1,20 @@
+uuid: 18b42333-3c3c-4a50-998d-5d5c1642efee
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: kTbmYs7ggJO2CduhbuyIAtYCGlUw4YZHo58tqIAXadA
+id: block_content.field_email
+field_name: field_email
+entity_type: block_content
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,22 @@
+uuid: 72dfd597-2e0b-464f-8cbd-e489c7ecd226
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - stable9
+_core:
+  default_config_hash: YExS87FVubcCWvr0G7BbFt3rcKcAuHQ-mU_VK-Pjzqo
+id: stable9_breadcrumbs
+theme: stable9
+region: sidebar_first
+weight: 4
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

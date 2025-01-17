@@ -1,0 +1,37 @@
+uuid: 77c183ff-a84e-4401-afc8-c0dab1b44993
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page.field_access_control
+    - field.field.node.page.field_bottom_paragraphs
+    - field.field.node.page.field_page_summary
+    - field.field.node.page.field_paragraph
+    - field.field.node.page.field_sidebar_items
+    - field.field.node.page.field_subject_ref
+    - field.field.node.page.field_top_content
+    - node.type.page
+  module:
+    - user
+_core:
+  default_config_hash: YrAc_WT6Ld6WDWEpWOkSKAY60feGh7x1jCyQIFRjQrE
+id: node.page.teaser
+targetEntityType: node
+bundle: page
+mode: teaser
+content:
+  links:
+    weight: 101
+    region: content
+hidden:
+  body: true
+  field_access_control: true
+  field_bottom_paragraphs: true
+  field_description: true
+  field_page_summary: true
+  field_paragraph: true
+  field_sidebar_items: true
+  field_subject_ref: true
+  field_top_content: true
+  langcode: true

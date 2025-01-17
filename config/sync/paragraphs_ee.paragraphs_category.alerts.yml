@@ -1,0 +1,12 @@
+uuid: be6a751a-7945-42e0-ba38-6c919bf9b00c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pV-RRs1XEp7DCKuXgX94chXLpTLCw-w89LSSpU1nRKk
+id: alerts
+label: Alerts
+description:
+  value: 'Add an alert to tell users about something important.'
+  format: basic_html
+weight: 8

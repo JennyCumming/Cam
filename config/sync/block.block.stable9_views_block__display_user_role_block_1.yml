@@ -1,0 +1,33 @@
+uuid: ea84e040-88f8-4daa-9b74-70ed3863c1a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.display_user_role
+  module:
+    - system
+    - views
+  theme:
+    - stable9
+_core:
+  default_config_hash: '-p9ai4YhnYAKPgfGRg_Rv0vuk7JaYJMmDDCPbHoBldY'
+id: stable9_views_block__display_user_role_block_1
+theme: stable9
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:display_user_role-block_1'
+settings:
+  id: 'views_block:display_user_role-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+  exposed: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '/user/*'

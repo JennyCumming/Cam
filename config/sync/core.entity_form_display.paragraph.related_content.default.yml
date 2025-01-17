@@ -1,0 +1,45 @@
+uuid: 403e53b9-6051-4630-9bfe-703b023db01b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_content.field_link
+    - field.field.paragraph.related_content.field_related_content_title
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - link
+    - maxlength
+_core:
+  default_config_hash: K-fXTkbZzIgIf0NQYfeAg5a_aQPLFWhSAGMu0dIUHlg
+id: paragraph.related_content.default
+targetEntityType: paragraph
+bundle: related_content
+mode: default
+content:
+  field_link:
+    type: link_default
+    weight: 1
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 150
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+  field_related_content_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 75
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+hidden:
+  created: true
+  status: true

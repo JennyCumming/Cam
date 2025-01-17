@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Links only'
-format: links_only
-weight: 0
-filters: {  }

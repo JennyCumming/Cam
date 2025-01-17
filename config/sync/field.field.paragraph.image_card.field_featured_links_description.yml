@@ -1,0 +1,21 @@
+uuid: 9f80b7f1-a6e1-4871-a85f-dc893c669fdf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_featured_links_description
+    - paragraphs.paragraphs_type.image_card
+_core:
+  default_config_hash: MZVNUJU-XaYaVoL0xmTqxlX8hLaI_VZYRCpoRA59BT0
+id: paragraph.image_card.field_featured_links_description
+field_name: field_featured_links_description
+entity_type: paragraph
+bundle: image_card
+label: 'Card description'
+description: 'Describe the action users will complete by following the link. Use active voice and start with a verb. Get, apply, sign up for example.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

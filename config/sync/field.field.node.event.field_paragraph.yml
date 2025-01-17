@@ -1,0 +1,122 @@
+uuid: 6a5315e4-f4f2-4b78-865b-4cb97a3c2260
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph
+    - node.type.event
+    - paragraphs.paragraphs_type.image_media
+    - paragraphs.paragraphs_type.text
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: 6snJHjTzAFQ11ErSo9slun5bmqku1KvaM-UnSnYHEic
+id: node.event.field_paragraph
+field_name: field_paragraph
+entity_type: node
+bundle: event
+label: 'Main Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      text: text
+      image_media: image_media
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 31
+        enabled: false
+      basic_limited:
+        weight: 17
+        enabled: false
+      compact_callout:
+        weight: 33
+        enabled: false
+      content_teaser:
+        weight: 34
+        enabled: false
+      document_list:
+        weight: 35
+        enabled: false
+      embedded_link:
+        weight: 36
+        enabled: false
+      events_from_view:
+        weight: 37
+        enabled: false
+      featured_links:
+        weight: 18
+        enabled: false
+      image:
+        weight: 5
+        enabled: false
+      image_card:
+        weight: 19
+        enabled: false
+      image_cards:
+        weight: 20
+        enabled: false
+      image_link:
+        weight: 42
+        enabled: false
+      image_media:
+        weight: 21
+        enabled: true
+      layout:
+        weight: 6
+        enabled: false
+      link_block:
+        weight: 45
+        enabled: false
+      link_grid:
+        weight: 24
+        enabled: false
+      news:
+        weight: 47
+        enabled: false
+      notification:
+        weight: 24
+        enabled: false
+      page_item:
+        weight: 49
+        enabled: false
+      promo_block:
+        weight: 50
+        enabled: false
+      questions_and_answers:
+        weight: 51
+        enabled: false
+      read_next:
+        weight: 52
+        enabled: false
+      related_content:
+        weight: 25
+        enabled: false
+      section_divider:
+        weight: 27
+        enabled: false
+      summary:
+        weight: 26
+        enabled: false
+      text:
+        weight: 7
+        enabled: true
+      text_block:
+        weight: 57
+        enabled: false
+      text_card:
+        weight: 28
+        enabled: false
+      text_cards:
+        weight: 29
+        enabled: false
+      youtube:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

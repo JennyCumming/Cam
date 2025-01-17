@@ -1,0 +1,26 @@
+uuid: e1b17054-d0ca-41c1-a17a-78d42d9aa65e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7ynWy0YKuoNEkOWe2O3WanJMNzsgrsSHH-Ia7Gw9bh0
+name: 'Filtered HTML'
+format: filtered_html
+weight: 1
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<p> <br> <strong> <a href hreflang>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: -1
+    settings:
+      filter_url_length: 72

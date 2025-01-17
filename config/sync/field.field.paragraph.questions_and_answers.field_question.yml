@@ -1,0 +1,21 @@
+uuid: b37de86e-fb95-49d8-84c5-42f3af10149e
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_question
+    - paragraphs.paragraphs_type.questions_and_answers
+_core:
+  default_config_hash: LQKPRGSuF8TAJCNf83SeL60WuBomsq_GKpAZy7DDS_s
+id: paragraph.questions_and_answers.field_question
+field_name: field_question
+entity_type: paragraph
+bundle: questions_and_answers
+label: Question
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

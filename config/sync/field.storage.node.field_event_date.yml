@@ -1,0 +1,23 @@
+uuid: 96b7f101-ac58-48c9-8cac-74dcb4a45601
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - date_recur
+    - node
+_core:
+  default_config_hash: hZWk2V9UbSzUoEpxqpk3L-ge4uELG6eTdIxBw585GHU
+id: node.field_event_date
+field_name: field_event_date
+entity_type: node
+type: date_recur
+settings:
+  datetime_type: datetime
+  rrule_max_length: 256
+module: date_recur
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

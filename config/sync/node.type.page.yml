@@ -1,0 +1,23 @@
+uuid: 8ab649cf-cc38-4b9e-9304-9939f90cda6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - node_title_help_text
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  node_title_help_text:
+    title_help: 'Page titles are the first thing your users see at the top of the page. Make them clear, descriptive and relevant so users and search engines understand what the page is about.'
+_core:
+  default_config_hash: XP6oHQ_QKb0AHIUORHY5Z2Eiy-xy_KO9SGd3HXAc2DI
+name: 'Basic page'
+type: page
+description: 'Use this page for content that’s mainly text. This is the most common type of page in Drupal.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

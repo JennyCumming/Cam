@@ -1,0 +1,21 @@
+uuid: 237505cb-c276-4ec3-b860-be994d98b3fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_summary
+    - node.type.page
+_core:
+  default_config_hash: WRJfidt6PP1S4zudBqK0t3VWr831oysMazqaYTwM_ds
+id: node.page.field_page_summary
+field_name: field_page_summary
+entity_type: node
+bundle: page
+label: 'Page Description'
+description: "Also known as meta description. Page description doesn't display on the web page, only in search engine results. Don't use jargon, acronyms or Cambridge-only terminology. Use words that users would use in search engines to find this page."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

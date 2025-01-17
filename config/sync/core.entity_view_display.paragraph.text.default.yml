@@ -1,0 +1,48 @@
+uuid: 39e8bd7e-7d69-48c7-a70c-dc423253ea72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text.field_text
+    - paragraphs.paragraphs_type.text
+  module:
+    - nomarkup
+    - sdc_display
+    - text
+third_party_settings:
+  sdc_display:
+    enabled: true
+    component:
+      machine_name: 'cambridge_tailwind:text'
+      show_deprecated: null
+    mappings:
+      static:
+        props:
+          content: Required
+      dynamic:
+        props:
+          content: field_text
+_core:
+  default_config_hash: 9iV8hps8xue3qwQ3RcoDcpZOdiXOvIYUegDghFymE3I
+id: paragraph.text.default
+targetEntityType: paragraph
+bundle: text
+mode: default
+content:
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+      sdc_display:
+        enabled: 0
+        component:
+          machine_name: null
+          show_deprecated: 0
+    weight: 0
+    region: content
+hidden: {  }

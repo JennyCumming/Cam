@@ -1,0 +1,41 @@
+uuid: 715ebefe-6874-4148-9f64-c5e6e4051dfd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2806i0wTenZwy1RWm3MLFJ1yqEIHt5LEje4Mm6bQ6R0
+name: paragraph_link_grid
+label: 'paragraph link_grid validation'
+entity_type: paragraph
+bundle: link_grid
+field_validation_rules:
+  4f592010-d65d-47c3-8c00-ea7426d41eff:
+    uuid: 4f592010-d65d-47c3-8c00-ea7426d41eff
+    id: item_count_field_validation_rule
+    title: 'Minimum number of links'
+    weight: 1
+    field_name: field_link_with_description
+    column: title
+    error_message: 'Add at least 3 links'
+    roles: {  }
+    condition:
+      field: ''
+      operator: ''
+      value: ''
+    data:
+      min: 3
+      max: null
+  bf9992bc-4304-42b3-a13a-70e8624f5877:
+    uuid: bf9992bc-4304-42b3-a13a-70e8624f5877
+    id: must_be_empty_field_validation_rule
+    title: "Only allow description if there's a title"
+    weight: 2
+    field_name: field_link_grid_description
+    column: value
+    error_message: 'To add a description, you must add a title'
+    roles: {  }
+    condition:
+      field: field_link_grid_title
+      operator: empty
+      value: ''
+    data: {  }

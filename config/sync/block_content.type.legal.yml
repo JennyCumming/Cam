@@ -1,0 +1,10 @@
+uuid: ad305290-c051-4fd5-ae4e-ad11ad911f61
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dY4juzzg2CSHaZj9aFp_BLVr7oLJGAhlCnR6z0_9DCE
+id: legal
+label: Legal
+revision: 0
+description: ''

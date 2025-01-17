@@ -1,0 +1,23 @@
+uuid: cf173866-f2da-4044-a19c-92bed05ac94a
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 9B4_kb7h3ml4Vkpq2eJSfSNmwI3lDZCTbk5Ydibz7vw
+id: node.field_contact_phone
+field_name: field_contact_phone
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

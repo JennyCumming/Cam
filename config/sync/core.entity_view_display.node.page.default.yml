@@ -1,0 +1,69 @@
+uuid: 927e89fe-d5bf-485a-bd42-87b97e058bf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.field_access_control
+    - field.field.node.page.field_bottom_paragraphs
+    - field.field.node.page.field_page_summary
+    - field.field.node.page.field_paragraph
+    - field.field.node.page.field_sidebar_items
+    - field.field.node.page.field_subject_ref
+    - field.field.node.page.field_top_content
+    - node.type.page
+  module:
+    - entity_reference_revisions
+    - user
+_core:
+  default_config_hash: Ia5yWlmQEzjCojTA6ufAidO_fW_RqrGRWFAxYC1oxs0
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  field_bottom_paragraphs:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_top_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  body: true
+  field_access_control: true
+  field_page_summary: true
+  field_sidebar_items: true
+  field_subject_ref: true
+  langcode: true

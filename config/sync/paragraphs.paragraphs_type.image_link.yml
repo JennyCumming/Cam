@@ -1,0 +1,12 @@
+uuid: cedffe88-7f9b-4495-841d-27f81e5a056d
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: CxNfOSBRvuxN9DOZg5pHo7c9NkXy5y1v-nDcXzPgfj8
+id: image_link
+label: 'Image link'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle Image link'
+behavior_plugins: {  }

@@ -1,0 +1,21 @@
+uuid: e0174b78-815b-4e6d-9b0d-ebc5ea5940fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_descriptive_text
+    - paragraphs.paragraphs_type.compact_callout
+_core:
+  default_config_hash: oTxepCbzLtB25BxjdAKj8HIovRQc42Sd3q273PE185M
+id: paragraph.compact_callout.field_descriptive_text
+field_name: field_descriptive_text
+entity_type: paragraph
+bundle: compact_callout
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

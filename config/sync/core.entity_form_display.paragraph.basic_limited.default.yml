@@ -1,0 +1,27 @@
+uuid: 7a477c6e-df48-4475-9f6f-a0949063bce9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.basic_limited.field_text
+    - paragraphs.paragraphs_type.basic_limited
+  module:
+    - text
+_core:
+  default_config_hash: gbvfgPpWB21K79IMpG8SpyffUAKJh_gW27aLgiNNgFc
+id: paragraph.basic_limited.default
+targetEntityType: paragraph
+bundle: basic_limited
+mode: default
+content:
+  field_text:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

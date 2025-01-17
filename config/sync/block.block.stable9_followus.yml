@@ -1,0 +1,23 @@
+uuid: 732d2dc0-c2a4-434b-8cfd-3bc016044447
+langcode: en
+status: true
+dependencies:
+  theme:
+    - stable9
+_core:
+  default_config_hash: DkZyzfoDYFwS88Py-EWzj5SK0u7kdhH0C7CMrwgU3A8
+id: stable9_followus
+theme: stable9
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'block_content:79095b73-4e1b-40b8-bb4a-a179d90d1ed7'
+settings:
+  id: 'block_content:79095b73-4e1b-40b8-bb4a-a179d90d1ed7'
+  label: 'Follow us'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

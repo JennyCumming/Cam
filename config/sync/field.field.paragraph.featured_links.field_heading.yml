@@ -1,0 +1,21 @@
+uuid: 95f6968a-bbf5-4e4c-9777-f9bad686adc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - paragraphs.paragraphs_type.featured_links
+_core:
+  default_config_hash: GqwZU2nRuC8y4o2wpijOFFaHyEoOKWbbe_KxtW4dvQA
+id: paragraph.featured_links.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: featured_links
+label: 'Links heading'
+description: "Displays above or next to the links. Use this to explain where the links are going to. For example 'How to apply' could be a heading for links that go to pages about the applying process."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

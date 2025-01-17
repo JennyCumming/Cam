@@ -1,0 +1,26 @@
+uuid: 1c0a47ae-7936-40d4-9e76-8da3758f8816
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.youtube.field_youtube_video
+    - paragraphs.paragraphs_type.youtube
+  module:
+    - media_library
+_core:
+  default_config_hash: c1TGDd2ZAIXZMHz5_L20LTW02wU3Xj7VaHW5YP7-LNw
+id: paragraph.youtube.default
+targetEntityType: paragraph
+bundle: youtube
+mode: default
+content:
+  field_youtube_video:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

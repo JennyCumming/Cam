@@ -1,0 +1,70 @@
+uuid: f4e3a1f1-5f99-4730-a10c-b01bc869780a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.notification.field_notification_text
+    - field.field.paragraph.notification.field_notification_typ
+    - paragraphs.paragraphs_type.notification
+  module:
+    - layout_builder
+    - nomarkup
+    - options
+    - sdc_display
+    - text
+third_party_settings:
+  sdc_display:
+    enabled: false
+    component:
+      machine_name: ''
+    mappings:
+      static:
+        props: {  }
+        slots: {  }
+      dynamic:
+        props: {  }
+        slots: {  }
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: FJLx4X26hovgm52ltt-2c_cp6jUnZu0NZud88_lguDc
+id: paragraph.notification.preview
+targetEntityType: paragraph
+bundle: notification
+mode: preview
+content:
+  field_notification_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+      sdc_display:
+        enabled: 0
+        component:
+          machine_name: null
+          show_deprecated: 0
+    weight: 1
+    region: content
+  field_notification_typ:
+    type: list_key
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+      sdc_display:
+        enabled: 0
+        component:
+          machine_name: null
+          show_deprecated: 0
+    weight: 0
+    region: content
+hidden: {  }

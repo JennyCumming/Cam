@@ -1,0 +1,23 @@
+uuid: c6f9959f-504d-42d8-8e7a-4e6d342abb14
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.content_teaser.field_paragraph_content_ref
+    - paragraphs.paragraphs_type.content_teaser
+_core:
+  default_config_hash: PpcfVnTwvQDSzT0L9nsvJKuK7SHKd4XfMcN6XRlkKnc
+id: paragraph.content_teaser.default
+targetEntityType: paragraph
+bundle: content_teaser
+mode: default
+content:
+  field_paragraph_content_ref:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

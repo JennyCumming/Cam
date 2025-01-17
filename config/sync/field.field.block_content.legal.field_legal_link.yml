@@ -1,0 +1,25 @@
+uuid: 0989bd85-5898-4b7f-96d5-a92b1d63f070
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.legal
+    - field.storage.block_content.field_legal_link
+  module:
+    - link
+_core:
+  default_config_hash: '-6XGqHejjLUJFsp4JhRx4giJ5Vsfbnh_mU35nDERT10'
+id: block_content.legal.field_legal_link
+field_name: field_legal_link
+entity_type: block_content
+bundle: legal
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

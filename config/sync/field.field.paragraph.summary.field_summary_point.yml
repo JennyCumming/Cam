@@ -1,0 +1,26 @@
+uuid: 609a281c-5db8-41cc-a53f-224a3dfd1236
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_summary_point
+    - filter.format.links_only
+    - paragraphs.paragraphs_type.summary
+  module:
+    - text
+_core:
+  default_config_hash: Hkc6gsucEKJ4juCzYsIMP9aB9shrM4cef4SVsGZlQno
+id: paragraph.summary.field_summary_point
+field_name: field_summary_point
+entity_type: paragraph
+bundle: summary
+label: 'List of bullet points'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - links_only
+field_type: text_long

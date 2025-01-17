@@ -1,0 +1,43 @@
+uuid: b63d4874-7a62-4716-b2e9-4735eb0cebb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.home_page.field_page_summary
+    - field.field.node.home_page.field_paragraph
+    - field.field.node.home_page.field_title_prefix
+    - node.type.home_page
+  module:
+    - layout_paragraphs
+    - user
+_core:
+  default_config_hash: uIvc-aKVtF8UpHLtIW229FKxRcSkmWph00l44zY085I
+id: node.home_page.default
+targetEntityType: node
+bundle: home_page
+mode: default
+content:
+  field_page_summary:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_paragraph:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_title_prefix: true
+  langcode: true

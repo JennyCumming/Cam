@@ -1,0 +1,20 @@
+uuid: 750e9a56-8383-4f23-a1cd-86254ec46990
+langcode: en
+status: true
+dependencies:
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: zi4yO7zLAaMY3kC3H4E4Lhi3f87ro9_eOdQoEAxWlko
+id: cambridge_tailwind_pagetitle
+theme: cambridge_tailwind
+region: pre_content
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

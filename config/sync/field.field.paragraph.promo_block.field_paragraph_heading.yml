@@ -1,0 +1,21 @@
+uuid: 279dce4c-8829-4c37-8fc4-f862349432ba
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_heading
+    - paragraphs.paragraphs_type.promo_block
+_core:
+  default_config_hash: 32q7yffqY955u69IWyy3_VGzPxYULLDeC7V3bIbRm48
+id: paragraph.promo_block.field_paragraph_heading
+field_name: field_paragraph_heading
+entity_type: paragraph
+bundle: promo_block
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

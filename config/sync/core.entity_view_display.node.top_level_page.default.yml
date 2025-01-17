@@ -1,0 +1,43 @@
+uuid: cc415c4d-c77a-44e2-be21-bfb36b92714f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.top_level_page.field_description
+    - field.field.node.top_level_page.field_page_summary
+    - field.field.node.top_level_page.field_paragraph
+    - node.type.top_level_page
+  module:
+    - layout_paragraphs
+    - user
+_core:
+  default_config_hash: obDO4Kh6AVb39tgi4DnCf66hlke4jmi-yErCaaxOLgU
+id: node.top_level_page.default
+targetEntityType: node
+bundle: top_level_page
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_paragraph:
+    type: layout_paragraphs
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_page_summary: true
+  langcode: true

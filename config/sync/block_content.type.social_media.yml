@@ -1,0 +1,10 @@
+uuid: 1bdcaa30-7e92-4117-a28d-a4d138d46e3d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: t5RZyoBtrxVStcAm3tMlyoMasoM1xM8axxUXrLY0UsE
+id: social_media
+label: 'Social media'
+revision: 0
+description: ''

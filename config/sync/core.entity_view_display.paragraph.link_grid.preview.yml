@@ -1,0 +1,52 @@
+uuid: 6f52abde-2700-4b77-8cce-90d7c09c1bca
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.link_grid.field_link_grid_description
+    - field.field.paragraph.link_grid.field_link_grid_title
+    - field.field.paragraph.link_grid.field_link_with_description
+    - paragraphs.paragraphs_type.link_grid
+  module:
+    - layout_builder
+    - link_description
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: 3WBBnK3rPkwemwh6EGfGBchImhLWJxJuG02cFHu7oOs
+id: paragraph.link_grid.preview
+targetEntityType: paragraph
+bundle: link_grid
+mode: preview
+content:
+  field_link_grid_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link_grid_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link_with_description:
+    type: link_description
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

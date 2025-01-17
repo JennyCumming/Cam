@@ -1,0 +1,11 @@
+uuid: 42256c7e-03ab-4fcb-8ab5-fc855c1d7079
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: oQkSiAvs6wjGxGmGUDyTZU8mgrK4jBsY_UK17qtiwUQ
+name: Subject
+vid: subject
+description: null
+weight: 0
+new_revision: false

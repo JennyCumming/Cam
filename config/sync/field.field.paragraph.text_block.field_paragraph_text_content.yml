@@ -1,0 +1,24 @@
+uuid: 1abb2084-4d2c-49e4-9dd1-b6c2394865ea
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_paragraph_text_content
+    - paragraphs.paragraphs_type.text_block
+  module:
+    - text
+_core:
+  default_config_hash: 2hUad7ZH-pH2EVyYGq7YtY1Zya3exUK_aI0N52uNRt0
+id: paragraph.text_block.field_paragraph_text_content
+field_name: field_paragraph_text_content
+entity_type: paragraph
+bundle: text_block
+label: 'Text content'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

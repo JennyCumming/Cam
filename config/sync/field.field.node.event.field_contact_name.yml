@@ -1,0 +1,21 @@
+uuid: 0c411a6c-5210-4c4c-a81b-70d32a891e09
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_name
+    - node.type.event
+_core:
+  default_config_hash: R18m0TX7iqsIV2pOIqrsl-hHg6ZNqEmm2Be0ZmTQPEk
+id: node.event.field_contact_name
+field_name: field_contact_name
+entity_type: node
+bundle: event
+label: 'Contact name'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

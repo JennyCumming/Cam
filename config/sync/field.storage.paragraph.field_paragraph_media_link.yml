@@ -1,0 +1,21 @@
+uuid: b040719a-0609-42fa-8caa-2fb73042dfc4
+langcode: und
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: 0-hJfXJNnB4cBBnQMm14Y5qBoP_v_a9m7WAlG1I2_2s
+id: paragraph.field_paragraph_media_link
+field_name: field_paragraph_media_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

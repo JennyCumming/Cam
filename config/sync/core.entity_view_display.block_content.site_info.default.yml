@@ -1,0 +1,30 @@
+uuid: 3da37af4-ee96-4bfa-be6a-cb4e92649bc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.site_info
+    - field.field.block_content.site_info.field_site_info_link
+  module:
+    - link
+_core:
+  default_config_hash: Rro21pj0-kxkizQl9OAtjiNCB81nlBkLr1eyFikk_Ig
+id: block_content.site_info.default
+targetEntityType: block_content
+bundle: site_info
+mode: default
+content:
+  field_site_info_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

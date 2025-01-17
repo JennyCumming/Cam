@@ -1,0 +1,235 @@
+uuid: 76b36855-11fb-4c3d-aa0d-3d0974ac532b
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.full
+    - field.field.paragraph.promo_block.field_paragraph_heading
+    - field.field.paragraph.promo_block.field_paragraph_image
+    - field.field.paragraph.promo_block.field_paragraph_text_content
+    - field.field.paragraph.promo_block.field_paragraph_url
+    - paragraphs.paragraphs_type.promo_block
+  module:
+    - ds
+    - field_group
+    - link
+    - smart_trim
+third_party_settings:
+  field_group:
+    group_container:
+      children:
+        - field_paragraph_heading
+        - field_paragraph_image
+        - group_grouping
+      label: container
+      parent_name: ''
+      region: content
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: 'campl-vertical-teaser campl-teaser campl-promo-teaser'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        formatter: open
+        description: ''
+    group_grouping:
+      children:
+        - field_paragraph_text_content
+        - field_paragraph_url
+      label: grouping
+      parent_name: group_container
+      region: content
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: 'campl-content-container campl-vertical-teaser-txt clearfix'
+        show_empty_fields: false
+        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        formatter: open
+        description: ''
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - group_container
+        - field_paragraph_heading
+        - field_paragraph_image
+        - field_paragraph_text_content
+        - group_grouping
+        - field_paragraph_url
+_core:
+  default_config_hash: h3wE5dEjjNkwXWhkt0hluU8l95ybAqgM2CV6jlCE5c8
+id: paragraph.promo_block.full
+targetEntityType: paragraph
+bundle: promo_block
+mode: full
+content:
+  field_paragraph_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: div
+            ow-cl: 'campl-content-container camel-vertical-teaser-txt'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: p
+            fi-cl: campl-teaser-title
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 0
+    region: content
+  field_paragraph_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: sidebar_teaser
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: div
+            ow-cl: 'campl-content-container campl-vertical-teaser-img'
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: false
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 1
+    region: content
+  field_paragraph_text_content:
+    type: smart_trim
+    label: hidden
+    settings:
+      trim_length: 140
+      trim_type: chars
+      trim_suffix: ...
+      wrap_output: false
+      wrap_class: trimmed
+      more:
+        display_link: false
+        target_blank: false
+        link_trim_only: false
+        class: more-link
+        text: 'Read more'
+        aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: false
+        trim_zero: false
+        replace_tokens: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 2
+    region: content
+  field_paragraph_url:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: false
+            ow-el: ''
+            ow-cl: ''
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: div
+            fi-cl: 'campl-secondary-cta campl-float-right'
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 3
+    region: content
+hidden: {  }

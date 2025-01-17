@@ -1,0 +1,21 @@
+uuid: f9503f54-f95f-4c0d-8e90-577b39eb9b83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_callout_header
+    - paragraphs.paragraphs_type.compact_callout
+_core:
+  default_config_hash: NdUVv1pplh_l2pnwwMu_zRdZCnxzK1v_IkTNcidrK0k
+id: paragraph.compact_callout.field_callout_header
+field_name: field_callout_header
+entity_type: paragraph
+bundle: compact_callout
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

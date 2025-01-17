@@ -1,0 +1,21 @@
+uuid: 0caa1608-5d23-456d-a065-9fe7d4ae689f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_divider_header
+    - paragraphs.paragraphs_type.section_divider
+_core:
+  default_config_hash: 3WsihDuaYRUls2jBcJCoymrqmfAVwXSz1kvjAd-HxIc
+id: paragraph.section_divider.field_section_divider_header
+field_name: field_section_divider_header
+entity_type: paragraph
+bundle: section_divider
+label: 'Section divider header'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

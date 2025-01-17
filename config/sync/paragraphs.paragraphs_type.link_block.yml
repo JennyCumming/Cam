@@ -1,0 +1,12 @@
+uuid: a3f84994-4620-4782-8f5c-a40d45767fc4
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: LgtvxLoRU7_AfdVP9mtmPUaybfzaJfjTUB2Rh8IYTgE
+id: link_block
+label: 'Link block'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle Link block'
+behavior_plugins: {  }

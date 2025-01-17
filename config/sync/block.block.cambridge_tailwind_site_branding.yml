@@ -1,0 +1,25 @@
+uuid: d41b99b8-1338-41a5-a7bb-818c18472c60
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: pMblOTWpEjz_vSZbv141RT8Pe6h_LTURk5MQjGDP66Q
+id: cambridge_tailwind_site_branding
+theme: cambridge_tailwind
+region: header
+weight: -7
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 1389237c-8bf1-422c-ba95-43083c8af009
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page
+    - node.type.page
+    - node.type.staff_profile
+  module:
+    - node
+_core:
+  default_config_hash: PX5PxXlt_oJvCf25mboV_sfZznBVJt4HDdnbAP_P0rw
+id: cambridge_admin
+label: 'Cambridge admin'
+weight: 3
+is_admin: null
+permissions:
+  - 'delete any landing_page content'
+  - 'delete any staff_profile content'
+  - 'revert page revisions'

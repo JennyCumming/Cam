@@ -1,0 +1,33 @@
+uuid: 9fd0e8d8-f047-4447-ae78-86399d59b3ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.staff_profile.body
+    - field.field.node.staff_profile.field_page_summary
+    - node.type.staff_profile
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: o6G07drD1DgOxTjcnpW1bwdRU4uO9e1zCOF5rq75ATA
+id: node.staff_profile.default
+targetEntityType: node
+bundle: staff_profile
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_page_summary: true
+  langcode: true

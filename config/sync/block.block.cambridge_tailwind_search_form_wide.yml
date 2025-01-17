@@ -1,0 +1,23 @@
+uuid: 75b08b15-c383-4ab3-8c0e-d61620e9c757
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: I-KFLPixO-67nEhEuDb6WqiEaU8G9kLnHot7U7SaCt0
+id: cambridge_tailwind_search_form_wide
+theme: cambridge_tailwind
+region: header
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: node_search
+visibility: {  }

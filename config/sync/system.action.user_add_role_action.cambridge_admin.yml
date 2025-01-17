@@ -1,0 +1,14 @@
+uuid: e0087369-3b1b-4976-9058-a4d60a0b34fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.cambridge_admin
+  module:
+    - user
+id: user_add_role_action.cambridge_admin
+label: 'Add the Cambridge admin role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cambridge_admin

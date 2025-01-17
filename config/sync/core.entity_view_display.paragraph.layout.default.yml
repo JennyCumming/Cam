@@ -1,0 +1,14 @@
+uuid: fd1c5ec1-3906-4515-9d70-b3f1f17e493a
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.layout
+_core:
+  default_config_hash: Fxs_OIgrxp0C_5fanFvVll4IOPfZJe-ccYQ58cyhQ6M
+id: paragraph.layout.default
+targetEntityType: paragraph
+bundle: layout
+mode: default
+content: {  }
+hidden: {  }

@@ -1,0 +1,23 @@
+uuid: 56c8a053-ae7f-44f1-8d5f-67d57d490102
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - views
+    - viewsreference
+_core:
+  default_config_hash: CLIEGLe2Dyzf4G6R_WAe41rM-ETgkZF6hNHE8lEsinc
+id: paragraph.field_news
+field_name: field_news
+entity_type: paragraph
+type: viewsreference
+settings:
+  target_type: view
+module: viewsreference
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

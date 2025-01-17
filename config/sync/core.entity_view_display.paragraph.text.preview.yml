@@ -1,0 +1,52 @@
+uuid: cfd51317-27a0-46aa-ae75-82d17a3a150c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.text.field_text
+    - paragraphs.paragraphs_type.text
+  module:
+    - layout_builder
+    - nomarkup
+    - sdc_display
+    - text
+third_party_settings:
+  sdc_display:
+    enabled: false
+    component:
+      machine_name: ''
+    mappings:
+      static:
+        props: {  }
+        slots: {  }
+      dynamic:
+        props: {  }
+        slots: {  }
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: CqoeTLfiKWOI2ON01yQLVgLC2TRJwb7BTEPFWhQL1qY
+id: paragraph.text.preview
+targetEntityType: paragraph
+bundle: text
+mode: preview
+content:
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      nomarkup:
+        enabled: true
+        separator: '|'
+        referenced_entity: ''
+      sdc_display:
+        enabled: 0
+        component:
+          machine_name: null
+          show_deprecated: 0
+    weight: 0
+    region: content
+hidden: {  }

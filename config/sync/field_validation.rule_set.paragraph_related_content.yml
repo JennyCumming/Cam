@@ -1,0 +1,27 @@
+uuid: 8df1c98c-b239-4ec5-b766-e9178ba9bafd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: KoAKqDoGC5tbw_GCtTFYCDx-Mse72UqlmOi7KvPumLc
+name: paragraph_related_content
+label: 'paragraph related_content validation'
+entity_type: paragraph
+bundle: related_content
+field_validation_rules:
+  94c7e113-13f1-4b30-82d3-ba9610166e0c:
+    uuid: 94c7e113-13f1-4b30-82d3-ba9610166e0c
+    id: item_count_field_validation_rule
+    title: 'Related links have at least 2 links'
+    weight: 1
+    field_name: field_link
+    column: uri
+    error_message: 'Please ensure there are at least 2 links'
+    roles: {  }
+    condition:
+      field: ''
+      operator: ''
+      value: ''
+    data:
+      min: 2
+      max: null

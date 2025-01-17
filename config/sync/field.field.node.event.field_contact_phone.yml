@@ -1,0 +1,21 @@
+uuid: f6ddb750-67af-4c09-bbf1-d9bc3c6fa0b0
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_phone
+    - node.type.event
+_core:
+  default_config_hash: CJ8TkEED0t8heefy2hzyMxMgE84SE8IkYlxfhd-tGOs
+id: node.event.field_contact_phone
+field_name: field_contact_phone
+entity_type: node
+bundle: event
+label: 'Contact phone'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

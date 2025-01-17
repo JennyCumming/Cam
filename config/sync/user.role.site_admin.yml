@@ -1,0 +1,20 @@
+uuid: fd7967d3-0cfb-42c1-898f-72298097bbc5
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.landing_page
+    - node.type.page
+    - node.type.staff_profile
+  module:
+    - node
+_core:
+  default_config_hash: vj7DOBpn6sQu3hAMHynZon1zmtSkRaNphdFNsE7WDdg
+id: site_admin
+label: 'Site admin'
+weight: 4
+is_admin: null
+permissions:
+  - 'delete any landing_page content'
+  - 'delete any staff_profile content'
+  - 'revert page revisions'

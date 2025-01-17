@@ -1,0 +1,24 @@
+uuid: 286aadef-0e72-4a7d-86cb-55d8ef4b636c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.youtube.field_youtube_video
+    - paragraphs.paragraphs_type.youtube
+_core:
+  default_config_hash: kGANBL7yi3t_00vnoXQKDbqu8m0EFLeNJmZS2O6kz2o
+id: paragraph.youtube.default
+targetEntityType: paragraph
+bundle: youtube
+mode: default
+content:
+  field_youtube_video:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

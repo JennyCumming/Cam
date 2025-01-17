@@ -1,0 +1,22 @@
+uuid: 40d80b46-e463-42a1-87f4-afaddb900647
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: YExS87FVubcCWvr0G7BbFt3rcKcAuHQ-mU_VK-Pjzqo
+id: cambridge_tailwind_breadcrumbs
+theme: cambridge_tailwind
+region: pre_content
+weight: 4
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

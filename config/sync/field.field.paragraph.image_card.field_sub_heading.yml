@@ -1,0 +1,21 @@
+uuid: 36f336bb-38f8-4a0d-9e39-7a01fe92dc6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sub_heading
+    - paragraphs.paragraphs_type.image_card
+_core:
+  default_config_hash: nMhPJXUINetXrN64GmLOvNWhDhAouUJNFeu-zU4LE88
+id: paragraph.image_card.field_sub_heading
+field_name: field_sub_heading
+entity_type: paragraph
+bundle: image_card
+label: Label
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

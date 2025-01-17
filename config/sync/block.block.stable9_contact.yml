@@ -1,0 +1,23 @@
+uuid: 983e4392-b58e-487b-b47e-db91b617019d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - stable9
+_core:
+  default_config_hash: cqtbUFLrcNcONNYFaMlJVrfDINEi-TsobE3HZip29oA
+id: stable9_contact
+theme: stable9
+region: sidebar_first
+weight: -8
+provider: null
+plugin: 'block_content:c32ada71-ed32-4eac-9a28-70220267872b'
+settings:
+  id: 'block_content:c32ada71-ed32-4eac-9a28-70220267872b'
+  label: Contact
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

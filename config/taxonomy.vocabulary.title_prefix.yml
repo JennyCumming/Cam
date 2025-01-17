@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Title prefix'
-vid: title_prefix
-description: 'Small text that appears before a department name on a homepage'
-weight: 0

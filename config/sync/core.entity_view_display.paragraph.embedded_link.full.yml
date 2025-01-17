@@ -1,0 +1,86 @@
+uuid: 2621bc03-b30d-4bfd-9496-d3b92a89c8ee
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.full
+    - field.field.paragraph.embedded_link.field_paragraph_heading
+    - field.field.paragraph.embedded_link.field_paragraph_media_link
+    - paragraphs.paragraphs_type.embedded_link
+  module:
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - field_paragraph_heading
+        - field_paragraph_media_link
+_core:
+  default_config_hash: QOlWXNmyj6G2F9tokb37dLBpl_NDNkWN-MqctfrU18c
+id: paragraph.embedded_link.full
+targetEntityType: paragraph
+bundle: embedded_link
+mode: full
+content:
+  field_paragraph_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            lbw: false
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            lb-col: false
+            ow: true
+            ow-el: div
+            ow-cl: campl-heading-container
+            ow-at: ''
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fis-def-at: false
+            fi: true
+            fi-el: h2
+            fi-cl: ''
+            fi-at: ''
+            fi-def-at: false
+            prefix: ''
+            suffix: ''
+    weight: 0
+    region: content
+  field_paragraph_media_link:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: sidebar_teaser
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: default
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    weight: 1
+    region: content
+hidden: {  }

@@ -1,0 +1,18 @@
+uuid: 24ceb18e-f582-49f3-a753-11b589fa85a2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: IjFYjAR6SIfXt-ONtQzqCDGbMOy1SAbQb5wKXLTtdVg
+name: featured_links_image
+label: 'Featured links image'
+effects:
+  1c1f8a2d-9e9f-45f4-aa7b-026ff0c749f4:
+    uuid: 1c1f8a2d-9e9f-45f4-aa7b-026ff0c749f4
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 608
+      height: 565
+      anchor: center-center
+pipeline: __default__

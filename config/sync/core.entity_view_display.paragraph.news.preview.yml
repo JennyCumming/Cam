@@ -1,0 +1,71 @@
+uuid: 126d2af0-64f3-4bf3-a672-5230817b8efe
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.news.field_heading
+    - field.field.paragraph.news.field_highlight_story
+    - field.field.paragraph.news.field_highlight_story_2
+    - field.field.paragraph.news.field_news
+    - paragraphs.paragraphs_type.news
+  module:
+    - layout_builder
+    - sdc_display
+    - viewsreference
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  sdc_display:
+    enabled: false
+    component:
+      machine_name: ''
+    mappings:
+      static:
+        props: {  }
+        slots: {  }
+      dynamic:
+        props: {  }
+        slots: {  }
+_core:
+  default_config_hash: w75-jwINFZ1CoJIBk-gW1dOR_l9sUlh8XcpOXUU9zSw
+id: paragraph.news.preview
+targetEntityType: paragraph
+bundle: news
+mode: preview
+content:
+  field_heading:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_highlight_story:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_highlight_story_2:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_news:
+    type: viewsreference_formatter
+    label: hidden
+    settings:
+      plugin_types:
+        - block
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

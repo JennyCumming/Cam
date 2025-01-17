@@ -1,0 +1,26 @@
+uuid: d3a76a5c-c8b7-4bd7-9222-fff9f8433ef2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.landing_page
+  module:
+    - text
+_core:
+  default_config_hash: eFjYlcRbT3tpk1uJJw9UBOzZKB2HklTOvUdlvf4QfSE
+id: node.landing_page.body
+field_name: body
+entity_type: node
+bundle: landing_page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

@@ -1,0 +1,25 @@
+uuid: 3e46cc2f-d9f5-4f36-9a91-2d243aeca821
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_position
+    - paragraphs.paragraphs_type.featured_links
+_core:
+  default_config_hash: OG8ytftCPaZ7-jXKoG18PLJHX2ultUPMBgjDNAAPbRM
+id: paragraph.featured_links.field_image_position
+field_name: field_image_position
+entity_type: paragraph
+bundle: featured_links
+label: 'Align image'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Right
+  off_label: Left
+field_type: boolean
