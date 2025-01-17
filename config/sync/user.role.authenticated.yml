@@ -9,6 +9,7 @@ dependencies:
     - media.type.image
     - node.type.event
     - node.type.home_page
+    - node.type.jennys_content_type
     - node.type.page
     - node.type.top_level_page
   module:
@@ -23,6 +24,7 @@ dependencies:
     - simple_menu_permissions
     - system
     - toolbar
+    - view_unpublished
     - website_feedback
 _core:
   default_config_hash: o4MpxtHTYRDOAGm0Crt3T_6emSoF9Dfwu0pY5-k1xHU
@@ -41,33 +43,40 @@ permissions:
   - 'add new links to main menu'
   - 'administer menu'
   - 'create image media'
+  - 'create jennys_content_type content'
   - 'create media'
   - 'create page content'
   - 'create top_level_page content'
   - 'create url aliases'
   - 'create website feedback'
   - 'delete any image media'
+  - 'delete any jennys_content_type content'
   - 'delete any page content'
   - 'delete any top_level_page content'
+  - 'delete jennys_content_type revisions'
   - 'delete links in main menu'
   - 'delete media'
   - 'delete own files'
   - 'delete own image media'
+  - 'delete own jennys_content_type content'
   - 'delete own page content'
   - 'delete own top_level_page content'
   - 'edit any event content'
   - 'edit any home_page content'
   - 'edit any image media'
+  - 'edit any jennys_content_type content'
   - 'edit any page content'
   - 'edit any top_level_page content'
   - 'edit links in main menu'
   - 'edit main menu'
   - 'edit own event content'
   - 'edit own image media'
+  - 'edit own jennys_content_type content'
   - 'edit own page content'
   - 'edit own top_level_page content'
   - 'revert event revisions'
   - 'revert home_page revisions'
+  - 'revert jennys_content_type revisions'
   - 'revert page revisions'
   - 'revert top_level_page revisions'
   - 'search content'
@@ -77,7 +86,9 @@ permissions:
   - 'use text format basic_html_no_h2'
   - 'use text format links_only'
   - 'view all media revisions'
+  - 'view any unpublished jennys_content_type content'
   - 'view home_page revisions'
+  - 'view jennys_content_type revisions'
   - 'view main menu in menu list'
   - 'view media'
   - 'view message banner'

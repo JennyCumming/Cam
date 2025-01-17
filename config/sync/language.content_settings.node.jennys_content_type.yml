@@ -1,0 +1,11 @@
+uuid: 2facb76d-634f-4d6f-8478-8898bd02a737
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.jennys_content_type
+id: node.jennys_content_type
+target_entity_type_id: node
+target_bundle: jennys_content_type
+default_langcode: site_default
+language_alterable: false

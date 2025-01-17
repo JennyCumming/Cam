@@ -6,8 +6,10 @@ dependencies:
     - field.storage.node.field_paragraph
     - node.type.page
     - paragraphs.paragraphs_type.image_media
+    - paragraphs.paragraphs_type.notification
     - paragraphs.paragraphs_type.page_item
     - paragraphs.paragraphs_type.questions_and_answers
+    - paragraphs.paragraphs_type.summary
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
@@ -29,10 +31,15 @@ settings:
     target_bundles:
       text: text
       image_media: image_media
+      notification: notification
+      summary: summary
       page_item: page_item
       questions_and_answers: questions_and_answers
     negate: 0
     target_bundles_drag_drop:
+      accordion:
+        weight: 30
+        enabled: false
       basic_limited:
         weight: 29
         enabled: false
@@ -83,7 +90,7 @@ settings:
         enabled: false
       notification:
         weight: 12
-        enabled: false
+        enabled: true
       page_item:
         weight: 46
         enabled: true
@@ -101,7 +108,7 @@ settings:
         enabled: false
       summary:
         weight: 14
-        enabled: false
+        enabled: true
       text:
         weight: 7
         enabled: true

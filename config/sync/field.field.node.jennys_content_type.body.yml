@@ -1,0 +1,24 @@
+uuid: 7c7cdd8a-223c-41d7-8773-ab620b18f17b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.jennys_content_type
+  module:
+    - text
+id: node.jennys_content_type.body
+field_name: body
+entity_type: node
+bundle: jennys_content_type
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

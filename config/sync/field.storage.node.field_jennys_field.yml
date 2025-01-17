@@ -1,0 +1,27 @@
+uuid: 49be3592-a4b9-4251-bc1d-f91bcda1ecd1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_jennys_field
+field_name: field_jennys_field
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: abc
+      label: ABC
+    -
+      value: bcd
+      label: BCD
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

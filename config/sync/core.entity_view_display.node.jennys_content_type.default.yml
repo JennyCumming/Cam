@@ -1,0 +1,38 @@
+uuid: 3fed5b52-c8bb-473d-8860-062be97f639a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.jennys_content_type.body
+    - field.field.node.jennys_content_type.field_jennys_field
+    - node.type.jennys_content_type
+  module:
+    - options
+    - text
+    - user
+id: node.jennys_content_type.default
+targetEntityType: node
+bundle: jennys_content_type
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_jennys_field:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,21 @@
+uuid: 0c0b511d-3ef5-46dc-8856-c6cada851145
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_jennys_field
+    - node.type.jennys_content_type
+  module:
+    - options
+id: node.jennys_content_type.field_jennys_field
+field_name: field_jennys_field
+entity_type: node
+bundle: jennys_content_type
+label: 'Jennys field'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
