@@ -1,3 +1,29 @@
 # Ignore OS-specific files
 .DS_Store
-*/.DS_Store
+**/.DS_Store
+
+# Ignore Composer generated files
+vendor/
+core/
+composer.lock/
+.drush-lock-update
+web/.csslintrc
+web/.eslintignore
+web/.eslintrc.json
+web/.ht.router.php
+web/.htaccess
+web/INSTALL.txt
+web/autoload.php
+web/example.gitignore
+web/index.php
+web/modules/contrib/
+web/robots.txt
+web/themes/contrib/
+web/update.php
+web/web.config
+
+# Ignore locally generated files
+.ddev/
+.vscode/
+README.md
+web/modules/README.txt
