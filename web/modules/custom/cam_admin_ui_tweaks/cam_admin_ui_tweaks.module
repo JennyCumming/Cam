@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
 
 /**
 * Implements hook_theme_suggestions_alter().
@@ -29,12 +30,12 @@ function cam_admin_ui_tweaks_page_attachments(array &$attachments) {
 * Implements hook_theme().
 */
 function cam_admin_ui_tweaks_theme($existing, $type, $theme, $path) {
-return [
-  'paragraph__admin_preview' => [
-  'base hook' => 'paragraph',
-  'path' => $path . '/templates/paragraphs',
-  ],
-];
+  return [
+    'paragraph__admin_preview' => [
+      'base hook' => 'paragraph',
+      'path' => $path . '/templates/paragraphs',
+    ],
+  ];
 }
 
 function cam_admin_ui_tweaks_preprocess_paragraph(&$variables) {
@@ -52,6 +53,92 @@ function cam_admin_ui_tweaks_library_info_alter(array &$libraries, $extension)
 {
   if ($extension === 'message_banner' && isset($libraries['message_banner'])) {
     $libraries['message_banner']['header'] = true;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function cam_admin_ui_tweaks_form_system_theme_settings_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Only alter the form for cambridge_tailwind theme
+  if (empty($form_state->getBuildInfo()['args'][0]) || $form_state->getBuildInfo()['args'][0] !== 'cambridge_tailwind') {
+    return;
+  }
+
+  // Add colour scheme fieldset
+  $form['color_scheme'] = [
+    '#type' => 'details',
+    '#title' => t('Colour scheme'),
+    '#open' => TRUE,
+    '#weight' => -100,
+  ];
+
+  // Add colour scheme select with color box
+  $form['color_scheme']['color_wrapper'] = [
+    '#type' => 'container',
+    '#attributes' => [
+      'class' => ['color-select-wrapper'],
+    ],
+  ];
+
+  $form['color_scheme']['color_wrapper']['color'] = [
+    '#type' => 'select',
+    '#title' => t('Theme colour'),
+    '#options' => [
+      'teal' => t('Teal'),
+      'purple' => t('Purple'),
+      'green' => t('Green'),
+      'cherry' => t('Cherry'),
+      'grey' => t('Grey'),
+      'blue' => t('Blue'),
+    ],
+    '#default_value' => \Drupal::config('cambridge_tailwind.settings')->get('color') ?: 'teal',
+    '#description' => t('<br>Select the primary colour scheme for your site.'),
+  ];
+
+  $colors = [
+    'teal' => '#034553',
+    'purple' => '#4A2173',
+    'green' => '#0F4933',
+    'cherry' => '#74062E',
+    'grey' => '#36404F',
+    'blue' => '#14476B',
+  ];
+  
+  $current_color = \Drupal::config('cambridge_tailwind.settings')->get('color') ?: 'teal';
+  
+  $form['color_scheme']['color_wrapper']['color_box'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#attributes' => [
+      'class' => ['color-preview-box'],
+      'style' => 'background-color: ' . $colors[$current_color] . ';',
+      'data-colors' => json_encode([
+        'teal' => '#034553',
+        'purple' => '#4A2173',
+        'green' => '#0F4933',
+        'cherry' => '#74062E',
+        'grey' => '#36404F',
+        'blue' => '#14476B',
+      ]),
+    ],
+  ];
+
+  // Add submit handler to save color setting
+  $form['#submit'][] = 'cam_admin_ui_tweaks_theme_settings_submit';
+  
+  // Attach the color preview library
+  $form['#attached']['library'][] = 'cam_admin_ui_tweaks/color-preview';
+}
+
+/**
+ * Submit handler for theme settings form.
+ */
+function cam_admin_ui_tweaks_theme_settings_submit($form, FormStateInterface $form_state) {
+  if ($color = $form_state->getValue(['color_scheme', 'color_wrapper', 'color'])) {
+    \Drupal::configFactory()->getEditable('cambridge_tailwind.settings')
+      ->set('color', $color)
+      ->save();
   }
 }
 

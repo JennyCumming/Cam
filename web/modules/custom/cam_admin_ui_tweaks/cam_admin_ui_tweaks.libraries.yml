@@ -18,3 +18,13 @@ gin-overrides:
     theme:
       css/gin-overrides.css: {}
 
+color-preview:
+  version: 1.x
+  css:
+    theme:
+      css/color-preview.css: {}
+  js:
+    js/color-preview.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
