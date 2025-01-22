@@ -1,26 +1,31 @@
 {#
 /**
- * The Card component
+ * The Card Image component
  *
  * heading - a required string
- * sub_heading - an optional string
  * description - an optional string
- * image - required
+ * image_uri - URI optional
+ * image_alt - alt text for image
  * link - URL required (1 link only)
  */
  #}
 
-<a href="{{ link }}" class="border-b-1 hover:bg-stone-100 transition-colors duration-300 min-h-[300px] flex flex-col gap-3 self-stretch relative flex-1">
-    {{ image }}
-    <div class="pb-4">
-      {% if subheading %}
-        <p class="text-lg font-semibold text-[#4B5563]">{{ subheading }}</p>
-      {% endif %}
+<a href="{{ link }}" class="group border-solid border-b-2 pb-24 border-divider-subtle hover:border-divider-strong">
+    {% if image_uri %}
+      {% set image_uri = file_url(image_uri) %}
+      <img src="{{ image_uri }}" alt="{{ image_alt }}" class="rounded-4 w-full aspect-[4/3] object-cover">
+    {% endif %}
+    <div class="pt-24 px-4 flex items-center">
       {% if heading %}
-        <h3 class="text-xl font-semibold">{{ heading }}</h3>
+        <h5 class="font-semibold text-size-4 group-hover:text-link-hover mr-12">{{ heading }}</h5>
+        <span class="hidden fill-current group-hover:text-link-hover group-hover:inline-block transition-opacity">
+          <svg width="22" height="18" viewBox="0 0 22 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.561 9.473L0.989 10.025C0.345 10.048 0 9.358 0 8.852C0 8.346 0.322 7.702 0.966 7.702L18.561 8.231C16.376 7.104 11.431 3.401 11.431 1.745C11.431 0.778999 12.328 0.273 13.156 0.273C14.214 2.711 19.113 7.334 21.597 8.852C19.113 10.37 14.214 14.993 13.156 17.431C12.328 17.431 11.431 16.925 11.431 15.959C11.431 14.303 16.376 10.6 18.561 9.473Z" fill="currentColor"/>
+          </svg>
+        </span>
       {% endif %}
     </div>
     {% if description %}
-      <p class="text-sm text-gray-700 pr-10">{{ description }}</p>
+      <p class="pt-12 px-4 text-style-body-sm text-text-tertiary">{{ description }}</p>
     {% endif %}
 </a>

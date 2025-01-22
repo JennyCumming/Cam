@@ -1,0 +1,32 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: footer-contact
+name: Footer contact
+description: The footer navigation within a single site.
+group: Site components
+status: "experimental"
+props:
+  type: object
+  properties:
+    field_address_line_1:
+      type: string
+      title: field_address_line_1
+    field_address_line_2:
+      type: string
+      title: field_address_line_2
+    field_address_line_3:
+      type: string
+      title: field_address_line_3
+    field_post_code:
+      type: string
+      title: field_post_code
+    field_email:
+      type: string
+      title: field_email
+    field_telephone_number:
+      type: string
+      title: field_telephone_number
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once

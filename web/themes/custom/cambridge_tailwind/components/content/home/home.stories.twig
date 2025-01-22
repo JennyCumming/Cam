@@ -1,0 +1,29 @@
+{% stories home_page with
+  {
+    title: 'Page Layouts/Home',
+    argTypes: {
+      title: {
+        control: { type: "text" },
+      },
+    }
+  }
+%}
+
+  {% story home_page_1 with
+    {
+      name: '1. Default',
+      args: {
+        title: 'Website title',
+      }
+    }
+  %}
+
+    {% set content %}
+      <div class="bg-blue-300 text-center py-120">Content</div>
+    {% endset %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/components/content/home/home.twig' %}
+  {% endstory %}
+
+{% endstories %}

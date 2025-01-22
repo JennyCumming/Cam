@@ -35,9 +35,39 @@ const colors = {
 
 export default {
   content: [
-    "./templates/**/*.{html,twig}",
-    "./components/**/*.{html,twig}",
+    "./templates/**/*.{html,twig,ts}",
+    "./components/**/*.{html,twig,ts}",
     "./cambridgeComponents/**/*.{html,twig}",
+  ],
+  safelist: [
+    ...[
+      // Annoyingly since we auto-generate the prose classes, tailwind doesn't detect them
+      // And so won't generate the CSS for them
+      // So we need to safelist the required subset of them here
+      // Done it in such a way to easily add more if needed without having to understand the quirks of prose...
+      "underline-offset-4",
+      "decoration-1",
+      "underline",
+      "hover:underline",
+      "active:underline",
+      "active:bg-transparent",
+      "active:shadow-none",
+      "text-link-default",
+      "hover:text-link-hover",
+      "hover:decoration-link-default",
+      "active:text-link-active",
+      "active:decoration-link-default",
+    ].map((className) => {
+      const splitClassName = className.split(":");
+      if (splitClassName.length === 1) {
+        return `prose-a:${className}`;
+      } else {
+        return `${splitClassName[0]}:prose-a:${splitClassName[1]}`;
+      }
+    }),
+    "stroke-current",
+    "md:max-w-[800px]",
+    "empty:hidden",
   ],
   theme: {
     fontFamily: {
@@ -54,6 +84,7 @@ export default {
       md: "1024px",
       lg: "1280px",
       xl: "1536px",
+      "2xl": "1800px",
     },
     boxShadow: {
       none: "none",
@@ -75,11 +106,14 @@ export default {
       8: "8px",
       12: "12px",
       16: "16px",
+      20: "20px",
       24: "24px",
       32: "32px",
+      36: "36px",
       40: "40px",
       48: "48px",
       64: "64px",
+      76: "76px",
       80: "80px",
       96: "96px",
       120: "120px",
@@ -98,8 +132,9 @@ export default {
       text: {
         primary: colors.blue[900],
         secondary: colors.blue[900] + "D9",
+        "contrast-secondary": "rgba(255, 255, 255, 0.88)",
         tertiary: colors.blue[900] + "BF",
-        inverse: colors.white,
+        inverse: colors.white + "E0",
       },
       surface: {
         default: colors.green[100],
@@ -113,11 +148,23 @@ export default {
       divider: {
         subtle: colors.blue[700] + "26",
         strong: colors.blue[700] + "59",
+        "contrast-subtle": colors.white + "26",
       },
       link: {
         default: colors.blue[900],
         hover: colors.cherry[200],
         active: colors.cherry[300],
+        contrast: colors.blue[50],
+        "contrast-hover": colors.blue[200],
+        "contrast-active": colors.blue[100],
+      },
+      light: {
+        teal: "#C5EEEA",
+        purple: "#ECE3F6",
+        cherry: "#F7D9E3",
+        green: "#DAF2E9",
+        grey: "#E9ECF1",
+        blue: "#CFE5F4",
       },
     },
     extend: {
@@ -128,9 +175,19 @@ export default {
             "--tw-prose-counters": theme("colors.text.secondary"),
             "--tw-prose-th-borders": "#E9EBEF",
             "--tw-prose-td-borders": "#E9EBEF",
+            a: {
+              // Reset the default link styles
+              "font-weight": theme("fontWeight.regular"),
+              "text-decoration": "none",
+            },
           },
         },
       }),
+      rotate: {
+        0: "0deg",
+        90: "90deg",
+        180: "180deg",
+      },
     },
   },
   plugins: [
@@ -199,7 +256,7 @@ export default {
         },
         ".text-style-heading-md": {
           fontFamily: theme("fontFamily.sans") as CSSRuleObject,
-          lineHeight: "1.5",
+          lineHeight: "1.45",
           fontWeight: "550",
           "@apply text-size-5": {},
         },
@@ -239,38 +296,6 @@ export default {
           textWrap: "pretty",
           "@apply text-size-1": {},
         },
-        ".text-style-link": {
-          color: theme("colors.link.default"),
-          fontWeight: theme("fontWeight.regular"),
-          textUnderlineOffset: theme("spacing.4"),
-          textDecorationThickness: "1px",
-          textDecorationLine: "none",
-          "@apply hover:text-style-link-hover": {},
-          "@apply focus:text-style-link-focus": {},
-          "@apply active:text-style-link-active": {},
-        },
-        ".text-style-link-inline": {
-          "@apply text-style-link": {},
-          color: "inherit",
-          textDecorationLine: "underline",
-        },
-        // Separate these styles out so we can render them in that state in the theme in storybook
-        ".text-style-link-active": {
-          textDecorationLine: "underline",
-          textDecorationColor: theme("colors.link.default"),
-          color: theme("colors.link.active"),
-          // Override the current focus state which clashes with this when both active
-          // Likely able to remove this when focus styles are added in am#109
-          background: "none",
-          boxShadow: "none",
-        },
-        ".text-style-link-hover": {
-          textDecorationLine: "underline",
-          textDecorationColor: theme("colors.link.default"),
-          color: theme("colors.link.hover"),
-        },
-        // TODO: Adding in focus styles as part of am#109
-        ".text-style-link-focus": {},
       } satisfies CSSRuleObject;
 
       const divide = {

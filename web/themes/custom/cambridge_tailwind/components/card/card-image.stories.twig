@@ -1,0 +1,120 @@
+{% stories card_image_id with
+  {
+    title: 'Components/CardImage',
+    argTypes: {
+      link: {
+        control: { type: "text" },
+      },
+      heading: {
+        control: { type: "text" },
+      },
+      description: {
+        control: { type: "text" },
+      },
+      image_uri: {
+        control: { type: "text" },
+      },
+      image_alt: {
+        control: { type: "text" },
+      },
+      group_heading: {
+        control: { type: "text" },
+      },
+      group_subheading: {
+        control: { type: "text" },
+      },
+    }
+  }
+%}
+
+  {% story card_1 with
+    {
+      name: '1. Default',
+      args: {
+        link: 'https://www.cam.ac.uk',
+        image_uri: 'public://MediaImage.jpg',
+        image_alt: 'Alt text',
+        heading: 'Card heading',
+        description: 'Card description, that is a paragraph, that can contain multiple lines of text.'
+      }
+    }
+  %}
+    {% include '@cambridge_tailwind/components/card/card-image.twig' %}
+  {% endstory %}
+
+  {% story card_2 with
+    {
+      name: '2. No image',
+      args: {
+        link: 'https://www.cam.ac.uk',
+        heading: 'Card heading',
+        description: 'Card description, that is a paragraph, that can contain multiple lines of text.'
+      }
+    }
+  %}
+    {% include '@cambridge_tailwind/components/card/card-image.twig' %}
+  {% endstory %}
+
+  {% story card_3 with
+    {
+      name: '3. Two card layout',
+      args: {
+        link: 'https://www.cam.ac.uk',
+        image_uri: 'public://MediaImage.jpg',
+        image_alt: 'Alt text',
+        heading: 'Card heading',
+        group_heading: 'Card group heading',
+        group_subheading: 'Card group subheading',
+      }
+    }
+  %}
+    {% set field_card %}
+      {% include '@cambridge_tailwind/components/card/card-image.twig' %}
+      {% include '@cambridge_tailwind/components/card/card-image.twig' %}
+    {% endset %}
+    {% include '@cambridge_tailwind/components/card/2-card-wrapper.twig' with {
+      content: {
+        field_heading: {
+          0: group_heading,
+        },
+        field_sub_heading: {
+          0: group_subheading,
+        },
+        field_card: field_card,
+      }
+    } %}
+  {% endstory %}
+
+
+  {% story card_4 with
+    {
+      name: '4. Three card layout',
+      args: {
+        link: 'https://www.cam.ac.uk',
+        image_uri: 'public://MediaImage.jpg',
+        image_alt: 'Alt text',
+        heading: 'Card heading',
+        group_heading: 'Card group heading',
+        group_subheading: 'Card group subheading',
+      }
+    }
+  %}
+    {% set field_card %}
+      {% include '@cambridge_tailwind/components/card/card-image.twig' %}
+      {% include '@cambridge_tailwind/components/card/card-image.twig' %}
+      {% include '@cambridge_tailwind/components/card/card-image.twig' %}
+    {% endset %}
+    {% include '@cambridge_tailwind/components/card/3-card-wrapper.twig' with {
+      content: {
+        field_heading: {
+          0: group_heading,
+        },
+        field_sub_heading: {
+          0: group_subheading,
+        },
+        field_card: field_card,
+      }
+    } %}
+  {% endstory %}
+
+{% endstories %}

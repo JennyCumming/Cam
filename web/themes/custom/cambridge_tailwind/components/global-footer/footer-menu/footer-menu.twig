@@ -1,0 +1,28 @@
+{#
+/**
+ * The footer menu navigation within a site.
+ *
+ * menu_item - An array of link objects (props from https://api.drupal.org/api/drupal/core%21themes%21stable9%21templates%21navigation%21menu.html.twig/9)
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+
+<div class="flex flex-col md:flex-row gap-16 md:gap-40">
+{% for item in menu_items %}
+  {% include '@cambridge_tailwind/components/link/text-link.twig' with {
+    url: item.url,
+    text: item.title,
+    inline: false,
+    dark: true
+  } %}
+{% endfor %}
+</div>

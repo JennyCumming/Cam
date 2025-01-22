@@ -50,6 +50,14 @@ It is recommended you install the [eslint](https://marketplace.visualstudio.com/
 
 ### Developing changes locally
 
+#### Local development with Gitflow
+
+Local development of this repository uses gitflow.
+
+Setup and usage can be found here: https://danielkummer.github.io/git-flow-cheatsheet/
+
+Note that all defaults should be uses during setup, so that (for example), `git flow feature start AM-123` results in a local branch named `git flow feature start feature/AM-123`
+
 #### Components
 
 Build stories
@@ -71,15 +79,55 @@ This will run storybook on http://cam.ddev.site:6006/
 
 Changes made to components will live update. Components must have a `components/**/*.stories.twig` file defining them in order to appear in storybook.
 
-#### Theme
+##### Quickstart
 
-To develop changes against the tailwind theme, run:
+Run:
 
 ```bash
 ddev npm run dev
 ```
 
+To start the watchers for Tailwind and TypeScript changes.
+
+##### JavaScript & TypeScript
+
+We use [TypeScript](https://www.typescriptlang.org/) to develop our code in a type-safe environment and write more reliable code. TypeScript compiles to JavaScript.
+
+We use `bundler` to compile type-safe `TypeScript` code, broken down into separate modules where required, into minified `JavaScript` files that are imported into the browser.
+
+To develop Typescript changes, run:
+
+```bash
+ddev npm run dev:ts
+```
+
+> Note this will be running already if you run `ddev npm run dev`.
+
+This will start `bundler` in watch mode, and will recompile the `.js` files.
+
+You may need to open your browser's developer tools and disable cacheing when making script changes in order to see changes reflected in storybook on refresh.
+
+#### Theme
+
+Tailwind is configured to produced as minified CSS as possible, it is configured to scan our Twig and JS files to detect classes we are using, and only produce CSS for the those we use. You therefore may need to recompile the theme to see additional classes apply styles.
+
+To develop changes against the tailwind theme, and to have Tailwind generate CSS for classes you've just started using, run:
+
+```bash
+ddev npm run dev:css
+```
+
+> Note this will be running already if you run `ddev npm run dev`.
+
 This is configured to watch for changes.
+
+#### Working with Storybook test images
+
+Any files placed in `.storybook/assets/` will be copied to the Drupal filesystem when using the local development environment command `ddev init` and `ddev refresh-drupal`
+
+You can also run `ddev storybook-setup` to just reinstall the npm dependencies and copy the assets.
+
+Once the assets are in place, images can be passed through to supporting components using the stream wrapper format: `public://my-asset-filename.jpg`
 
 ### Formatting and linting
 

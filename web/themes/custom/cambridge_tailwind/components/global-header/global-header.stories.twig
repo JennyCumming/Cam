@@ -1,0 +1,30 @@
+{% stories global_header_id with
+  {
+    title: 'Landmarks/Global Header',
+    argTypes: {
+      site_name: {
+        control: { type: "text" },
+      },
+      site_domain: {
+        control: { type: "text" },
+      },
+    }
+
+  }
+%}
+
+  {% story global_header_1 with
+    {
+      name: '1. Default',
+      args: {
+        site_name: "My site name",
+        site_domain: "domain.com",
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/global-header/global-header.twig' with { site_name, site_domain } %}
+  {% endstory %}
+
+
+{% endstories %}

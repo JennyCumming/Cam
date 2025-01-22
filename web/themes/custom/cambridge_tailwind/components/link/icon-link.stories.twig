@@ -1,0 +1,239 @@
+{% stories icon_link_id with
+  {
+    title: 'Components/IconLink',
+    argTypes: {
+      url: {
+        control: { type: "text" },
+      },
+      text: {
+        control: { type: "text" },
+      },
+      position: {
+        control: { type: "select" },
+        options: ['left', 'right']
+      }
+    },
+  }
+%}
+
+  {% story icon_link_1 with
+    {
+      name: '1. Arrow icon link',
+      args: {
+        url: '#',
+        text: 'Start',
+      }
+    }
+  %}
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/arrow-right.twig' %}
+    {% endset %}
+    <div class="flex gap-8 flex-col p-8">
+      <p class="text-style-body-lg">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+      <p class="text-style-body-md">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+      <p class="text-style-body-sm">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+    </div>
+    <div class="flex gap-8 flex-col p-8 bg-black">
+      <p class="text-style-body-lg">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, positio, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+  {% story icon_link_2 with
+    {
+      name: '2. Phone icon link',
+      args: {
+        url: '#',
+        text: 'Phone',
+        position: 'left',
+      }
+    }
+  %}
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/phone.twig' %}
+    {% endset %}
+    <div class="flex gap-8 flex-col p-8">
+      <p class="text-style-body-lg">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+      <p class="text-style-body-md">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+      <p class="text-style-body-sm">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+    </div>
+    <div class="flex gap-8 flex-col p-8 bg-black">
+      <p class="text-style-body-lg">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+  {% story icon_link_3 with
+    {
+      name: '3. Email icon link',
+      args: {
+        url: '#',
+        text: 'Email',
+        position: 'left',
+      }
+    }
+  %}
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/email.twig' %}
+    {% endset %}
+    <div class="flex gap-8 flex-col p-8">
+      <p class="text-style-body-lg">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+      <p class="text-style-body-md">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+      <p class="text-style-body-sm">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position } %}
+      </p>
+    </div>
+    <div class="flex gap-8 flex-col p-8 bg-black">
+      <p class="text-style-body-lg">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+      {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, positio, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+  {% story icon_link_linkedin with
+    {
+      name: '4. Linkedin icon link',
+      args: {
+        url: 'https://www.linkedin.com',
+        text: 'Linkedin',
+        position: 'left',
+        external: true
+      }
+    }
+  %}
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/linkedin.twig' %}
+    {% endset %}
+    <div class="flex gap-8 flex-col p-8 bg-black">
+      <p class="text-style-body-lg">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+  {% story icon_link_instagram with
+    {
+      name: '5. Instagram icon link',
+      args: {
+        url: 'https://www.instagram.com',
+        text: 'Instagram',
+        position: 'left',
+        external: true
+      }
+    }
+  %}
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/instagram.twig' %}
+    {% endset %}
+    <div class="flex gap-8 flex-col p-8 bg-black">
+      <p class="text-style-body-lg">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+  {% story icon_link_facebook with
+    {
+      name: '6. Facebook icon link',
+      args: {
+        url: 'https://www.facebook.com',
+        text: 'Facebook',
+        position: 'left',
+        external: true
+      }
+    }
+  %}
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/facebook.twig' %}
+    {% endset %}
+    <div class="flex gap-8 flex-col p-8 bg-black">
+      <p class="text-style-body-lg">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+  {% story icon_link_youtube with
+    {
+      name: '7. Youtube icon link',
+      args: {
+        url: 'https://www.youtube.com',
+        text: 'Youtube',
+        position: 'left',
+        external: true,
+      }
+    }
+  %}
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/youtube.twig' %}
+    {% endset %}
+    <div class="flex gap-8 flex-col p-8 bg-black">
+      <p class="text-style-body-lg">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, text, icon, position, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+
+
+{% endstories %}

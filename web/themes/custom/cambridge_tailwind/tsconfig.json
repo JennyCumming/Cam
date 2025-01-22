@@ -1,11 +1,16 @@
 {
   "compilerOptions": {
-    "module": "UMD",
+    "module": "preserve",
+    "target": "ES5",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "skipLibCheck": true,
-    "strict": true
+    "strict": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "typings"
+    ]
   },
   "include": [
     "components/**/*.ts",

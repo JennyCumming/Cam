@@ -1,0 +1,11 @@
+name: Homepage
+machineName: homepage
+description: Home page template with responsive layout
+props:
+  type: object
+  required:
+    - content
+  properties:
+    content:
+      type: object
+      description: Main content area excluding specific fields that are handled separately

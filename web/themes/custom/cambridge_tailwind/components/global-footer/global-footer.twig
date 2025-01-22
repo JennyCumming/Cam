@@ -3,50 +3,41 @@
  * The global footer component is at the bottom of every page of every site.
  *
  * site_name - The name of the site
- * contact_address - The relevant address for this site
- * legal_links - A list of legal links
- * social_links - A list of social media links
+ * footer_info
+ * footer_links
+ * footer_menu
  *
  */
 #}
 
-<footer role="contentinfo">
-  <div class="pt-9 pb-10 border-t-1 mt-[64px] text-color-[#E5E7EB]">
-      <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-4">
-            <div class="p-[20px]">
-              <h2 class="text-2xl font-semibold pb-[36px]">{{ site_name }}</h2>
-            </div>
-            <div class="bg-stone-100 p-[20px] rounded">
-              <h3 class="font-semibold">Contact</h3>
-              {{ contact_address }}
-            </div>
-            <div class="p-[20px]">
-              <h3 class="font-semibold">Legal</h3>
-              {{ legal_links }}
-            </div>
-            <div class="p-[20px]">
-              <h3 class="font-semibold">Follow us</h3>
-              {{ social_links }}
-            </div>
-          </div>
+<footer role="contentinfo" class="bg-black">
+  <div class="text-text-contrast-secondary 2xl:container mx-auto px-16 md:px-24 lg:px-32 flex flex-col pt-40 sm:pt-48 pb-24 relative gap-24">
+    <div class="flex flex-col md:flex-row justify-between gap-32 md:gap-64">
+      <div class="flex flex-col gap-32">
+        <h4 class="text-style-heading-md">{{ site_name }}</h4>
+        {{ footer_info }}
+      </div>
+      <div class="flex flex-col sm:flex-row gap-32 md:gap-64 justify-stretch">
+        {{ footer_links }}
       </div>
     </div>
-    <div class="container">
-      <!-- Bottom Bar with Logo and Links -->
-      <div class="flex justify-between items-center p-[32px]">
-        <!-- Logo Section -->
-        <div class="flex items-center">
-          <img src="{{ '/themes/custom/cambridge_tailwind/images/cambridge_logo.png' }}" alt="Logo" class="uni-logo-reversed img-responsive">
-        </div>
-        <!-- Links Section -->
-        <div class="flex space-x-4">
-          <a href="https://map.cam.ac.uk/" class="px-[16px]">Map</a>
-          <a href="#" class="px-[16px]">Terms and conditions</a>
-          <a href="https://www.jobs.cam.ac.uk/" class="px-[16px]">Jobs</a>
-          <a href="#" class="px-[16px]">Modern slavery</a>
-          <p class="px-[16px]">&copy; {{ 'now' | date('Y') }} University of Cambridge</p>
-        </div>
+
+    <div class="h-[1px] bg-divider-contrast-subtle"></div>
+
+    <div class="flex flex-col-reverse gap-40 md:gap-0 md:flex-row justify-between md:items-center">
+      <div class="flex flex-col gap-16">
+        <img
+          src="{{ '/themes/custom/cambridge_tailwind/images/cambridge_logo_reversed.png' }}"
+          alt="Logo"
+          class="uni-logo-reversed img-responsive h-[32px] w-[154px] sm:h-[34px] sm:w-[164px]"
+        />
+        <span>&copy; {{ 'now' | date('Y') }} University of Cambridge</span>
+      </div>
+
+      <div>
+        {{ footer_menu }}
+      </div>
     </div>
+
   </div>
 </footer>

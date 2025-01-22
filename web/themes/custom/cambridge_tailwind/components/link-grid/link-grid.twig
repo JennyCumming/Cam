@@ -9,13 +9,34 @@
 {% set title = content.field_link_grid_title.0 %}
 
 
-   <div class="pt-10 pb-11 container">
+   <div class="pt-64 pb-64">
    {% if title %}
-      <div class="mb-9">
-        <h2 class="text-2xl font-semibold pb-2">{{ title }}</h2>
-        <p class="text-base text-gray-600">{{ content.field_link_grid_description.0 }}</p>
+      <div class="mb-32">
+        <h2 class="text-text-primary text-style-heading-lg mb-12">{{ title }}</h2>
+        <p class="text-text-secondary text-style-body-md">{{ content.field_link_grid_description.0 }}</p>
 
       </div>
   {% endif %}
-  {{ content.field_link_with_description }}
+  {% set field_count =  nested_paragraph_count %}
+
+
+{% set remainder4 = field_count % 4 %}
+{% set remainder3 = field_count % 3 %}
+
+
+{% if remainder4 == 0 %}
+  {% set grid_class = ['md:grid-cols-4'] %}
+{% elseif remainder3 == 0 %}
+  {% set grid_class = ['md:grid-cols-3'] %}
+{% elseif remainder4 == 1 %}
+  {% set grid_class = ['md:grid-cols-3'] %}
+{% elseif remainder3 == 1 %}
+  {% set grid_class = ['md:grid-cols-4'] %}
+{% else %}
+  {% set grid_class = ['md:grid-cols-4'] %}
+{% endif %}
+ <div{{ attributes.addClass('grid','grid-cols-1', 'xs:grid-cols-2','gap-40', 'xs:gap-10', grid_class) }}>
+
+  {{ content.field_list_of_links }}
+ </div>
 </div>

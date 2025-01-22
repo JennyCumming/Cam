@@ -1,0 +1,179 @@
+{% stories main_menu_id with
+  {
+    title: 'Landmarks/MainMenu',
+    argTypes: {
+      menu_items: {
+        control: { type: "object" },
+      }
+    }
+  }
+%}
+
+  {% story main_menu_1 with
+    {
+      name: '1. Default',
+      args: {
+        menu_items: [
+          {
+            title: 'Home',
+            url: '/',
+            in_active_trail: true,
+          },
+          {
+            title: 'About',
+            url: '/about',
+            below: [
+              {
+                title: 'Our history',
+                url: '/about/history',
+              },
+              {
+                title: 'Our people',
+                url: '/about/people',
+                below: [
+                  {
+                    title: 'Our team',
+                    url: '/about/people/team',
+                  },
+                  {
+                    title: 'Our board',
+                    url: '/about/people/board',
+                  }
+                ]
+              },
+              {
+                title: 'Our values',
+                url: '/about/values',
+              }
+            ]
+          },
+          {
+            title: 'Services',
+            url: '/services',
+            below: [
+              {
+                title: 'Service 1',
+                url: '/services/service-1',
+              },
+              {
+                title: 'Service 2',
+                url: '/services/service-2',
+              },
+              {
+                title: 'Service 3',
+                url: '/services/service-3',
+              }
+            ]
+          },
+          {
+            title: 'Contact',
+            url: '/contact',
+          },
+        ]
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/menu/main-menu.twig' with { menu_items } %}
+  {% endstory %}
+
+
+  {% story main_menu_2 with
+    {
+      name: '2. More full menu',
+      args: {
+        menu_items: [
+          {
+            title: 'Home',
+            url: '/',
+            in_active_trail: true,
+          },
+          {
+            title: 'About',
+            url: '/about',
+            below: [
+              {
+                title: 'Our people',
+                url: '/about/people',
+                below: [
+                  {
+                    title: 'Our team',
+                    url: '/about/people/team',
+                  },
+                  {
+                    title: 'Our board',
+                    url: '/about/people/board',
+                  }
+                ]
+              },
+              {
+                title: 'Our values',
+                url: '/about/values',
+              }
+            ]
+          },
+          {
+            title: 'Our history',
+            url: '/history'
+          },
+          {
+            title: 'Services we offer',
+            url: '/services',
+            below: [
+              {
+                title: 'Service 1',
+                url: '/services/service-1',
+              },
+              {
+                title: 'Service 2',
+                url: '/services/service-2',
+              },
+              {
+                title: 'Service 3',
+                url: '/services/service-3',
+              }
+            ]
+          },
+          {
+            title: 'How the Univeristy and colleges work',
+            url: '/how'
+          },
+          {
+            title: 'Terms, conditions, clarifications and clauses',
+            url: '/tsandcs'
+          },
+          {
+            title: 'Additional options',
+            url: '/options',
+            below: [
+              {
+                title: 'Option 1',
+                url: '/more/option-1',
+              },
+              {
+                title: 'Option 2',
+                url: '/more/option-2',
+              },
+              {
+                title: 'Option 3',
+                url: '/more/option-3',
+              }
+            ]
+          },
+          {
+            title: 'A random link to Bing',
+            url: 'https://bing.com',
+          },
+          {
+            title: 'Contact',
+            url: '/contact',
+          },
+        ]
+      }
+    } %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/menu/main-menu.twig' with { menu_items } %}
+  {% endstory %}
+
+{% endstories %}

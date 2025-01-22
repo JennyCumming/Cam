@@ -1,0 +1,8 @@
+.idea/
+node_modules
+.DS_Store
+*storybook.log
+storybook-static/
+# Ignore storybook artefacts
+**/*.stories.json
+**/**/*.stories.json

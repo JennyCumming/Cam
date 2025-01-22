@@ -1,0 +1,21 @@
+{#
+/**
+ * The Card component
+ *
+ * Heading - a required string
+ * Sub-heading - an optional string
+ * Description - an optional string
+ * Image - optional
+ * Link - required (1 link only)
+ */
+ #}
+
+<div class="py-40">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-24">
+    <div class="mb-16">
+      <h2 class="text-style-heading-lg pb-12">{{ content.field_heading.0 }}</h2>
+      <p class="text-style-body-sm text-text-secondary">{{ content.field_sub_heading.0 }}</p>
+    </div>
+    {{content.field_card}}
+  </div>
+</div>

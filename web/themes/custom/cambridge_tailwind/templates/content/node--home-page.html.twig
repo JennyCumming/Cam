@@ -1,0 +1,24 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+{% set content = content|without(
+  'field_page_summary',
+  'field_title_prefix'
+) %}
+
+{% include 'cambridge_tailwind:home-page-topper' %}
+
+{% include 'cambridge_tailwind:home' with {
+  attributes: attributes,
+  classes: classes,
+  title: label,
+  content: content,
+} only %}

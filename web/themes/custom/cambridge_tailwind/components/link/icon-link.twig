@@ -1,0 +1,18 @@
+{% set content %}
+  {% if position == 'left' %}
+    <span class="mr-8">
+      {{ icon | raw }}
+    </span>
+    {{ text }}
+  {% else %}
+      {{ text }}
+      <span class="ml-8">
+        {{ icon | raw }}
+      </span>
+  {% endif %}
+{% endset %}
+{% if not attributes %}
+	{% set attributes = create_attribute() %}
+{% endif %}
+{% set attributes = attributes.addClass('inline-flex items-center') %}
+{% include '@cambridge_tailwind/components/link/link.twig' with { url, content, dark, external, inline, attributes } %}

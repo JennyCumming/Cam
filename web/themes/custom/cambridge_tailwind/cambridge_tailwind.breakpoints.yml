@@ -1,0 +1,42 @@
+cambridge_tailwind.xs:
+  label: xs
+  mediaQuery: ""
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+cambridge_tailwind.sm:
+  label: sm
+  mediaQuery: "all and (min-width: 768px)"
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+cambridge_tailwind.md:
+  label: md
+  mediaQuery: "all and (min-width: 1024px)"
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x
+cambridge_tailwind.lg:
+  label: lg
+  mediaQuery: "all and (min-width: 1280px)"
+  weight: 6
+  multipliers:
+    - 1x
+    - 2x
+cambridge_tailwind.xl:
+  label: xl
+  mediaQuery: "all and (min-width: 1536px)"
+  weight: 8
+  multipliers:
+    - 1x
+    - 2x
+cambridge_tailwind.2xl:
+  label: xxl
+  mediaQuery: "all and (min-width: 1800px)"
+  weight: 10
+  multipliers:
+    - 1x
+    - 2x

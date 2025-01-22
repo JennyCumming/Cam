@@ -1,0 +1,50 @@
+{#
+/**
+ * The footer contact block.
+ *
+ * field_address_line_1
+ * field_address_line_2
+ * field_address_line_3
+ * field_post_code
+ * field_email
+ * field_telephone_number
+ */
+#}
+
+<div class="flex flex-col gap-16">
+  <address class="not-italic block sm:flex flex-col">
+    <span>{{ field_address_line_1 }}</span>
+    <span>{{ field_address_line_2 }}</span>
+    <span>{{ field_address_line_3 }}</span>
+    <span>{{ field_post_code }}</span>
+  </address>
+
+  <div class="whitespace-nowrap">
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/email.twig' %}
+    {% endset %}
+    {% include '@cambridge_tailwind/components/link/icon-link.twig' with {
+      url: "mailto:" ~ field_email,
+      text: field_email,
+      icon,
+      position: 'left',
+      inline: false,
+      dark: true
+    } %}
+  </div>
+
+  <div class="whitespace-nowrap">
+    {% set icon %}
+      {% include '@cambridge_tailwind/components/link/icons/phone.twig' %}
+    {% endset %}
+    {% include '@cambridge_tailwind/components/link/icon-link.twig' with {
+      url: "tel:" ~ field_telephone_number,
+      text: field_telephone_number,
+      icon,
+      position: 'left',
+      inline: false,
+      dark: true
+    } %}
+  </div>
+
+</div>

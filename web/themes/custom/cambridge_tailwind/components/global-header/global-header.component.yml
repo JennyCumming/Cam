@@ -5,4 +5,10 @@ group: Site components
 status: "experimental"
 props:
   type: object
-  properties: {}
+  properties:
+    site_name:
+      type: string
+      title: Site name
+    site_domain:
+      type: string
+      title: Site domain

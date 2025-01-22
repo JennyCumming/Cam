@@ -1,0 +1,76 @@
+{% stories home_page_topper_id with
+  {
+    title: 'Components/Home Page Topper',
+    argTypes: {
+      title: {
+        control: { type: "text" },
+      },
+      subtitle: {
+        control: { type: "text" },
+      },
+      override_theme: {
+        control: { type: "select" },
+        options: ["Default", "teal", "purple", "cherry", "green", "grey", "blue"],
+      },
+    }
+
+  }
+%}
+
+  {% story home_page_topper_1 with
+    {
+      name: '1. Title and subtitle',
+      args: {
+      title: "Site name",
+      subtitle: "Sub title",
+      override_theme: "Default"
+    }
+    } %}
+
+    {% if override_theme != "Default" %}
+
+      {% include '@cambridge_tailwind/components/home-page-topper/home-page-topper.twig' with {
+        title,
+        subtitle,
+        theme: override_theme
+      } %}
+
+    {% else %}
+
+      {% include '@cambridge_tailwind/components/home-page-topper/home-page-topper.twig' with {
+        title,
+        subtitle
+      } %}
+
+    {% endif %}
+
+  {% endstory %}
+
+  {% story home_page_topper_2 with
+    {
+      name: '2. Title only',
+      args: {
+      title: "Site name",
+      override_theme: "Default"
+    }
+    } %}
+
+    {% if override_theme != "Default" %}
+
+      {% include '@cambridge_tailwind/components/home-page-topper/home-page-topper.twig' with {
+        title,
+        theme: override_theme
+      } %}
+
+    {% else %}
+
+      {% include '@cambridge_tailwind/components/home-page-topper/home-page-topper.twig' with {
+        title
+      } %}
+
+    {% endif %}
+
+  {% endstory %}
+
+
+{% endstories %}

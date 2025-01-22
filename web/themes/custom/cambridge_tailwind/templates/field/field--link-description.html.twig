@@ -1,0 +1,110 @@
+{#
+/**
+ * @file
+ * Theme override for a link field.
+ *
+ * To override output, copy the "field.html.twig" from the templates directory
+ * to your theme's directory and customize it, just like customizing other
+ * Drupal templates such as page.html.twig or node.html.twig.
+ *
+ * Instead of overriding the theming for all fields, you can also just override
+ * theming for a subset of fields using
+ * @link themeable Theme hook suggestions. @endlink For example,
+ * here are some theme hook suggestions that can be used for a field_foo field
+ * on an article node type:
+ * - field--node--field-foo--article.html.twig
+ * - field--node--field-foo.html.twig
+ * - field--node--article.html.twig
+ * - field--field-foo.html.twig
+ * - field--text-with-summary.html.twig
+ * - field.html.twig
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the containing element.
+ * - label_hidden: Whether to show the field label or not.
+ * - title_attributes: HTML attributes for the title.
+ * - label: The label for the field.
+ * - multiple: TRUE if a field can contain multiple items.
+ * - items: List of all the field items. Each item contains:
+ *   - attributes: List of HTML attributes for each item.
+ *   - content: The field item's content.
+ * - entity_type: The entity type to which the field belongs.
+ * - field_name: The name of the field.
+ * - field_type: The type of the field.
+ * - label_display: The display settings for the label.
+ *
+ *
+ * @see template_preprocess_field()
+ */
+#}
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    label_display == 'inline' ? 'clearfix',
+  ]
+%}
+{%
+  set title_classes = [
+    'field__label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+{% set field_count = 0 %}
+{% for item in items %}
+  {% set field_count = field_count + 1 %}
+{% endfor %}
+
+{% set remainder4 = field_count % 4 %}
+{% set remainder3 = field_count % 3 %}
+
+
+{% if remainder4 == 0 %}
+  {% set grid_class = ['grid','grid-cols-1', 'xs:grid-cols-2', 'md:grid-cols-4', 'gap-7', 'xs:gap-10'] %}
+{% elseif remainder3 == 0 %}
+  {% set grid_class = ['grid','grid-cols-1', 'xs:grid-cols-2', 'md:grid-cols-3', 'gap-7', 'xs:gap-14'] %}
+{% elseif remainder4 == 1 %}
+  {% set grid_class = ['grid','grid-cols-1', 'xs:grid-cols-2', 'md:grid-cols-3', 'gap-7', 'xs:gap-14'] %}
+{% elseif remainder3 == 1 %}
+  {% set grid_class = ['grid','grid-cols-1', 'xs:grid-cols-2', 'md:grid-cols-4', 'gap-7', 'xs:gap-10'] %}
+{% else %}
+  {% set grid_class = ['grid','grid-cols-1', 'xs:grid-cols-2', 'md:grid-cols-4', 'gap-7', 'xs:gap-10'] %}
+{% endif %}
+
+
+{% if label_hidden %}
+  {% if multiple %}
+ <div{{ attributes.addClass(grid_class) }}>
+      {% for item in items %}
+        <div>
+
+        {{ item.content }}
+
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% for item in items %}
+      <div{{ attributes.addClass(classes, 'field__item') }}>
+       {{ item.content }}
+
+      </div>
+    {% endfor %}
+  {% endif %}
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div class="field__items">
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

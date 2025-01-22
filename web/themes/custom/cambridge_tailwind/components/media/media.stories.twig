@@ -1,0 +1,72 @@
+{% stories media_id with
+  {
+    title: 'Components/Media',
+    argTypes: {
+      uri: {
+        control: { type: "text" },
+      },
+      alt: {
+        control: { type: "text" },
+      },
+      caption: {
+        control: { type: "text" },
+      },
+    }
+
+  }
+%}
+
+  {% story media_1 with
+    {
+      name: '1. With caption, with alt',
+      args: {
+      uri: 'public://MediaImage.jpg',
+      alt: 'This is the alt text',
+      caption: 'This is the caption text',
+    }
+    } %}
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/media/media.twig' with { uri, alt, caption } %}
+  {% endstory %}
+
+  {% story media_2 with
+    {
+      name: '2. With caption, no alt',
+      args: {
+      uri: 'public://MediaImage.jpg',
+      alt: "",
+      caption: 'This is the caption text',
+    }
+    } %}
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/media/media.twig' with { uri, alt, caption } %}
+  {% endstory %}
+
+  {% story media_3 with
+    {
+      name: '3. No caption, with alt',
+      args: {
+      uri: 'public://MediaImage.jpg',
+      alt: 'This is the alt text',
+      caption: "",
+    }
+    } %}
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/media/media.twig' with { uri, alt, caption } %}
+  {% endstory %}
+
+  {% story media_4 with
+    {
+      name: '4. With very long caption, with alt',
+      args: {
+      uri: 'public://MediaImage.jpg',
+      alt: 'This is the alt text',
+      caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mauris enim, ornare eu ipsum sit amet, vehicula iaculis nisi. Pellentesque vulputate tortor ut elit vestibulum auctor et sit amet nulla. Ut aliquet pellentesque odio, suscipit sollicitudin risus congue sed. Donec posuere fermentum lacus vitae scelerisque. Maecenas finibus at ex eget ullamcorper.',
+    }
+    } %}
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/../components/media/media.twig' with { uri, alt, caption } %}
+  {% endstory %}
+
+
+{% endstories %}

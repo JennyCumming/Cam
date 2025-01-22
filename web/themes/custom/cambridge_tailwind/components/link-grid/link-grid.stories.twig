@@ -1,0 +1,46 @@
+{% stories link_grid_id with
+  {
+    title: 'Components/Link grid',
+    argTypes: {
+      title: {
+        control: { type: "text" },
+      },
+      description: {
+        control: { type: "text" },
+      },
+      link: {
+        control: { type: "text" },
+      },
+      link_description: {
+        control: { type: "text" },
+      },
+      number_of_links: {
+        control: { type: "number" },
+      },
+    },
+  }
+%}
+
+
+{% story link_grid_1 with
+    {
+      name: '1. Default',
+      args: {
+        title: "Heading",
+        description: "Description of the whole link set",
+        link: "A link",
+        link_description: "A link description",
+        number_of_links: 10
+      }
+    } %}
+    {% set list_of_links %}
+     {% for i in range(1,number_of_links) %}
+       {% include "@cambridge_tailwind/components/link-grid/link-with-description.twig" with { content: { field_link: link, field_featured_links_description: link_description  } }%}
+      {% endfor %}
+    {% endset %}
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/components/link-grid/link-grid.twig' with { content: { field_link_grid_title: { 0: title }, field_link_grid_description: { 0: description }, field_list_of_links:list_of_links }, nested_paragraph_count: number_of_links } %}
+  {% endstory %}
+
+
+{% endstories %}

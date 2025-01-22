@@ -6,7 +6,10 @@
  */
 #}
 
-<div class="
+{% from '@cambridge_tailwind/components/link/link.twig' import linkClasses %}
+{% set proseLinkClasses = linkClasses(false, true) | spaceless | split(" ") %}
+
+<div class="{% apply spaceless %}
   {# Base prose styles #}
   prose
   max-w-none
@@ -36,7 +39,16 @@
   prose-p:mb-[18px]
 
   {# Link styles #}
-  prose-a:text-style-link-inline
+  {% for class in proseLinkClasses %}
+    {% set splitClass = class | split(':') %}
+    {% if splitClass|length == 1 %}
+      prose-a:{{ class }}
+    {% else %}
+      {# In order to apply e.g. hover / active states, have to rearrange the classes #}
+      {# So they apply on the individual elements #}
+      {{ splitClass[0] }}:prose-a:{{ splitClass[1] }}
+    {% endif %}
+  {% endfor %}
 
   {# List styles #}
   prose-bullets:text-text-secondary
@@ -76,6 +88,6 @@
   prose-blockquote:border-divider-strong
   prose-blockquote:border-l-2
   prose-blockquote:my-40
-">
+{% endapply %}">
     {{ content | raw }}
 </div>

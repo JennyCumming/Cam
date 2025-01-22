@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: media
+name: Media
+description: Media component
+status: "experimental"
+props:
+  type: object
+  required:
+    - uri
+  properties:
+    uri:
+      type: string
+      title: Image URI
+    alt:
+      type: string
+      title: Alt text
+    caption:
+      type: string
+      title: Image caption

@@ -1,0 +1,41 @@
+{% stories footer_menu_id with
+  {
+    title: 'Landmarks/Footer/Menu',
+    argTypes: {
+      label: {
+        control: { type: "text" },
+      }
+    },
+  }
+%}
+
+  {% story footer_menu_1 with
+    {
+      name: '1. Footer menu links',
+      args: {
+      }
+    }
+  %}
+    {% include "cambridge_tailwind:footer-menu" with {
+      menu_items: [
+        {
+          title: "Accessibility",
+          url: "/",
+          in_active_trail: false
+        },
+        {
+          title: "Privacy policy and cookies",
+          url: "/",
+          in_active_trail: false
+        },
+        {
+          title: "Terms and conditions",
+          url: "/",
+          in_active_trail: false
+        }
+      ],
+    } %}
+  {% endstory %}
+
+
+{% endstories %}

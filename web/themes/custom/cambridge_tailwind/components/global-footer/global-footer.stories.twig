@@ -1,0 +1,133 @@
+{% stories global_footer_id with
+  {
+    title: 'Landmarks/Footer/Global-Footer',
+    argTypes: {
+      site_name: {
+        control: { type: "text" },
+      }
+    }
+
+  }
+%}
+
+  {% story global_footer_1 with
+    {
+      name: '1. Default',
+      args: {
+        site_name: 'My site name',
+      }
+    } %}
+
+    {% set footer_info %}
+      {% include '@cambridge_tailwind/components/global-footer/footer-contact/footer-contact.twig' with {
+        field_address_line_1: 'Sidgwick avenue',
+        field_address_line_2: 'Address line 2',
+        field_address_line_3: 'Cambridge',
+        field_post_code: 'CB3 9DA',
+        field_email: 'email@cam.ac.uk',
+        field_telephone_number: '+44(0) 1223 335106',
+      } %}
+    {% endset %}
+
+    {% set footer_links %}
+      {% include '@cambridge_tailwind/components/global-footer/footer-links/footer-links.twig' with {
+        label: 'Footer links block 1',
+        links: [
+          {
+            'url': 'https://www.something.com',
+            'label': 'External link',
+            'is_external': true
+          },
+          {
+            'url': '/',
+            'label': 'Internal link 1',
+            'is_external': false
+          },
+          {
+            'url': '/',
+            'label': 'Internal link 2',
+            'is_external': false
+          },
+        ],
+      } %}
+
+      {% include '@cambridge_tailwind/components/global-footer/footer-links/footer-links.twig' with {
+        label: 'Footer links block 2',
+        links: [
+          {
+            'url': 'https://www.something.com',
+            'label': 'External link 2',
+            'is_external': true
+          },
+          {
+            'url': '/',
+            'label': 'Internal link 3',
+            'is_external': false
+          },
+          {
+            'url': '/',
+            'label': 'Internal link 4',
+            'is_external': false
+          },
+        ],
+      } %}
+
+      {% include '@cambridge_tailwind/components/global-footer/footer-links/footer-links.twig' with {
+        label: 'Follow',
+        links: [
+          {
+            'url': 'https://www.linkedin.com',
+            'label': 'Linkedin',
+            'is_external': true,
+            'icon': 'linkedin'
+          },
+          {
+            'url': 'https://www.instagram.com',
+            'label': 'Instagram',
+            'is_external': true,
+            'icon': 'instagram'
+          },
+          {
+            'url': 'https://www.facebook.com',
+            'label': 'Facebook',
+            'is_external': true,
+            'icon': 'facebook'
+          },
+          {
+            'url': 'https://www.youtube.com',
+            'label': 'Youtube',
+            'is_external': true,
+            'icon': 'youtube'
+          },
+        ],
+      } %}
+    {% endset %}
+
+    {% set footer_menu %}
+      {% include "cambridge_tailwind:footer-menu" with {
+        menu_items: [
+          {
+            title: "Accessibility",
+            url: "/",
+            in_active_trail: false
+          },
+          {
+            title: "Privacy policy and cookies",
+            url: "/",
+            in_active_trail: false
+          },
+          {
+            title: "Terms and conditions",
+            url: "/",
+            in_active_trail: false
+          }
+        ],
+      } %}
+    {% endset %}
+
+
+    {% include '@cambridge_tailwind/components/global-footer/global-footer.twig' with { site_name, footer_info, footer_links, footer_menu } %}
+  {% endstory %}
+
+
+{% endstories %}

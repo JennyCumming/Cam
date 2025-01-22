@@ -1,0 +1,22 @@
+<a
+  href="{{ item.url }}"
+  role="menuitem"
+  {{ linkAttributes }}
+  {% if item.below %}
+    data-menu-control="menu-panel-{{ count }}"
+    {#
+    // We will add these with JS hydration
+    aria-controls="menu-panel-{{ count }}"
+    aria-expanded="false"
+    aria-haspopup="true"
+    #}
+  {% endif %}
+  {% if item.in_active_trail %}
+    aria-current="page"
+  {% endif %}
+>
+  {{ item.title }}
+  {% if item.below %}
+    {% include "@cambridge_tailwind/components/menu/images/caret-down.svg.twig"  %}
+  {% endif %}
+</a>

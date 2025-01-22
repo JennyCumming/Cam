@@ -27,6 +27,9 @@ props:
             type: object
             title: url
             description: The url for a top level menu item
+          in_active_trail:
+            type: boolean
+            title: In the active trail of the current page
           menu_with_headings:
             type: boolean
           call_to_action:
@@ -73,7 +76,8 @@ props:
                         title: Sub-sub-item title
 libraryOverrides:
   dependencies:
-    - core/jquery
     - core/drupal
     - core/drupalSettings
     - core/once
+  js:
+    main-menu.js: {}

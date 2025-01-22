@@ -1,0 +1,85 @@
+{#
+/**
+ * @file
+ * Template for basic page content type.
+ *
+ * Variables:
+ * - attributes: HTML attributes for the article element
+ * - classes: Array of classes for the article element, includes:
+ *   - node
+ *   - node--type-[bundle]
+ *   - node--promoted (if promoted)
+ *   - node--sticky (if sticky)
+ *   - node--unpublished (if not published)
+ *   - node--view-mode-[view_mode]
+ * - content: Main content area excluding specific fields that are handled separately (required)
+ * - top_content: Content to be displayed at the top of the page (optional)
+ * - paragraphs: Main paragraph content (optional)
+ * - bottom_paragraphs: Bottom paragraph content (optional)
+ * - sidebar_items: Right sidebar content, visible from xl breakpoint, collapsed below (optional)
+ * - title: The title of the page (required)
+ */
+#}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="2xl:container mx-auto px-16 md:px-24 lg:px-32 pt-48 md:pt-64">
+    {# Use flex layout to handle the LHS nav and the rest of the content #}
+    <div class="flex flex-col md:flex-row flex-stretch">
+
+      {% if lhsNav %}
+        {# Left hand side navigation #}
+        <div class="hidden md:block min-w-[240px] max-w-[320px] mr-48">
+          {{ lhsNav }}
+        </div>
+      {% endif %}
+
+      {# Main content area #}
+
+      {# Use flex layout to handle the central content block RHS sidebar content #}
+      <div class="flex-1 flex flex-col xl:flex-row">
+        <div class="md:max-w-[800px] lg:mr-auto md:mx-auto w-full flex flex-col">
+          {# Page title #}
+          {% if title %}
+            <div id="title-block" class="mb-48 empty:hidden">
+              {% include '@cambridge_tailwind/templates/content/page-title.html.twig' with {
+                title: title,
+                title_attributes: create_attribute(),
+                node_type: 'page'
+              } %}
+            </div>
+          {% endif %}
+
+          {# Top content section #}
+          <div id="top-content-block" class="mb-48 empty:hidden">
+            {{- top_content -}}
+          </div>
+
+          {# Main paragraphs #}
+          <div id="paragraphs-block" class="mb-48 empty:hidden">
+            {{- paragraphs -}}
+          </div>
+
+          {# Main content region #}
+          <div id="content-block" class="mb-48 empty:hidden">
+            {{- content -}}
+          </div>
+
+          {# Bottom paragraphs #}
+          <div id="bottom-paragraphs-block">
+            {{- bottom_paragraphs -}}
+          </div>
+        </div>
+
+        {# Sidebar items #}
+        {% if sidebar_items %}
+          <aside id="sidebar-items" class="xl:w-[328px] mt-[48px] xl:mt-0 xl:ml-64 md:max-w-[800px] md:mx-auto xl:mr-0 w-full">
+            {{ sidebar_items }}
+          </aside>
+        {% endif %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</article>

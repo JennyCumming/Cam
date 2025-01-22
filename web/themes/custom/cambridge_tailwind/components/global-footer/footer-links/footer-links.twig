@@ -1,0 +1,66 @@
+{#
+/**
+ * The footer links block.
+ *
+ * label
+ * links
+ */
+#}
+
+<div class="flex flex-col gap-20 min-w-[197px] sm:w-full md:w-auto">
+  <h6 class="text-style-heading-xs">{{ label }}</h6>
+  <div class="flex flex-col gap-16">
+    {% for link in links %}
+
+      {% if link.icon is defined %}
+
+        {% if link.icon == 'linkedin' %}
+          {% set icon %}
+            {% include '@cambridge_tailwind/components/link/icons/linkedin.twig' %}
+          {% endset %}
+        {% endif %}
+
+        {% if link.icon == 'instagram' %}
+          {% set icon %}
+            {% include '@cambridge_tailwind/components/link/icons/instagram.twig' %}
+          {% endset %}
+        {% endif %}
+
+        {% if link.icon == 'facebook' %}
+          {% set icon %}
+            {% include '@cambridge_tailwind/components/link/icons/facebook.twig' %}
+          {% endset %}
+        {% endif %}
+
+        {% if link.icon == 'youtube' %}
+          {% set icon %}
+            {% include '@cambridge_tailwind/components/link/icons/youtube.twig' %}
+          {% endset %}
+        {% endif %}
+
+        {% include '@cambridge_tailwind/components/link/icon-link.twig' with {
+          url: link.url,
+          text: link.label,
+          icon: icon is defined ? icon : NULL,
+          position: 'left',
+          external: link.is_external,
+          inline: false,
+          dark: true
+        } %}
+
+      {% else %}
+
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with {
+          url: link.url,
+          text: link.label,
+          external: link.is_external,
+          inline: false,
+          dark: true
+        } %}
+
+      {% endif %}
+
+
+    {% endfor %}
+  </div>
+</div>

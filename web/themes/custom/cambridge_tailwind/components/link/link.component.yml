@@ -1,17 +1,35 @@
 $schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
 machineName: link
 name: Link
-description: Links help the user to navigate to another place. The link text should describe where it will take the user or the purpose of the link.
+description: Core link component. Takes content of plain text or pure HTML. Used by icon-link and text-link.
 status: "experimental"
 props:
   type: object
+  required:
+    - content
+    - url
   properties:
-    text:
+    attributes:
+      type: object
+      title: Attributes
+      description: Attributes to be added to the link.
+    content:
       type: string
-      title: Text
+      title: Link content
+      description: The content of the link. This can be plain text or HTML.
     url:
       type: string
       title: URL
+      description: The URL the link will navigate to.
     external:
       type: string
-      title: external
+      title: If this an external link (defaults to false)
+      description: Handles if this should open in a new tab or not.
+    dark:
+      type: boolean
+      title: Dark (or contrast) link (defaults to false)
+      description: Alters link colours to be more visible on dark backgrounds.
+    inline:
+      type: boolean
+      title: Inline link (defaults to false)
+      description: Adds underline to the link if being rendered inline, to distinguish from regular text.

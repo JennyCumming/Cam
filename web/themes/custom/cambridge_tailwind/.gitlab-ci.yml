@@ -1,0 +1,32 @@
+include:
+  # Use the branch pipeline workflow to avoid duplicate jobs when merge requests are open.
+  # Auto-DevOps currently only supports the branch pipeline workflow.
+  - template: Workflows/Branch-Pipelines.gitlab-ci.yml
+  # Pull in our auto-devops-stages definitions to enable all of our in house CI templates.
+  - project: uis/devops/continuous-delivery/ci-templates
+    file: /auto-devops-stages.yml
+    ref: v4.2.0
+  - template: Code-Quality.gitlab-ci.yml
+  - template: Jobs/Dependency-Scanning.gitlab-ci.yml
+  - template: Jobs/SAST.gitlab-ci.yml
+  - template: Jobs/Secret-Detection.gitlab-ci.yml
+
+variables:
+  SAST_EXCLUDED_ANALYZERS: "brakeman,flawfinder,mobsf,kubesec,phpcs-security-audit,pmd-apex,sobelow,spotbugs"
+  # Speed up docker in gitlab: https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-the-overlayfs-driver
+  DOCKER_DRIVER: overlay2
+  ARTIFACTS_PATH: results/**/*.xml
+
+pre-commit:
+  image: node:18.20-slim
+  before_script:
+    - apt-get update && apt-get install -y python3-pip git
+    - python3 -m pip install -q --break-system-packages pre-commit
+    - npm install --dev --ignore-scripts
+  script:
+    - pre-commit run -a
+  # It acts as a "test".
+  stage: test
+  rules:
+    - exists:
+        - .pre-commit-config.yaml

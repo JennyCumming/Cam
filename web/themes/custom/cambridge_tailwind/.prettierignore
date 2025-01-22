@@ -1,0 +1,6 @@
+node_modules
+# Ignore artifacts:
+storybook_static
+components/**/*.js
+templates/**/*.js
+*.css

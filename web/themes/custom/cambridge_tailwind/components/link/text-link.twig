@@ -1,0 +1,8 @@
+{% if external %}
+  {% set icon %}
+    {% include '@cambridge_tailwind/components/link/icons/external-link.twig' %}
+  {% endset %}
+  {% include '@cambridge_tailwind/components/link/icon-link.twig' with { url, icon, text, dark, external, inline, position: 'right' } %}
+{% else %}
+  {% include '@cambridge_tailwind/components/link/link.twig' with { url, content: text, dark, inline } %}
+{% endif %}

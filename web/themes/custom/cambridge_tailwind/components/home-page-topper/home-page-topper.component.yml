@@ -5,8 +5,6 @@ decription: Displays title and description at the top of a homepage
 status: "experimental"
 props:
   type: object
-  required:
-    - title
   properties:
     title:
       type: string

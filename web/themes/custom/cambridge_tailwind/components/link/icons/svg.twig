@@ -1,0 +1,8 @@
+{% if not attributes %}
+	{% set attributes = create_attribute() %}
+{% endif %}
+{% set attributes = attributes.addClass('h-[1.2em] w-[1.2em] fill-none') %}
+<svg focusable="false" aria-hidden="true" viewbox="0 0 {{ x }} {{ y }}" xmlns="http://www.w3.org/2000/svg" {{attributes}}>
+  {{ content }}
+</svg>
+{% set attributes = attributes.removeClass('h-[1.2em] w-[1.2em] fill-none') %}

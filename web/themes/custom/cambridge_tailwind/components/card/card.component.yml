@@ -1,6 +1,7 @@
+
 $schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
-machineName: card
-name: Card
+machineName: card_image
+name: Image card
 group: Cards
 status: "experimental"
 props:
@@ -10,11 +11,17 @@ props:
       type: string
       title: Heading
     subheading:
-      type: string
+      type: ['string', 'null']
       title: Sub-heading
     description:
-      type: string
+      type: ['string', 'null']
       title: Description
     link:
       type: string
       title: Link
+    image_uri:
+      type: string
+      title: Image URI
+    image_alt:
+      type: ['string', 'null']
+      title: Image alt text

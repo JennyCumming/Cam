@@ -1,0 +1,35 @@
+{% stories card_id with
+  {
+    title: 'Components/Card',
+    argTypes: {
+      link: {
+        control: { type: "text" },
+      },
+      subheading: {
+        control: { type: "text" },
+      },
+      heading: {
+        control: { type: "text" },
+      },
+      description: {
+        control: { type: "text" },
+      }
+    }
+  }
+%}
+
+  {% story card_1 with
+    {
+      name: '1. Default',
+      args: {
+        link: 'https://www.cam.ac.uk',
+        heading: 'Card heading',
+        subheading: 'Card subheading',
+        description: 'Card description. I suspect this component can be deleted and just adapt the CardImage component, which supports no images.'
+      }
+    } %}
+
+    {% include '@cambridge_tailwind/components/card/card.twig' %}
+  {% endstory %}
+
+{% endstories %}

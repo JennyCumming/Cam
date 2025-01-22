@@ -1,0 +1,23 @@
+{% set attributes = { class: 'card-img', alt: alt } %}
+
+{% if alt is empty %}
+  {% set attributes = attributes|merge({'role': 'presentation'}) %}
+{% endif %}
+
+{% if caption is not empty %}
+  {% set attributes = attributes|merge({'aria-describedby': caption | truncate(10) | clean_unique_id}) %}
+{% endif %}
+
+<div>
+  {{ {
+    '#theme': 'responsive_image',
+    '#responsive_image_style_id': 'cambridge_tailwind_media_component',
+    '#uri':        uri,
+    '#attributes': attributes,
+  } }}
+
+  {% if caption is not empty %}
+    <p id="{{ attributes['aria-describedby'] }}" class="mt-[12px] mb-[24px] text-style-body-sm text-text-tertiary">{{ caption }}</p>
+  {% endif %}
+
+</div>

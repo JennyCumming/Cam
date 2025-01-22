@@ -1,0 +1,123 @@
+{% stories text_link_id with
+  {
+    title: 'Components/TextLink',
+    argTypes: {
+      url: {
+        control: { type: "text" },
+      },
+      text: {
+        control: { type: "text" },
+      },
+    },
+  }
+%}
+
+  {% story text_link_1 with
+    {
+      name: '1. Text link',
+      args: {
+        url: '#',
+        text: 'Text link',
+      }
+    }
+  %}
+
+  <div class="flex flex-col gap-8 p-8">
+      <p class="text-style-body-lg">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text } %}
+      </p>
+      <p class="text-style-body-md">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text } %}
+      </p>
+      <p class="text-style-body-sm">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text } %}
+      </p>
+    </div>
+    <div class="flex flex-col gap-8 p-8 bg-black text-white">
+      <p class="text-style-body-lg">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+  {% story text_link_2 with
+    {
+      name: '2. Inline text link',
+      args: {
+        url: '#',
+        text: 'inline text link'
+      }
+    }
+  %}
+    <div class="flex flex-col gap-8 p-8">
+      <p class="text-style-body-lg">
+        An {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, inline: true } %} in context.
+      </p>
+      <p class="text-style-body-md">
+        An {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, inline: true } %} in context.
+      </p>
+      <p class="text-style-body-sm">
+        An {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, inline: true } %} in context.
+      </p>
+    </div>
+    <div class="flex flex-col gap-8 p-8 bg-black text-white">
+      <p class="text-style-body-lg">
+        An {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, inline: true, dark: true } %} in context.
+      </p>
+      <p class="text-style-body-md">
+        An {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, inline: true, dark: true } %} in context.
+      </p>
+      <p class="text-style-body-sm">
+        An {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, inline: true, dark: true } %} in context.
+      </p>
+    </div>
+  {% endstory %}
+
+  {% story text_link_3 with
+    {
+      name: '3. External text link',
+      args: {
+        url: 'https://www.example.com',
+        text: 'External text link',
+        external: true,
+      }
+    }
+  %}
+
+    <div class="flex flex-col gap-8 p-8">
+      <div>
+        Inline {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text: text|lower, external, inline: true } %}, shown in context
+      </div>
+      <p class="text-style-body-lg">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, external } %}
+      </p>
+      <p class="text-style-body-md">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, external } %}
+      </p>
+      <p class="text-style-body-sm">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, external } %}
+      </p>
+    </div>
+    <div class="flex flex-col gap-8 bg-black p-8">
+      <div class="text-white">
+        Inline {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text: text|lower, external, inline: true, dark: true } %}, shown in context
+      </div>
+      <p class="text-style-body-lg">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, external, dark: true } %}
+      </p>
+      <p class="text-style-body-md">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, external, dark: true } %}
+      </p>
+      <p class="text-style-body-sm">
+        {% include '@cambridge_tailwind/components/link/text-link.twig' with { url, text, external, dark: true } %}
+      </p>
+    </div>
+  {% endstory %}
+
+{% endstories %}

@@ -2,16 +2,43 @@
 /**
  * The Home page Topper component is at the top of the home page.
  *
- * title - a required string of the page title, rendered as an h1 element
- * title_prefix - a taxonomy term from a predefined list to be rendered in smaller text above the title - eg "Department of"
+ * title
+ * subtitle
+ * theme - optionally defined in order to override the Drupal global setting.
  */
 #}
 
-<div{{ attributes.addClass(['home-page-topper']) }}>
-  <h1 class="home-page-topper__inner container">
-      {% if title_prefix %}
-        <div class="home-page-topper__title-prefix">{{ title_prefix }}</div>
-      {% endif %}
-      <div class="home-page-topper__title">{{title}}</div>
-  </h1>
+{% if theme is not defined %}
+  {% set theme = get_themecolor() %}
+{% endif %}
+
+{% if title is not defined %}
+  {% set title = drupal_config('system.site', 'name') %}
+{% endif %}
+
+{% if subtitle is not defined %}
+  {% set subtitle = drupal_config('system.site', 'slogan') %}
+{% endif %}
+
+{# All classes explicitly defined so Tailwind includes in tailwind.css #}
+{% if theme == "teal" %}
+  {% set theme = "bg-light-teal" %}
+{% elseif theme == "purple" %}
+  {% set theme = "bg-light-purple" %}
+{% elseif theme == "cherry" %}
+  {% set theme = "bg-light-cherry" %}
+{% elseif theme == "green" %}
+  {% set theme = "bg-light-green" %}
+{% elseif theme == "grey" %}
+  {% set theme = "bg-light-grey" %}
+{% elseif theme == "blue" %}
+  {% set theme = "bg-light-blue" %}
+{% endif %}
+
+
+<div class="px-16 md:px-24 lg:px-32 {{ theme }}">
+  <div class="flex flex-col gap-12 justify-stretch py-80 relative lg:container lg:max-w-screen-lg mx-auto">
+    {% if title %}<h1 class="font-serif font-regular text-size-7">{{ title }}</h1>{% endif %}
+    {% if subtitle %}<p class="text-style-heading-sm">{{ subtitle }}</p>{% endif %}
+  </div>
 </div>

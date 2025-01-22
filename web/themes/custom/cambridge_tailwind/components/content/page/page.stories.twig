@@ -1,0 +1,84 @@
+{% stories basic_page with
+  {
+    title: 'Page Layouts/Basic',
+    argTypes: {
+      title: {
+        control: { type: "text" },
+      },
+      hideTopContent: {
+        control: { type: "boolean" },
+      },
+      hideParagraphs: {
+        control: { type: "boolean" },
+      },
+      hideContent: {
+        control: { type: "boolean" },
+      },
+      hideBottomParagraphs: {
+        control: { type: "boolean" },
+      },
+      hideSidebarItems: {
+        control: { type: "boolean" },
+      },
+      hideLeftHandNavigation: {
+        control: { type: "boolean" },
+      }
+    }
+  }
+%}
+
+  {% story basic_page_1 with
+    {
+      name: '1. Default',
+      args: {
+        title: 'Page title',
+        hideTopContent: false,
+        hideParagraphs: false,
+        hideContent: false,
+        hideBottomParagraphs: false,
+        hideSidebarItems: false,
+        hideLeftHandNavigation: true
+      }
+    } %}
+
+    {% if not hideLeftHandNavigation %}
+      {% set lhsNav %}
+        <div class="bg-green-200 text-center py-160">LHS Nav</div>
+      {% endset %}
+    {% endif %}
+
+    {% if not hideTopContent %}
+      {% set top_content %}
+        <div class="bg-blue-100 text-center py-40">Top content</div>
+      {% endset %}
+    {% endif %}
+
+    {% if not hideParagraphs %}
+      {% set paragraphs %}
+        <div class="bg-blue-200 text-center py-80">Paragraphs</div>
+      {% endset %}
+    {% endif %}
+
+    {% if not hideContent %}
+      {% set content %}
+        <div class="bg-blue-300 text-center py-120">Content</div>
+      {% endset %}
+    {% endif %}
+
+    {% if not hideBottomParagraphs %}
+      {% set bottom_paragraphs %}
+        <div class="bg-blue-400 text-center py-40">Bottom paragraphs</div>
+      {% endset %}
+    {% endif %}
+
+    {% if not hideSidebarItems %}
+      {% set sidebar_items %}
+        <div class="bg-cherry-100 text-center py-160 text-white">Sidebar items</div>
+      {% endset %}
+    {% endif %}
+
+    {# Here, use any Twig you want, including custom functions, filters, etc. #}
+    {% include '@cambridge_tailwind/components/content/page/page.twig' %}
+  {% endstory %}
+
+{% endstories %}

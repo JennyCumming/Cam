@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Template for 'Basic page' content type.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+{% set top_content = content.field_top_content %}
+{% set paragraphs = content.field_paragraph %}
+{% set bottom_paragraphs = content.field_bottom_paragraphs %}
+
+{# Remove the fields from content that we're handling separately. #}
+{# content will hold all content applied outside of the edit form #}
+{# e.g. via a preprocess - remove if unneeded and make paragraphs the main content #}
+{% set content = content|without(
+  'field_page_summary',
+  'field_top_content',
+  'field_subject_ref',
+  'field_paragraph',
+  'field_bottom_paragraphs',
+  'field_sidebar_items'
+) %}
+
+{% include 'cambridge_tailwind:page' with {
+  attributes: attributes,
+  classes: classes,
+  title: label,
+  content: content,
+  top_content: top_content,
+  paragraphs: paragraphs,
+  bottom_paragraphs: bottom_paragraphs,
+  sidebar_items: sidebar_items
+} only %}

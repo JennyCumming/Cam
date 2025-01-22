@@ -1,0 +1,26 @@
+name: Page
+description: Basic page template with responsive layout
+props:
+  type: object
+  required:
+    - content
+    - title
+  properties:
+    title:
+      type: string
+      description: The title of the page
+    content:
+      type: object
+      description: Main content area excluding specific fields that are handled separately
+    sidebar_items:
+      type: [object, "null"]
+      description: Right sidebar content, visible from xl breakpoint, collapsed below
+    top_content:
+      type: [object, "null"]
+      description: Content to be displayed at the top of the page
+    paragraphs:
+      type: [object, "null"]
+      description: Main paragraph content
+    bottom_paragraphs:
+      type: [object, "null"]
+      description: Bottom paragraph content

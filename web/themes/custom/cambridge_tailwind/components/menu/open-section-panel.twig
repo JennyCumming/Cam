@@ -1,0 +1,77 @@
+<div
+  class="hidden absolute left-0 top-[100%] bg-white w-[90%] p-6 rounded border-1 border-gray-100 z-10 container shadow-md"
+  id="menu-panel-{{ count }}"
+  data-menu-panel="menu-panel-{{ count }}"
+  aria-labelledby="menu-item-{{ count }}-heading"
+  aria-describedby="menu-item-{{ count }}-description"
+  role="menu"
+>
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-1/4 p-2 flex flex-col justify-between border-r-1 pr-10 gap-10">
+        <div class="flex flex-col gap-4">
+          <h3 class="text-2xl font-semibold" id="menu-item-{{ count }}-heading">
+            {% if section.section_heading %}
+              {{ section.section_heading }}
+            {% else %}
+              {{ section.title }}
+            {% endif %}
+          </h3>
+          <p class="text-gray-600" id="menu-item-{{ count }}-description">{{ section.section_description }}</p>
+          {% if section.url %}
+            {% if section.url.routename != '<nolink>' %}
+              <a href="{{ section.url }}" class="underline hover:no-underline" aria-label="Learn more about {{ section.title }}">Learn more</a>
+            {% endif %}
+          {% endif %}
+        </div>
+        {% if section.call_to_action %}
+          <a href="{{ section.call_to_action.url }}"  class="p-4 bg-gradient-to-br from-gray-700 to-gray-600 rounded group flex flex-col gap-7">
+            <h4 class="text-white text-lg font-semibold flex items-center gap-2 group-hover:underline">
+              <span>{{ section.call_to_action.title }}</span>
+              {{ source(componentMetadata.path ~ '/images/arrow-right.svg', ignore_missing = true) }}
+            </h4>
+            <p class="text-white">
+              {{ section.call_to_action.description }}
+            </p>
+          </a>
+        {% endif %}
+      </div>
+      <div class="w-full md:w-3/4 p-2 pl-10">
+        {% set countitems = section.below|length %}
+        {% set itemWrapperAttributes = create_attribute({'class' : ['grid', 'grid-cols-1', 'gap-x-16', 'col-span-1']}) %}
+        {% if section.menu_with_headings =='1' and countitems < 5 %}
+          {% if countitems < 3 %}
+            {% do itemWrapperAttributes.addClass('md:grid-cols-3') %}
+          {% else %}
+            {% do itemWrapperAttributes.addClass('md:grid-cols-4') %}
+          {% endif %}
+          <div{{ itemWrapperAttributes }}>
+            {% for item in section.below %}
+              <div>
+                <a href="{{ item.url }}" class="block text-gray-400" role="menuitem">
+                  {{ item.title }}
+                </a>
+                {% if item.below %}
+                  {% for subitem in item.below %}
+                    <a href="{{ subitem.url }}" role="menuitem"><p class="py-[16px] border-b-1 hover:bg-gray-100 text-lg"  role="none">{{ subitem.title }}</p></a>
+                  {% endfor %}
+                {% endif %}
+              </div>
+            {% endfor %}
+        {% else %}
+          {% do itemWrapperAttributes.addClass('md:grid-cols-3') %}
+          <div{{ itemWrapperAttributes }}>
+            {% for item in section.below %}
+              <a href="{{ item.url }}" class="flex flex-col sm:flex-row items-start py-[16px] border-b-1 hover:bg-gray-100 text-lg" role="menuitem">
+                {{ item.title }}
+              </a>
+              {% if item.below %}
+                {% for subitem in item.below %}
+                  <a href="{{ subitem.url }}" role="menuitem"><p class="flex flex-col sm:flex-row items-start py-[16px] border-b-1 hover:bg-gray-100 text-lg"  role="none">{{ subitem.title }}</p></a>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>

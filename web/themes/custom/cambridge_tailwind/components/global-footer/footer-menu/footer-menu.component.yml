@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: footer-menu
+name: Footer menu
+description: The footer navigation within a single site.
+group: Site components
+status: "experimental"
+props:
+  type: object
+  properties:
+    menu_items:
+      type: array
+      title: Menu items
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once

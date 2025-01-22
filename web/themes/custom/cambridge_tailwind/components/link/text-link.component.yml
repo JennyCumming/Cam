@@ -1,0 +1,35 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: text-link
+name: TextLink
+description: Rendering an internal link without an icon, or an external link with the matching icon.
+status: "experimental"
+props:
+  type: object
+  required:
+    - text
+    - url
+  properties:
+    attributes:
+      type: object
+      title: Attributes
+      description: Attributes to be added to the link.
+    text:
+      type: string
+      title: Link content
+      description: The content of the link. Plain text only.
+    url:
+      type: string
+      title: URL
+      description: The URL the link will navigate to.
+    external:
+      type: string
+      title: If this an external link (defaults to false)
+      description: Handles if this should open in a new tab or not, and the display of the external link icon.
+    dark:
+      type: boolean
+      title: Dark (or contrast) link (defaults to false)
+      description: Alters link colours to be more visible on dark backgrounds.
+    inline:
+      type: boolean
+      title: Inline link (defaults to false)
+      description: Adds underline to the link if being rendered inline, to distinguish from regular text.

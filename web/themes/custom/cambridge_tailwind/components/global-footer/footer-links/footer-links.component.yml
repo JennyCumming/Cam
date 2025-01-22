@@ -1,0 +1,20 @@
+$schema: https://git.drupalcode.org/project/sdc/-/raw/1.x/src/metadata.schema.json
+machineName: footer-contact
+name: Footer contact
+description: The footer navigation within a single site.
+group: Site components
+status: "experimental"
+props:
+  type: object
+  properties:
+    label:
+      type: string
+      title: label
+    links:
+      type: array
+      title: links
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once

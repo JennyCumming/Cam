@@ -2,8 +2,17 @@
 /**
  * The main menu navigation within a site.
  *
- * menu_item - An array of link objects
- *
+ * menu_item - An array of link objects (props from https://api.drupal.org/api/drupal/core%21themes%21stable9%21templates%21navigation%21menu.html.twig/9)
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
  */
 #}
 
@@ -15,92 +24,57 @@
     </svg>
   </button>
 </div> #}
-<div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-20"></div>
-<ul class="container flex justify-stretch py-2 gap-3 z-30 relative" role="menubar">
-  {% set count = 0 %}
-  {% for item in menu_items %}
-    {% set count = count + 1 %}
-    <li class="js-dropdown overflow-hidden" data-expanded="false">
-        {% if item.below %}
-          <button class="js-dropbtn text-gray-600 text-base px-3 py-2 gap-2 hover:bg-gray-100 rounded flex items-center" data-menu-item-count="{{ count }}">{{ item.title }}
-            {{ source(componentMetadata.path ~ '/images/caret-down.svg') }}
+{% from '@cambridge_tailwind/components/link/link.twig' import linkClasses %}
+{% set menuLinkClasses = linkClasses(true, false) | spaceless | split(" ") | merge(["flex", "flex-row", "items-center", "self-center", "gap-4", "leading-7", "p-8"]) %}
+
+<div id="menu-wrapper">
+  <div id="menu-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-20"></div>
+  {# Get's wrapped by a `nav` by Drupal, so we don't need to add one here #}
+  <div class="bg-blue-700 z-30 relative" id="menu-bar">
+    <div class="2xl:container mx-auto px-16 md:px-24 lg:px-32" id="menu-items-wrapper">
+      <ul
+        class="flex justify-stretch py-12 relative flex-wrap overflow-x-clip mx-[-8px]"
+        role="menubar"
+        aria-label=""
+        id="menu-items"
+      >
+        {% set count = 0 %}
+        {% for item in menu_items %}
+          {% set count = count + 1 %}
+          {% set linkAttributes = create_attribute().addClass(menuLinkClasses).addClass(["mr-8", "text-nowrap", "sm:mr-12"]) %}
+          {% if item.in_active_trail %}
+            {% set linkAttributes = linkAttributes.removeClass("no-underline").addClass(["font-semibold", "underline", "decoration-blue-200", "text-blue-200"]) %}
+          {% endif %}
+          <li role="none" id="menu-items-{{ count }}">
+            {% include "@cambridge_tailwind/components/menu/main-menu-link.twig" with { item: item, linkAttributes: linkAttributes, count: count } %}
+            {% if item.below %}
+              {% include "@cambridge_tailwind/components/menu/open-section-panel.twig" with { section: item, count: count }  %}
+            {% endif %}
+          </li>
+        {% endfor %}
+        {# Create the links for the more dropdown #}
+        {# These get shown as required #}
+        <li id="nav-more-container" aria-hidden="true" class="sm:relative hidden" role="none">
+          {% set linkAttributes = create_attribute().addClass(menuLinkClasses) %}
+          <button id="nav-more-button" {{linkAttributes}} aria-haspopup="true" type="button" aria-controls="nav-more-menu" aria-expanded="false" role="menuitem">
+            More
+            {% include "@cambridge_tailwind/components/menu/images/dots-three-vertical.svg.twig" %}
           </button>
-        {% else %}
-          <a href="{{ item.url }}" class="dropbtn text-gray-600 text-base px-3 py-2 hover:bg-gray-100 rounded block">{{ item.title }}</a>
-        {% endif %}
-        </button>
-      {% if item.below %}
-        <div class="js-dropdown-content hidden absolute left-0 top-[100%] bg-white w-[90%] p-6 rounded border-1 border-gray-100 z-10 container shadow-md" data-menu-item-count="{{ count }}" aria-hidden="true">
-          <div class="flex flex-wrap">
-            <div class="w-full md:w-1/4 p-2 flex flex-col justify-between border-r-1 pr-10 gap-10">
-              <div class="flex flex-col gap-4">
-                <h3 class="text-2xl font-semibold">
-                  {% if item.section_heading %}
-                    {{ item.section_heading }}
-                  {% else %}
-                    {{ item.title }}
-                  {% endif %}
-                </h3>
-                <p class="text-gray-600">{{ item.section_description }}</p>
-                {% if item.url %}
-                  {% if item.url.routename != '<nolink>' %}
-                    <a href="{{ item.url }}" class="underline hover:no-underline" aria-label="Learn more about {{ item.title }}">Learn more</a>
-                  {% endif %}
+          <ul class="bg-blue-700 z-30 absolute left-8 sm:left-auto mt-[-12px] sm:mt-0 right-8 sm:right-0 top-[100%] min-w-[200px] hidden shadow-md rounded-4 border border-solid border-divider-contrast-subtle overflow-clip" id="nav-more-menu" aria-hidden="true">
+            {% set count = 0 %}
+            {% for item in menu_items %}
+              {% set count = count + 1 %}
+              <li role="none" class="hidden" aria-hidden="true" id="more-menu-items-{{ count }}">
+                {% set linkAttributes = create_attribute().addClass(menuLinkClasses).addClass("border-solid border-divider-contrast-subtle [&:not(:last-child)]:border-b sm:text-nowrap xs:text-wrap") %}
+                {% if item.in_active_trail %}
+                  {% set linkAttributes = linkAttributes.removeClass("no-underline").addClass(["font-semibold", "underline", "decoration-blue-200", "text-blue-200"]) %}
                 {% endif %}
-              </div>
-              {% if item.call_to_action %}
-                <a href="{{ item.call_to_action.url }}"  class="p-4 bg-gradient-to-br from-gray-700 to-gray-600 rounded group flex flex-col gap-7">
-                  <h4 class="text-white text-lg font-semibold flex items-center gap-2 group-hover:underline">
-                    <span>{{ item.call_to_action.title }}</span>
-                    {{ source(componentMetadata.path ~ '/images/arrow-right.svg') }}
-                  </h4>
-                  <p class="text-white">
-                    {{ item.call_to_action.description }}
-                  </p>
-                </a>
-              {% endif %}
-            </div>
-            <div class="w-full md:w-3/4 p-2 pl-10">
-              {% set countitems = item.below|length %}
-              {% set subItemWrapperAttributes = create_attribute({'class' : ['grid', 'grid-cols-1', 'gap-x-16', 'col-span-1']}) %}
-              {% if item.menu_with_headings =='1' and countitems < 5 %}
-                {% if countitems < 3 %}
-                  {% do subItemWrapperAttributes.addClass('md:grid-cols-3') %}
-                {% else %}
-                  {% do subItemWrapperAttributes.addClass('md:grid-cols-4') %}
-                {% endif %}
-                <div{{ subItemWrapperAttributes }}>
-                  {% for subitem in item.below %}
-                    <div>
-                      <a href="{{ subitem.url }}" class="block text-gray-400" role="menuitem">
-                        {{ subitem.title }}
-                      </a>
-                      {% if subitem.below %}
-                        {% for subsubitem in subitem.below %}
-                          <a href="{{ subsubitem.url }}" role="menuitem"><p class="py-[16px] border-b-1 hover:bg-gray-100 text-lg"  role="none">{{ subsubitem.title }}</p></a>
-                        {% endfor %}
-                      {% endif %}
-                    </div>
-                  {% endfor %}
-              {% else %}
-                {% do subItemWrapperAttributes.addClass('md:grid-cols-3') %}
-                <div{{ subItemWrapperAttributes }}>
-                  {% for subitem in item.below %}
-                    <a href="{{ subitem.url }}" class="flex flex-col sm:flex-row items-start py-[16px] border-b-1 hover:bg-gray-100 text-lg" role="menuitem">
-                      {{ subitem.title }}
-                    </a>
-                    {% if subitem.below %}
-                      {% for subsubitem in subitem.below %}
-                        <a href="{{ subsubitem.url }}" role="menuitem"><p class="flex flex-col sm:flex-row items-start py-[16px] border-b-1 hover:bg-gray-100 text-lg"  role="none">{{ subsubitem.title }}</p></a>
-                      {% endfor %}
-                    {% endif %}
-                  {% endfor %}
-                {% endif %}
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
+                {% include "@cambridge_tailwind/components/menu/main-menu-link.twig" with { item: item, linkAttributes: linkAttributes, count: count } %}
+              </li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

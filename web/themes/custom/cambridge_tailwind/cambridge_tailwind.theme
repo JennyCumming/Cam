@@ -1,16 +1,675 @@
 <?php
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
+
 /**
- * Implements template_preprocess_HOOK() for views.
+ * Implements hook_preprocess_image_widget().
  */
-function cambridge_tailwind_preprocess_views_view(&$variables) {
-  $variables['view_array']['#theme_wrappers'] = array();
-  $variables['view_array']['#attributes']['class'] = array();
+function cambridge_tailwind_preprocess_image_widget(array &$variables) {
+  $data = &$variables['data'];
+
+  // This prevents image widget templates from rendering preview container HTML
+  // to users that do not have permission to access these previews.
+  // @todo revisit in https://drupal.org/node/953034
+  // @todo revisit in https://drupal.org/node/3114318
+  if (isset($data['preview']['#access']) && $data['preview']['#access'] === FALSE) {
+    unset($data['preview']);
+  }
 }
 
 /**
- * Implements template_preprocess_HOOK() for blocks.
+ * Implements hook_preprocess_HOOK() for node templates.
  */
-function cambridge_tailwind_preprocess_block(&$variables) {
-  $variables['content']['#theme_wrappers'] = array();
+function cambridge_tailwind_preprocess_node(array &$variables) {
+  // Get the current node object.
+  $node = $variables['node'];
+
+  // Check if the node object exists and is of type Node.
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    // Get the node type.
+    $node_type = $node->bundle();
+
+    // Add the node type to the variables.
+    $variables['node_type'] = $node_type;
+
+    // Add the node type to the page template variables.
+    \Drupal::request()->attributes->set('current_node_type', $node_type);
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function cambridge_tailwind_preprocess(array &$variables) {
+  // Check if the current request contains a node.
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // Check if the node object exists and is of type Node.
+    if ($node instanceof \Drupal\node\NodeInterface) {
+      // Get the node type.
+      $node_type = $node->bundle();
+
+      // Add the node type to the page variables.
+      $variables['node_type'] = $node_type;
+
+      if (!empty($node->field_title_prefix->entity)) {
+        $variables['field_title_prefix'] = $node->field_title_prefix->entity->name->value;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function cambridge_tailwind_preprocess_field(&$variables) : void {
+  // Check if we are dealing with the 'field_link' field.
+  if ($variables['element']['#field_name'] == 'field_link') {
+    // Get the parent entity and the field name.
+    $parent_entity = $variables['element']['#object'];
+    $field_name    = $variables['element']['#field_name'];
+
+    // Get the number of items in the field.
+    $field_item_count = $parent_entity->get($field_name)->count();
+
+    // Add the count to the variables array to make it available in the template.
+    $variables['field_link_render_count'] = $field_item_count;
+
+    // Set multiple to TRUE if count is more than 1, otherwise FALSE.
+    $variables['multiple'] = ($field_item_count > 1);
+  }
+}
+
+/**
+ * Implements template_preprocess_block();
+ */
+function cambridge_tailwind_preprocess_block(&$variables) : void {
+
+  // Custom content block.
+  if (isset($variables['content']['#block_content'])) {
+
+    // Footer links.
+    if ($variables['content']['#block_content']->get('type')->getString() == 'footer_links') {
+      $paragraph_storage = \Drupal::service('entity_type.manager')->getStorage('paragraph');
+
+      $variables['links'] = [];
+
+      foreach ($variables['content']['#block_content']->get('field_links') as $item) {
+        $paragraph = reset($paragraph_storage->loadByProperties(['id' => $item->target_revision_id]));
+        $field_link     = $paragraph->field_link->getValue();
+        $field_link     = reset($field_link);
+        $field_link_url = Url::fromUri($field_link['uri']);
+
+        $link = [
+          'url'         => $field_link_url->toString(),
+          'label'       => $field_link['title'],
+          'is_external' => $field_link_url->isExternal()
+        ];
+
+        $field_icon = $paragraph->field_icon->getValue();
+        if (count($field_icon)) {
+          $link['icon'] = reset($field_icon)['value'];
+        }
+
+        $variables['links'][] = $link;
+      }
+    }
+
+    // Footer contact.
+    if ($variables['content']['#block_content']->get('type')->getString() == 'contact') {
+      $paragraph_storage = \Drupal::service('entity_type.manager')->getStorage('paragraph');
+      //$paragraph = reset($paragraph_storage->loadByProperties(['id' => $item->target_revision_id]));
+
+      try {
+        $variables['content']['field_email'] = $variables['content']['#block_content']->field_email->value;
+      }
+      catch (\Throwable $e) {
+        $variables['content']['field_email'] = '';
+      }
+
+      try {
+        $variables['content']['field_telephone_number'] = $variables['content']['#block_content']->field_telephone_number->value;
+      }
+      catch (\Throwable $e) {
+        $variables['content']['field_telephone_number'] = '';
+      }
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function cambridge_tailwind_preprocess_paragraph(&$variables) {
+
+  // Check if the paragraph is of type 'compact_callout'.
+  if ($variables['paragraph']->bundle() == 'compact_callout') {
+    // Get the value of 'field_callout_type'.
+    if ($variables['paragraph']->hasField('field_callout_type')) {
+      $field_callout_type = $variables['paragraph']->get('field_callout_type')->value;
+      // Pass the value to the template.
+      $variables['field_callout_type'] = $field_callout_type;
+    }
+  }
+
+  // Get the paragraph entity.
+  $paragraph = $variables['paragraph'];
+
+  // Check if the paragraph has the 'field_highlight_story_2' field and if it's not empty.
+  if ($paragraph->hasField('field_highlight_story_2') && !$paragraph->get('field_highlight_story_2')
+                                                                    ->isEmpty()) {
+    // Fetch the referenced entity.
+    $highlight_story_item   = $paragraph->get('field_highlight_story_2')
+                                        ->first();
+    $highlight_story_entity = $highlight_story_item->entity;
+
+    // Assign the nid to a variable for use in the template.
+    $variables['highlight_story_nid_2'] = $highlight_story_entity->id();
+  }
+
+  // Check if the paragraph has the 'field_highlight_story' field and if it's not empty.
+  if ($paragraph->hasField('field_highlight_story') && !$paragraph->get('field_highlight_story')
+                                                                  ->isEmpty()) {
+    // Fetch the referenced entity.
+    $highlight_story_item   = $paragraph->get('field_highlight_story')->first();
+    $highlight_story_entity = $highlight_story_item->entity;
+
+    // Assign the nid to a variable for use in the template.
+    $variables['highlight_story_nid'] = $highlight_story_entity->id();
+  }
+
+
+  // Check for the specific paragraph bundle.
+  if ($variables['paragraph']->bundle() == 'news') {
+    // Load the view reference field.
+    $view_news = $variables['paragraph']->get('field_news')->getValue();
+
+    if (!empty($view_news)) {
+      // Extract the view name and display ID from the field.
+      $view_name       = $view_news[0]['target_id'];
+      $view_display_id = $view_news[0]['display_id'];
+
+      // Load the view.
+      $view = \Drupal\views\Views::getView($view_name);
+      if ($view) {
+        // Execute the view.
+        $view->setDisplay($view_display_id);
+        $view->execute();
+
+        // Pass the view results to the template.
+        $variables['view_results']    = $view->result;
+        $variables['view_display_id'] = $view_display_id;
+      }
+    }
+  }
+
+  // Preprocess to check if the cards components have a heading
+  if ($variables['paragraph']->bundle() == 'image_cards' || $variables['paragraph']->bundle() == 'text_cards') {
+
+    $heading_field            = $variables['paragraph']->get('field_heading');
+    $variables['has_heading'] = !$heading_field->isEmpty();
+  }
+
+  // Check if the paragraph has view results with block information.
+  if (isset($variables['view_results'])) {
+    foreach ($variables['view_results'] as $result) {
+      if (isset($result->_entity->view_block_info)) {
+        $block_info = $result->_entity->view_block_info;
+
+        // Assign the block information to variables for use in the template.
+        $variables['view_id']    = $block_info['view_id'];
+        $variables['display_id'] = $block_info['display_id'];
+      }
+    }
+  }
+
+  // Preprocess to check if the Featured Links component has an image
+  if ($variables['paragraph']->bundle() == 'featured_links') {
+
+    $image_field            = $variables['paragraph']->get('field_image_media');
+    $variables['has_image'] = !$image_field->isEmpty();
+  }
+  if ($variables['paragraph']->bundle() == 'image_card') {
+
+    $image_field            = $variables['paragraph']->get('field_image_media');
+    $variables['has_image'] = !$image_field->isEmpty();
+  }
+
+  // Preprocess to count the number of cards the Image Cards or Text Cards component has
+  if ($paragraph->bundle() == 'image_cards' || $paragraph->bundle() == 'text_cards' || $paragraph->bundle() == 'link_grid') {
+    $nested_count = count_nested_paragraphs($paragraph);
+    // Add the count to the variables for use in the template.
+    $variables['nested_paragraph_count'] = $nested_count;
+  }
+
+
+  // Make the card link url available as a variable to the card template (so the whole card is a link)
+  if ($paragraph->hasField('field_card_link') && !$paragraph->get('field_card_link')
+                                                            ->isEmpty()) {
+
+    $link_field = $paragraph->get('field_card_link');
+
+    $link = $link_field->first();
+
+    $url = $link->getUrl();
+
+    $url_string = $url->toString();
+
+    $variables['card_link_url'] = $url_string;
+  }
+
+  // if the image is used in a card, display it as the correct size
+  if ($paragraph->hasField('field_image_media') && !$paragraph->get('field_image_media')
+                                                              ->isEmpty()) {
+    $image_field = $paragraph->get('field_image_media')->first();
+
+    // Ensure the field is a media entity reference and get the media entity.
+    if ($image_field->entity instanceof \Drupal\media\Entity\Media) {
+      $media = $image_field->entity;
+
+      // Get the file entity from the media field (assuming 'field_media_image' is the image field in the media entity).
+      if ($media->hasField('field_media_image') && !$media->get('field_media_image')
+                                                          ->isEmpty()) {
+        $file = $media->get('field_media_image')->entity;
+
+        // Get the image URI.
+        if ($file instanceof \Drupal\file\FileInterface) {
+          $image_uri = $file->getFileUri();
+
+          // Get the alt text.
+          $image_alt = $media->get('field_media_image')->alt;
+
+          // Pass the image URI and alt text to the Twig template.
+          $variables['image_uri'] = $image_uri;
+          $variables['image_alt'] = $image_alt;
+        }
+      }
+    }
+  }
+
+  if ($paragraph->hasField('field_image_multiple') && !$paragraph->get('field_image_multiple')
+                                                                 ->isEmpty()) {
+    $image_items = $paragraph->get('field_image_multiple');
+
+    foreach ($image_items as $delta => $item) {
+      if ($item->entity instanceof \Drupal\media\Entity\Media) {
+        $media = $item->entity;
+
+        if ($media->hasField('field_media_image') && !$media->get('field_media_image')
+                                                            ->isEmpty()) {
+          $file = $media->get('field_media_image')->entity;
+
+          if ($file instanceof \Drupal\file\FileInterface) {
+            $image_uri = $file->getFileUri();
+            $image_alt = $media->get('field_media_image')->alt;
+
+            $variables['image_multiple'][$delta] = [
+              'uri' => $image_uri,
+              'alt' => $image_alt,
+            ];
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Helper function to count nested paragraphs.
+ *
+ * @param \Drupal\paragraphs\Entity\Paragraph $paragraph
+ *   A paragraph entity.
+ *
+ * @return int
+ *   The count of nested paragraph cards.
+ */
+function count_nested_paragraphs($paragraph) {
+  if (!($paragraph instanceof \Drupal\paragraphs\Entity\Paragraph)) {
+    \Drupal::logger('debug')->debug('Not a paragraph entity!');
+    return 0;
+  }
+
+  $count = 0;
+  $fields_to_check = ['field_card', 'field_list_of_links']; // Add all potential fields.
+
+  foreach ($fields_to_check as $field_name) {
+    if ($paragraph->hasField($field_name)) {
+      if (!$paragraph->get($field_name)->isEmpty()) {
+        $nested_paragraphs = $paragraph->get($field_name)->referencedEntities();
+        $field_count = count($nested_paragraphs);
+        $count += $field_count;
+
+        \Drupal::logger('debug')->debug('Field @field contains @count nested paragraphs.', [
+          '@field' => $field_name,
+          '@count' => $field_count,
+        ]);
+
+        foreach ($nested_paragraphs as $nested_paragraph) {
+          // Recursively check nested paragraphs.
+          $nested_count = count_nested_paragraphs($nested_paragraph);
+          $count += $nested_count;
+
+          \Drupal::logger('debug')->debug('Field @field nested count increased by @nested.', [
+            '@field' => $field_name,
+            '@nested' => $nested_count,
+          ]);
+        }
+      } else {
+        \Drupal::logger('debug')->debug('Field @field exists but is empty.', [
+          '@field' => $field_name,
+        ]);
+      }
+    } else {
+      \Drupal::logger('debug')->debug('Field @field does not exist on this paragraph.', [
+        '@field' => $field_name,
+      ]);
+    }
+  }
+
+  \Drupal::logger('debug')->debug('Total count for paragraph: @total', [
+    '@total' => $count,
+  ]);
+
+  return $count;
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK() for the page title.
+ * Adds summary field from node and handles title visibility
+ */
+function cambridge_tailwind_preprocess_page_title(&$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node != NULL ) {
+      $node_type = $node->getType();
+    $variables['node_type']   = $node_type;
+
+      // Hide the page title for basic pages since it's handled in page.twig
+      if ($node_type === 'page') {
+        $variables['title'] = '';
+      }
+
+      // Add description if available
+      if ($node->hasField('field_description')) {
+    $variables['description'] = $node->get('field_description')
+                                     ->view('default');
+  }
+  else if ($node->hasField('body')) {
+    $variables['body'] = $node->get('body')->value;
+  }}
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for paragraph templates.
+ */
+function cambridge_tailwind_preprocess_paragraph__compact_callout(&$variables) {
+  // Initialize a count variable
+  $image_count = 0;
+
+  // Get the paragraph entity
+  $paragraph = $variables['paragraph'];
+
+  // Check if the paragraph has the field_image_multiple field and if it has items
+  if ($paragraph->hasField('field_image_multiple') && !$paragraph->get('field_image_multiple')
+                                                                 ->isEmpty()) {
+    // Get the field items
+    $images = $paragraph->get('field_image_multiple')->getValue();
+
+    // Count the number of items in the field_image_multiple field
+    $image_count = count($images);
+
+  }
+
+  // Pass the image count and URIs to the Twig template
+  $variables['image_count'] = $image_count;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu items.
+ */
+function cambridge_tailwind_preprocess_menu__main(&$variables) {
+  // Get the entity type manager service.
+  $entityTypeManager = \Drupal::service('entity_type.manager');
+
+  foreach ($variables['items'] as &$item) {
+    // Check if the original link is an instance of MenuLinkContent.
+    if (isset($item['original_link']) && $item['original_link'] instanceof \Drupal\menu_link_content\Plugin\Menu\MenuLinkContent) {
+      $menu_link_content_id = $item['original_link']->getDerivativeId();
+
+      // Load the menu link content entity by UUID.
+      try {
+        // Load the entity using the entity type manager.
+        $menu_link_content_storage = $entityTypeManager->getStorage('menu_link_content');
+        $menu_link_content         = $menu_link_content_storage->loadByProperties(['uuid' => $menu_link_content_id]);
+
+        if (!empty($menu_link_content)) {
+          // Since loadByProperties returns an array, get the first item.
+          $menu_link_content = reset($menu_link_content);
+
+          // Check if the field_section_heading field exists and is not empty.
+          if ($menu_link_content->hasField('field_section_heading')) {
+            $field = $menu_link_content->get('field_section_heading');
+            if (!$field->isEmpty()) {
+              $item['section_heading'] = $field->value;
+            }
+            else {
+              $item['section_heading'] = NULL;
+            }
+          }
+          // Check if the field_section_description field exists and is not empty.
+          if ($menu_link_content->hasField('field_section_description')) {
+            $field = $menu_link_content->get('field_section_description');
+            if (!$field->isEmpty()) {
+              $item['section_description'] = $field->value;
+            }
+            else {
+              $item['section_description'] = NULL;
+            }
+          }
+          // Check if the field_menu_with_headings field exists and is not empty.
+          if ($menu_link_content->hasField('field_menu_with_headings')) {
+            $field = $menu_link_content->get('field_menu_with_headings');
+            if (!$field->isEmpty()) {
+              $item['menu_with_headings'] = $field->value;
+            }
+            else {
+              $item['menu_with_headings'] = NULL;
+            }
+          }
+          // Check if the field_call_to_action field exists and is not empty.
+          if ($menu_link_content->hasField('field_call_to_action')) {
+            $field = $menu_link_content->get('field_call_to_action');
+            // Initialize the call to action array.
+            $call_to_action = [];
+            // Check if the field is not empty.
+            if (!$field->isEmpty()) {
+              // Get the URL, title, and description.
+              $url         = $field->uri;
+              $title       = $field->title;
+              $description = $field->description;
+              // Build the call to action array.
+              $call_to_action = [
+                'url'         => $url,
+                'title'       => $title,
+                'description' => $description,
+              ];
+            }
+            $item['call_to_action'] = $call_to_action;
+          }
+        }
+      } catch (\Exception $e) {
+        \Drupal::logger('cambridge_tailwind')
+               ->error('Error loading menu link content: @message', ['@message' => $e->getMessage()]);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu items.
+ */
+function cambridge_tailwind_preprocess_menu__footer(&$variables) {
+  // Simplify the variables passed to the component templates.
+  $variables['items'] = array_map(function($item) {
+    $item['url'] = $item['url']->toString();
+    return $item;
+  }, $variables['items']);
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu-local-tasks templates.
+ * Copied from Claro
+ *
+ * Use preprocess hook to set #attached to child elements because they will be
+ * processed by Twig and \Drupal::service('renderer')->render() will be invoked.
+ */
+function cambridge_tailwind_preprocess_menu_local_tasks(&$variables) {
+  if (!empty($variables['primary'])) {
+    $variables['primary']['#attached'] = [
+      'library' => [
+        'claro/drupal.nav-tabs',
+      ],
+    ];
+  }
+  elseif (!empty($variables['secondary'])) {
+    $variables['secondary']['#attached'] = [
+      'library' => [
+        'claro/drupal.nav-tabs',
+      ],
+    ];
+  }
+
+  foreach (Element::children($variables['primary']) as $key) {
+    $variables['primary'][$key]['#level'] = 'primary';
+  }
+  foreach (Element::children($variables['secondary']) as $key) {
+    $variables['secondary'][$key]['#level'] = 'secondary';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu-local-task templates.
+ */
+function cambridge_tailwind_preprocess_menu_local_task(&$variables) {
+  $variables['link']['#options']['attributes']['class'][] = 'tabs__link';
+  $variables['link']['#options']['attributes']['class'][] = 'js-tabs-link';
+  if ($variables['link']['#title'] == 'Revisions') {
+    $variables['link']['#options']['attributes']['aria-label'][] = $variables['link']['#title'] . t(' for this page');
+  }
+  else {
+    $variables['link']['#options']['attributes']['aria-label'][] = $variables['link']['#title'] . t(' page');
+  }
+
+  // Ensure is-active class is set when the tab is active. The generic active
+  // link handler applies stricter comparison rules than what is necessary for
+  // tabs.
+  if (isset($variables['is_active']) && $variables['is_active'] === TRUE) {
+    $variables['link']['#options']['attributes']['class'][] = 'is-active';
+  }
+
+  if (isset($variables['element']['#level'])) {
+    $variables['level'] = $variables['element']['#level'];
+  }
+}
+
+
+/**
+ * Implements template_preprocess_HOOK() for input.
+ * Copied from web/core/themes/claro/claro.theme
+ */
+function cambridge_tailwind_preprocess_input(&$variables) {
+  if (
+    !empty($variables['element']['#title_display']) &&
+    $variables['element']['#title_display'] === 'attribute' &&
+    !empty((string) $variables['element']['#title'])
+  ) {
+    $variables['attributes']['title'] = (string) $variables['element']['#title'];
+  }
+
+  $type_api        = $variables['element']['#type'];
+  $type_html       = $variables['attributes']['type'];
+  $text_types_html = [
+    'text',
+    'email',
+    'tel',
+    'number',
+    'search',
+    'password',
+    'date',
+    'time',
+    'file',
+    'color',
+    'datetime-local',
+    'url',
+    'month',
+    'week',
+  ];
+
+  if (in_array($type_html, $text_types_html)) {
+    $variables['attributes']['class'][] = 'form-element';
+    $variables['attributes']['class'][] = Html::getClass('form-element--type-' . $type_html);
+    $variables['attributes']['class'][] = Html::getClass('form-element--api-' . $type_api);
+
+    if (!empty($variables['element']['#autocomplete_route_name'])) {
+      $variables['autocomplete_message'] = t('Loading…');
+    }
+  }
+
+  if (in_array($type_html, ['checkbox', 'radio'])) {
+    $variables['attributes']['class'][] = 'form-boolean';
+    $variables['attributes']['class'][] = Html::getClass('form-boolean--type-' . $type_html);
+  }
+}
+
+
+/**
+ * Implements template_preprocess_HOOK() for select.
+ */
+function cambridge_tailwind_preprocess_select(&$variables) {
+  if (!empty($variables['element']['#title_display']) && $variables['element']['#title_display'] === 'attribute' && !empty((string) $variables['element']['#title'])) {
+    $variables['attributes']['title'] = (string) $variables['element']['#title'];
+  }
+
+  $variables['attributes']['class'][] = 'form-element';
+  $variables['attributes']['class'][] = $variables['element']['#multiple'] ?
+    'form-element--type-select-multiple' :
+    'form-element--type-select';
+
+  if (in_array('block-region-select', $variables['attributes']['class'])) {
+    $variables['attributes']['class'][] = 'form-element--extrasmall';
+  }
+}
+
+/**
+ * Implements hook_preprocess_node__page().
+ *
+ * Preprocesses variables for the basic page content type.
+ */
+function cambridge_tailwind_preprocess_node__page(array &$variables) {
+  // Ensure the node object exists.
+  $node = $variables['node'];
+
+  // Process sidebar items if they exist
+  if ($node->hasField('field_sidebar_items') && !$node->get('field_sidebar_items')->isEmpty()) {
+    // Get the entity reference field
+    $field = $node->get('field_sidebar_items');
+
+    // Create a render array for the paragraphs
+    $build = [];
+    foreach ($field as $delta => $item) {
+      if ($item->entity) {
+        // Get the paragraph entity and create a render array
+        $build[$delta] = \Drupal::entityTypeManager()
+          ->getViewBuilder('paragraph')
+          ->view($item->entity, 'default');
+      }
+    }
+
+    // Assign the rendered build array to the template variable
+    $variables['sidebar_items'] = $build;
+  }
 }
