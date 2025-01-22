@@ -65,7 +65,7 @@
         "drupal/maxlength": "~2.1.2",
         "drupal/menu_block": "~1.10",
         "drupal/menu_item_fields": "^1.10",
-        "drupal/message_banner": "^2.0",
+        "drupal/message_banner": "^2.0.x-dev@dev",
         "drupal/metatag": "~1.26.0",
         "drupal/node_read_time": "~1.13.0",
         "drupal/node_title_help_text": "~1.3",
