@@ -1,0 +1,18 @@
+uuid: cd718aee-94c8-4450-935b-b83a2ef6f5e2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PP8JPOQAR2xeEQWM-3fmObVbv7W4UuBtDKVi1yqlowo
+name: media_xs_1x
+label: 'Media XS 1X'
+effects:
+  90817900-fe17-447a-b4fc-c9199edaad07:
+    uuid: 90817900-fe17-447a-b4fc-c9199edaad07
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 432
+      anchor: center-center
+pipeline: ''

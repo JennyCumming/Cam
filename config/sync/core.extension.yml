@@ -16,6 +16,7 @@ module:
   calendar: 0
   calendar_datetime: 0
   cam_admin_ui_tweaks: 0
+  cam_twigextension: 0
   ckeditor: 0
   ckeditor5: 0
   ckeditor5_paste_filter: 0
@@ -58,7 +59,6 @@ module:
   field_validation: 0
   file: 0
   filter: 0
-  gathercontent: 0
   gin_login: 0
   gin_toolbar: 0
   google_tag: 0
@@ -95,7 +95,6 @@ module:
   menu_link_content: 0
   menu_trail_by_path: 0
   menu_ui: 0
-  message_banner: 0
   metatag: 0
   metatag_dc: 0
   metatag_views: 0

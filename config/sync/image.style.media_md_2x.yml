@@ -1,0 +1,18 @@
+uuid: 6345be28-9219-46ea-b6fa-c39489b8d916
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 87_gwtSOtxu84hLKYsMMmCD3oaS3ERZVgiqQEn9JaiA
+name: media_md_2x
+label: 'Media MD 2X'
+effects:
+  5eaf7151-e679-4d42-8cf8-5016222bb61e:
+    uuid: 5eaf7151-e679-4d42-8cf8-5016222bb61e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 2048
+      height: 1152
+      anchor: center-center
+pipeline: ''

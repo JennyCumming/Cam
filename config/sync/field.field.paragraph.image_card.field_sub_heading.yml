@@ -6,12 +6,12 @@ dependencies:
     - field.storage.paragraph.field_sub_heading
     - paragraphs.paragraphs_type.image_card
 _core:
-  default_config_hash: nMhPJXUINetXrN64GmLOvNWhDhAouUJNFeu-zU4LE88
+  default_config_hash: '-LI_bArnCD4NwDLWUtDZ0M0tCDj98hn-QtAs3kDTH3o'
 id: paragraph.image_card.field_sub_heading
 field_name: field_sub_heading
 entity_type: paragraph
 bundle: image_card
-label: Label
+label: 'Card group description'
 description: ''
 required: false
 translatable: false

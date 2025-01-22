@@ -1,5 +1,5 @@
 _core:
-  default_config_hash: UDF8uf3AtySWCs_tGjXbnKBXCdAVPkj65-erFFwrN6Y
+  default_config_hash: KzgrVXiGuw9HtE4RISfb04ZP1Ezgn8sHmazBTZEDmzc
 features:
   node_user_picture: 1
   comment_user_picture: 1
@@ -12,3 +12,4 @@ favicon:
   use_default: 0
   path: themes/custom/cambridge_tailwind/favicon.ico
   mimetype: image/vnd.microsoft.icon
+color: teal

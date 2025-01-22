@@ -1,4 +1,4 @@
-uuid: 6b2fe5b0-85d4-4148-a7de-7a19d928447f
+uuid: 533e7198-8e5c-42ae-9208-5666091a8d21
 langcode: en
 status: true
 dependencies:
@@ -14,7 +14,7 @@ dependencies:
     - maxlength
     - media_library
 _core:
-  default_config_hash: rcogeKzsjTWXp-IBVxVT3gGgyI47x-Cp-J-hvzagUR0
+  default_config_hash: l5RVI7UekNqk4whv1oPi-mDNZV8zy8EqROvtgs1XFlU
 id: paragraph.image_card.default
 targetEntityType: paragraph
 bundle: image_card
@@ -59,18 +59,7 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_sub_heading:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings:
-      maxlength:
-        maxlength_js: 60
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
-        maxlength_js_enforce: true
 hidden:
   created: true
+  field_sub_heading: true
   status: true

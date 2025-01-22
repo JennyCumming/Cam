@@ -1,4 +1,4 @@
-uuid: f2e5281f-aa45-41e0-879c-2267360c2f52
+uuid: 9f18711a-f733-433e-a2bc-8dab7ecd6b52
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - entity_reference_revisions
     - paragraphs
 _core:
-  default_config_hash: 559Zx_4bhVjdR98aKhMIlH7e29-HQ8ziKWLHRYUWiF8
+  default_config_hash: z72jafKV8DcTYMJYgQfiW2Gb56FD4Ro5Cb2ph4R1AcM
 id: paragraph.field_card
 field_name: field_card
 entity_type: paragraph
@@ -15,7 +15,7 @@ settings:
   target_type: paragraph
 module: entity_reference_revisions
 locked: false
-cardinality: 4
+cardinality: 3
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

@@ -1,20 +1,45 @@
-uuid: fd7967d3-0cfb-42c1-898f-72298097bbc5
+uuid: 8dbf3a25-4a6a-4479-a963-33f9ff221096
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.landing_page
+    - node.type.home_page
     - node.type.page
-    - node.type.staff_profile
   module:
     - node
+    - path
+    - simple_menu_permissions
+    - system
+    - toolbar
+    - view_unpublished
 _core:
-  default_config_hash: vj7DOBpn6sQu3hAMHynZon1zmtSkRaNphdFNsE7WDdg
+  default_config_hash: rPqJg3_j_sA6GFIxuDb6o8NnZ8wtrM6WhvIpgYQNtH4
 id: site_admin
 label: 'Site admin'
 weight: 4
 is_admin: null
 permissions:
-  - 'delete any landing_page content'
-  - 'delete any staff_profile content'
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'add new links to main menu'
+  - 'administer menu'
+  - 'administer users'
+  - 'create page content'
+  - 'create url aliases'
+  - 'delete any page content'
+  - 'delete links in main menu'
+  - 'delete own page content'
+  - 'edit any home_page content'
+  - 'edit any page content'
+  - 'edit links in main menu'
+  - 'edit main menu'
+  - 'edit own page content'
+  - 'revert home_page revisions'
   - 'revert page revisions'
+  - 'view any unpublished home_page content'
+  - 'view any unpublished page content'
+  - 'view home_page revisions'
+  - 'view main menu in menu list'
+  - 'view page revisions'
+  - 'view the administration theme'

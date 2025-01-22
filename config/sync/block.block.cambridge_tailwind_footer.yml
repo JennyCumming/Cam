@@ -1,0 +1,35 @@
+uuid: e8a62d26-3414-4f15-8943-4749cab7c3f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - menu_block
+  theme:
+    - cambridge_tailwind
+_core:
+  default_config_hash: YuFMizHXetF0xRr3_txoQkTKLwtvixpcpQySaaTHZjQ
+id: cambridge_tailwind_footer
+theme: cambridge_tailwind
+region: footer_menu
+weight: 0
+provider: null
+plugin: 'menu_block:footer'
+settings:
+  id: 'menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'footer:'
+  render_parent: false
+  suggestion: footer
+  label_type: block
+  label_link: false
+  hide_on_nonactive: false
+visibility: {  }

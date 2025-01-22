@@ -1,4 +1,4 @@
-uuid: 39e8bd7e-7d69-48c7-a70c-dc423253ea72
+uuid: 64d9ab69-9eb6-4fa4-b0a1-3e6dcfcb41f2
 langcode: en
 status: true
 dependencies:
@@ -13,7 +13,7 @@ third_party_settings:
   sdc_display:
     enabled: true
     component:
-      machine_name: 'cambridge_tailwind:text'
+      machine_name: 'cambridge_tailwind:prose'
       show_deprecated: null
     mappings:
       static:
@@ -23,7 +23,7 @@ third_party_settings:
         props:
           content: field_text
 _core:
-  default_config_hash: 9iV8hps8xue3qwQ3RcoDcpZOdiXOvIYUegDghFymE3I
+  default_config_hash: 4e-0ryzaVNSX8h-yGY9zYHm6_OnPYE8n4xtqp-duvps
 id: paragraph.text.default
 targetEntityType: paragraph
 bundle: text

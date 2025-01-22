@@ -1,4 +1,4 @@
-uuid: 23899418-db02-4659-b699-c054cf7a5d35
+uuid: a7e9fb91-3497-48f4-86b8-c1c2fd49a220
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,7 @@ dependencies:
     - link
     - paragraphs
 _core:
-  default_config_hash: URCux7VLcSNiEReHnMSUbZhuL3qVQfATTy6eOAHvbUk
+  default_config_hash: Cmr3_gZgJyFtBK60Z1LCB5WnbBUlMQuUivTKj8CkUeI
 id: paragraph.field_link
 field_name: field_link
 entity_type: paragraph
@@ -14,7 +14,7 @@ type: link
 settings: {  }
 module: link
 locked: false
-cardinality: 6
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

@@ -1,4 +1,4 @@
-uuid: 1a4fd0b4-3982-4f49-82d5-7b60d7c9fac6
+uuid: 83159f4f-86c2-4572-9211-f992faaa1268
 langcode: en
 status: true
 dependencies:
@@ -11,7 +11,7 @@ dependencies:
     - maxlength
     - paragraphs
 _core:
-  default_config_hash: Xp1aI_WgbNL7N61i-USqHe7sAWbqmL_pvNNt9g-Lh7g
+  default_config_hash: 7H6uioMC-NpR_b-iDP-mM2XLR-sdjxU_6HVMu7eQWiA
 id: paragraph.image_cards.default
 targetEntityType: paragraph
 bundle: image_cards
@@ -39,7 +39,7 @@ content:
     third_party_settings: {  }
   field_heading:
     type: string_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60
@@ -51,7 +51,7 @@ content:
         maxlength_js_enforce: true
   field_sub_heading:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60

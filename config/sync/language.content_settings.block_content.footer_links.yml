@@ -1,0 +1,13 @@
+uuid: c8d3de94-348a-463d-9238-b8bd9062b0c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.footer_links
+_core:
+  default_config_hash: en5-iED4yHbI-y4NqHyN1PNpCtw7wWaHF5WvvkW4kw8
+id: block_content.footer_links
+target_entity_type_id: block_content
+target_bundle: footer_links
+default_langcode: site_default
+language_alterable: false

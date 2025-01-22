@@ -6,14 +6,14 @@ dependencies:
     - field.storage.paragraph.field_heading
     - paragraphs.paragraphs_type.image_cards
 _core:
-  default_config_hash: 2oh4fmLzimmn5may9qgkT-dh9ihkPij6MEmq6yQGKIA
+  default_config_hash: qkITj5IGjSlwq8Cb00Dlv35GX3Ny30yJU1Ya9EqPRXc
 id: paragraph.image_cards.field_heading
 field_name: field_heading
 entity_type: paragraph
 bundle: image_cards
 label: 'Card group heading'
-description: "Optional heading that displays above the group of cards. Use this only if you need to and all of the cards link to the same topic. For example 'How to apply' could be a group heading for cards that link to pages about the applying process."
-required: false
+description: "Heading that displays above the group of cards. Use this only to group cards link of the same topic. For example 'How to apply' could be a group heading for cards that link to pages about the applying process."
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

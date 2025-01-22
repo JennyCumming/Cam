@@ -1,0 +1,23 @@
+uuid: 943a9e63-c0e6-4e92-9fdc-2df9938533bd
+langcode: en
+status: true
+dependencies:
+  theme:
+    - stable9
+_core:
+  default_config_hash: o_mBqLhH9yYDbLKbImkzOl3akkTn_Y_81Ya0MmnPdL4
+id: stable9_footercontact
+theme: stable9
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'block_content:c32ada71-ed32-4eac-9a28-70220267872b'
+settings:
+  id: 'block_content:c32ada71-ed32-4eac-9a28-70220267872b'
+  label: 'Footer contact'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

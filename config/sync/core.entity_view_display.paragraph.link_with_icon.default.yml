@@ -1,0 +1,38 @@
+uuid: d71141b6-2bcf-44bd-9a3c-efbee5d3687e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_with_icon.field_icon
+    - field.field.paragraph.link_with_icon.field_link
+    - paragraphs.paragraphs_type.link_with_icon
+  module:
+    - link
+    - options
+_core:
+  default_config_hash: D8xtaPdD2rUygOHBWDnxJpaqPH8RiemFcrYWgKA1t0w
+id: paragraph.link_with_icon.default
+targetEntityType: paragraph
+bundle: link_with_icon
+mode: default
+content:
+  field_icon:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden: {  }

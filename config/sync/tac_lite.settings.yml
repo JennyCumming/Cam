@@ -1,5 +1,6 @@
 _core:
-  default_config_hash: O3rsbjEveBvnof1Hdq3ih8UBqlRN2betEk9OZhaiTPM
-tac_lite_categories: null
-tac_lite_schemes: 1
+  default_config_hash: LeAmClGTX36O4tAYPgxM67mPoqcbVojTAkLY3Vz538w
+tac_lite_categories:
+  restricted_content: restricted_content
+tac_lite_schemes: '1'
 menu_rebuild_needed: false

@@ -1,0 +1,18 @@
+uuid: be52ea70-d03f-4d9e-a0cc-4517e4146ada
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: GCdf0b2zFKJD-0XZjCa5L0B7qagW0VjkhrCdyqBVtrg
+name: media_sm_2x
+label: 'Media SM 2X'
+effects:
+  63eb9d6b-61ab-45c3-92e4-c31811d81c71:
+    uuid: 63eb9d6b-61ab-45c3-92e4-c31811d81c71
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 2048
+      height: 1152
+      anchor: center-center
+pipeline: ''

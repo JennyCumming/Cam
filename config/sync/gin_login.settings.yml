@@ -1,6 +1,7 @@
 _core:
-  default_config_hash: OhypfKr4_Eo8XwXg3Sios05lN-LjxOhSdSOSkEN9Ndo
+  default_config_hash: tfM_2ZdZJkq5Xa8lIJOS8xdlRdgxeOxpDnZzLZgTrTo
 logo:
   use_default: true
 brand_image:
-  use_default: true
+  use_default: false
+  path: 'public:///2025-01/login.png'

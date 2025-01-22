@@ -1,0 +1,18 @@
+uuid: 2183d444-5dfe-4e6a-bf20-4a912e5a12f8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: RVVla5a4wE45kIMr-JREbU9ZnCcdHca7Xna28zJS0Cg
+name: media_lg_1x
+label: 'Media LG 1X'
+effects:
+  624ff4dc-26dd-4656-a59a-a0ea1333ac6b:
+    uuid: 624ff4dc-26dd-4656-a59a-a0ea1333ac6b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1536
+      height: 864
+      anchor: center-center
+pipeline: ''

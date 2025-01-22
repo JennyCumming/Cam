@@ -1,0 +1,18 @@
+uuid: 34598ff6-4e19-4f06-aaab-ba9e734fd502
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1Riy1LwJGAA6NK3oLEaPdS4BB_H8Fcna0PbD1rBTyHk
+name: media_xl_2x
+label: 'Media XL 2X'
+effects:
+  ad5f4887-497f-4160-9943-7bc9d77f208e:
+    uuid: ad5f4887-497f-4160-9943-7bc9d77f208e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 7680
+      height: 4320
+      anchor: center-center
+pipeline: ''

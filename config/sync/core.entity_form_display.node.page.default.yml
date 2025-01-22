@@ -1,4 +1,4 @@
-uuid: 13b2bd5e-3972-41c0-a2af-950486cb0af7
+uuid: 5f2f5318-387c-4bb6-9bbc-7e7ed8e8ba96
 langcode: en-gb
 status: true
 dependencies:
@@ -18,7 +18,7 @@ dependencies:
     - paragraphs_features
     - path
 _core:
-  default_config_hash: gd0Gr1kK3HSF31Yc0xVPhmykNDWolzvAWGVs8DLyThU
+  default_config_hash: 7ylYtPDJuuFKMqzBI56ASjT3QJljbnRvrURc5cdvuJw
 id: node.page.default
 targetEntityType: node
 bundle: page
@@ -36,36 +36,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_bottom_paragraphs:
-    type: paragraphs
-    weight: 12
-    region: content
-    settings:
-      title: component
-      title_plural: components
-      edit_mode: closed
-      closed_mode: preview
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: modal
-      form_display_mode: default
-      default_paragraph_type: _none
-      features:
-        add_above: add_above
-        collapse_edit_all: collapse_edit_all
-        convert: '0'
-        duplicate: duplicate
-    third_party_settings:
-      paragraphs_features:
-        add_in_between: true
-        add_in_between_link_count: 0
-        delete_confirmation: true
-        show_drag_and_drop: true
-        show_collapse_all: true
-      paragraphs_ee:
-        paragraphs_ee:
-          dialog_off_canvas: false
-          dialog_style: tiles
   field_content_items:
     type: paragraphs
     weight: 11
@@ -123,7 +93,7 @@ content:
         maxlength_js_enforce: false
   field_paragraph:
     type: paragraphs
-    weight: 10
+    weight: 9
     region: content
     settings:
       title: component
@@ -153,7 +123,7 @@ content:
           dialog_style: tiles
   field_sidebar_items:
     type: paragraphs
-    weight: 13
+    weight: 10
     region: content
     settings:
       title: Component
@@ -184,40 +154,10 @@ content:
           drag_drop: false
   field_subject_ref:
     type: options_buttons
-    weight: 14
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_top_content:
-    type: paragraphs
-    weight: 9
-    region: content
-    settings:
-      title: component
-      title_plural: components
-      edit_mode: open
-      closed_mode: preview
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: modal
-      form_display_mode: default
-      default_paragraph_type: _none
-      features:
-        add_above: add_above
-        collapse_edit_all: collapse_edit_all
-        convert: '0'
-        duplicate: duplicate
-    third_party_settings:
-      paragraphs_features:
-        add_in_between: true
-        add_in_between_link_count: 0
-        delete_confirmation: true
-        show_drag_and_drop: true
-        show_collapse_all: true
-      paragraphs_ee:
-        paragraphs_ee:
-          dialog_off_canvas: false
-          dialog_style: tiles
   langcode:
     type: language_select
     weight: 2
@@ -240,7 +180,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 16
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -275,9 +215,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 15
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   body: true
+  field_bottom_paragraphs: true
+  field_top_content: true

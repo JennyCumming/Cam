@@ -1,0 +1,13 @@
+uuid: 50c4382d-7760-4805-8fc7-a7086c432f54
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.contact
+_core:
+  default_config_hash: ZuWIuiM2ZEqPqhXNjcBk1xnSDfpN_G9tI2qMLhwhmJA
+id: block_content.contact
+target_entity_type_id: block_content
+target_bundle: contact
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,18 @@
+uuid: 52dacfed-f130-4593-93f1-02170c950303
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ldbh0V0QCDljoeOmzvvZFedcm_LP8YLTLUMuK7CCzdg
+name: media_lg_2x
+label: 'Media LG 2X'
+effects:
+  c8094744-0260-4c6b-83b2-46f3e5a8b8e8:
+    uuid: c8094744-0260-4c6b-83b2-46f3e5a8b8e8
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 3072
+      height: 1728
+      anchor: center-center
+pipeline: ''

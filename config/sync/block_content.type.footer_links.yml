@@ -1,0 +1,10 @@
+uuid: 2ba8c5f4-51be-4a3f-8a93-897b8a3078e1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: I1AvvjrZMp-7h-pHAOAS4F1q-Bq3Xb5a_EqlGOZ0BYQ
+id: footer_links
+label: 'Footer links'
+revision: false
+description: 'Column of links '
