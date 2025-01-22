@@ -1,0 +1,8 @@
+{
+    "name": "uis-drupal/cam_twigextension",
+    "description": "Cambridge Custom Twig Extensions",
+    "type": "drupal-custom-module",
+    "require": {
+        "drupal/core": "^10"
+    }
+}

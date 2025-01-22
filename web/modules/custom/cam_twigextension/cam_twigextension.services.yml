@@ -1,0 +1,9 @@
+services:
+  cam_twigextension.filter:
+    class: Drupal\cam_twigextension\TwigFilters
+    tags:
+      - { name: twig.extension }
+  cam_twigextension.function:
+    class: Drupal\cam_twigextension\TwigFunctions
+    tags:
+      - { name: twig.extension }

@@ -1,0 +1,5 @@
+name: Cambridge Custom Twig Extensions
+type: module
+core_version_requirement: ^10
+package: Custom
+version: 1.0
