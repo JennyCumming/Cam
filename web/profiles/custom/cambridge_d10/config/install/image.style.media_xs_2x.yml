@@ -1,0 +1,16 @@
+uuid: a1779dc4-da7a-45ae-9aad-5c45d43227e5
+langcode: en
+status: true
+dependencies: {  }
+name: media_xs_2x
+label: 'Media XS 2X'
+effects:
+  424b733f-e079-4cad-a054-85b173f7e7c3:
+    uuid: 424b733f-e079-4cad-a054-85b173f7e7c3
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1536
+      height: 864
+      anchor: center-center
+pipeline: ''

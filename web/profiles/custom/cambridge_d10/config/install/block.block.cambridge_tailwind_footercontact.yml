@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:contact:c32ada71-ed32-4eac-9a28-70220267872b'
+  module:
+    - block_content
+  theme:
+    - cambridge_tailwind
+id: cambridge_tailwind_footercontact
+theme: cambridge_tailwind
+region: footer_info
+weight: 0
+provider: null
+plugin: 'block_content:c32ada71-ed32-4eac-9a28-70220267872b'
+settings:
+  id: 'block_content:c32ada71-ed32-4eac-9a28-70220267872b'
+  label: 'Footer contact'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -4,7 +4,6 @@ dependencies:
   config:
     - field.field.node.home_page.field_page_summary
     - field.field.node.home_page.field_paragraph
-    - field.field.node.home_page.field_title_prefix
     - node.type.home_page
   module:
     - layout_paragraphs
@@ -35,5 +34,4 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
-hidden:
-  field_title_prefix: true
+hidden: {  }

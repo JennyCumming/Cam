@@ -11,7 +11,7 @@ id: paragraph.image_cards.field_sub_heading
 field_name: field_sub_heading
 entity_type: paragraph
 bundle: image_cards
-label: Label
+label: 'Card group description'
 description: ''
 required: false
 translatable: false

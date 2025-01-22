@@ -1,0 +1,135 @@
+stages:
+  - pantheon
+
+.pantheon-base:
+  stage: pantheon
+  image: registry.gitlab.developers.cam.ac.uk/uis/devops/infra/dockerimages/terminus:latest
+  variables:
+    PATHEON_SITE: camd10test
+    PANTHEON_TOKEN_SECRET: pantheon-machine-token
+    PANTHEON_KEY_SECRET: pantheon-ssh-key
+    GITLAB_ACCESS_TOKEN_SECRET: gitlab-access-token
+  before_script: |
+    echo "** Installing dependencies for the job **"
+    apk add jq
+  tags:
+    - $GKE_RUNNER_TAG
+
+create-or-update-multidev:
+  extends: .pantheon-base
+  script: |
+    echo "** Fetching secrets from GCP SM **"
+    TERMINUS_MACHINE_TOKEN=$(gcloud secrets versions access latest --impersonate-service-account="$PROD_GCP_SA" --secret=$PANTHEON_TOKEN_SECRET --project=$PROD_GCP_PROJECT)
+    gcloud secrets versions access latest --impersonate-service-account="$PROD_GCP_SA" --secret=$PANTHEON_KEY_SECRET --project=$PROD_GCP_PROJECT > /tmp/ssh-key
+    chmod 400 /tmp/ssh-key
+
+    echo "** Logging to Pantheon using machine-token **"
+    terminus auth:login --machine-token="$TERMINUS_MACHINE_TOKEN"
+
+    echo "** Setting env-specific configuration and configuring git **"
+    MULTIDEV_NAME="ci-mr-$CI_MERGE_REQUEST_IID"
+    GIT_URL=$(terminus connection:info $PATHEON_SITE.dev --field=git_url)
+    export GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -i /tmp/ssh-key'
+
+    echo "** Checking Multidev $MULTIDEV_NAME. If doesn't exist - creating and locking  **"
+    MULTIDEV_INITIALIZED=$(terminus env:info $PATHEON_SITE.$MULTIDEV_NAME --field=initialized || true)
+    if [ -n "$MULTIDEV_INITIALIZED" ]; then
+      echo "** Environment $MULTIDEV_NAME exists.**"
+      INSTALL_SITE=false
+    else
+      echo "** Environment doesn't exist. Creating and locking it **"
+      terminus multidev:create $PATHEON_SITE.dev $MULTIDEV_NAME
+      terminus lock:enable $PATHEON_SITE.$MULTIDEV_NAME $ENV_BASIC_USERNAME $ENV_BASIC_PASSWORD
+      INSTALL_SITE=true
+    fi
+
+    echo "** Updating Multidev $MULTIDEV_NAME's upstream with actual commit hash **"
+    git clone $GIT_URL -b $MULTIDEV_NAME ./site_repo
+    cd ./site_repo
+    jq ".require.\"uis-drupal-team/drupal-10-cambridge-profile\" = \"dev-$CI_COMMIT_REF_NAME#$CI_COMMIT_SHA\"" upstream-configuration/composer.json > upstream-configuration/composer_modified.json \
+      && mv upstream-configuration/composer_modified.json upstream-configuration/composer.json
+    echo "** The following upstream-configuration/composer.json changes will be comitted to $MULTIDEV_NAME branch **"
+    cat upstream-configuration/composer.json
+    git config user.email "not-real-address@gitlab.developers.cam.ac.uk"
+    git config user.name "CI Job"
+    git add upstream-configuration/composer.json
+    git commit -m "Update upstream-configuration/composer.json with profile branch $CI_COMMIT_REF_NAME" || true
+    git push
+    cd ..
+    sleep 5
+
+    echo "** Waiting for 'Sync Code' workflow to be done **"
+    TIMEOUT=300
+    START_TIME=$(date +%s)
+    while true; do
+      STATUS=$(terminus workflow:list $PATHEON_SITE --format=json | jq -r "to_entries | map(select(.value.workflow | test(\"^Sync code on\")) | select(.value.env == \"$MULTIDEV_NAME\")).[0].value.status")
+      if [[ "$STATUS" == "succeeded" ]]; then
+        echo "** 'Sync Code' workflow completed successfully **"
+        break
+      fi
+      # Check if the timeout has been reached
+      CURRENT_TIME=$(date +%s)
+      ELAPSED_TIME=$((CURRENT_TIME - START_TIME))
+      if [[ $ELAPSED_TIME -ge $TIMEOUT ]]; then
+        echo "** Timeout reached. 'Sync Code' workflow did not complete successfully within 5 minutes **"
+        break
+      fi
+      sleep 10
+    done
+
+    echo "** Updatig upstream **"
+    terminus upstream:updates:status -- $PATHEON_SITE.$MULTIDEV_NAME
+    terminus upstream:updates:apply --updatedb --accept-upstream -- $PATHEON_SITE.$MULTIDEV_NAME
+
+    if [[ "$INSTALL_SITE" == true ]]; then
+      echo "** This is a first run of CI job for $MULTIDEV_NAME. Running 'drush site-install' **"
+      eval "$(ssh-agent -s)"
+      ssh-add /tmp/ssh-key
+      terminus drush $PATHEON_SITE.$MULTIDEV_NAME -- site-install cambridge_d10 --site-name=cwp -y | grep -v "password"
+    fi
+
+    echo "** Receiving information about the environment **"
+    MULTIDEV_DOMAIN=$(terminus env:info $PATHEON_SITE.$MULTIDEV_NAME --field=domain)
+    echo "** Environment is available, url is $MULTIDEV_DOMAIN **"
+  resource_group: $CI_COMMIT_REF_NAME
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+      when: always
+    - when: never
+
+clean-up-multidevs:
+  extends: .pantheon-base
+  script: |
+    echo "** Fetching secrets from GCP SM **"
+    TERMINUS_MACHINE_TOKEN=$(gcloud secrets versions access latest --impersonate-service-account="$PROD_GCP_SA" --secret=$PANTHEON_TOKEN_SECRET --project=$PROD_GCP_PROJECT)
+    GITLAB_ACCESS_TOKEN=$(gcloud secrets versions access latest --impersonate-service-account=$GITLAB_TOKEN_ACCESSOR_SERVICE_ACCOUNT --secret=$GITLAB_ACCESS_TOKEN_SECRET --project=$META_GCP_PROJECT)
+
+    echo "** Logging to Pantheon using machine-token **"
+    terminus auth:login --machine-token="$TERMINUS_MACHINE_TOKEN"
+
+    echo "** Getting information about opened Merge Requests **"
+    OPEN_MRS=$(curl --header "PRIVATE-TOKEN: $GITLAB_ACCESS_TOKEN" "https://$CI_SERVER_HOST/api/v4/projects/$CI_PROJECT_ID/merge_requests?state=opened" | jq '.[].iid')
+    NAMES_FROM_MRS=""
+    for iid in `echo $OPEN_MRS`; do
+        NAMES_FROM_MRS="$NAMES_FROM_MRS ci-mr-$iid"
+    done
+
+    echo "** Getting information about multidev environments **"
+    MULTIDEVS=$(terminus multidev:list $PATHEON_SITE --format=json | jq -r '.[].id' | grep 'ci-mr-.d*' || true)
+
+    if [ -n "$MULTIDEVS" ]; then
+      echo "** Check multidevs for opened MRs **"
+      for multidev in `echo $MULTIDEVS`; do
+        echo "** Working with $multidev ENV **"
+        if ! echo "$NAMES_FROM_MRS" | grep -q -w $multidev; then
+          echo "** Deleting environment $multidev **"
+          yes | terminus env:delete $PATHEON_SITE.$multidev || true
+        else
+          echo "Environment $multidev has corresponding 'Open' MR"
+        fi
+      done
+    fi
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: always
+    - when: never

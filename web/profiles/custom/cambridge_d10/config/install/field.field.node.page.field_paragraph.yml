@@ -1,4 +1,3 @@
-uuid: 03f84c11-ad0e-4741-b8a5-37d303830f3a
 langcode: en
 status: true
 dependencies:
@@ -6,13 +5,11 @@ dependencies:
     - field.storage.node.field_paragraph
     - node.type.page
     - paragraphs.paragraphs_type.image_media
-    - paragraphs.paragraphs_type.page_item
-    - paragraphs.paragraphs_type.questions_and_answers
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: VQ2Cee-xA_odeK8Y91jUYmF-pI2PFkzqvTtp5MCDvmw
+  default_config_hash: yjvef8Gsdg7TcAc67KlIbUvsF0neKrUsqbYiwm0x88o
 id: node.page.field_paragraph
 field_name: field_paragraph
 entity_type: node
@@ -29,10 +26,11 @@ settings:
     target_bundles:
       text: text
       image_media: image_media
-      page_item: page_item
-      questions_and_answers: questions_and_answers
     negate: 0
     target_bundles_drag_drop:
+      accordion:
+        weight: 30
+        enabled: false
       basic_limited:
         weight: 29
         enabled: false
@@ -86,13 +84,13 @@ settings:
         enabled: false
       page_item:
         weight: 46
-        enabled: true
+        enabled: false
       promo_block:
         weight: 47
         enabled: false
       questions_and_answers:
         weight: 48
-        enabled: true
+        enabled: false
       related_content:
         weight: 13
         enabled: false

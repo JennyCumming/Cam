@@ -6,12 +6,13 @@ dependencies:
     - field.field.paragraph.image_card.field_featured_links_description
     - field.field.paragraph.image_card.field_heading
     - field.field.paragraph.image_card.field_image_media
-    - field.field.paragraph.image_card.field_sub_heading
     - paragraphs.paragraphs_type.image_card
   module:
     - link
     - maxlength
     - media_library
+_core:
+  default_config_hash: rcogeKzsjTWXp-IBVxVT3gGgyI47x-Cp-J-hvzagUR0
 id: paragraph.image_card.default
 targetEntityType: paragraph
 bundle: image_card
@@ -56,18 +57,6 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
-  field_sub_heading:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings:
-      maxlength:
-        maxlength_js: 60
-        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
-        maxlength_js_enforce: true
 hidden:
   created: true
   status: true

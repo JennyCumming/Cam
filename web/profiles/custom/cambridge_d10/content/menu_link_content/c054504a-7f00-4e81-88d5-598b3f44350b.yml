@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: c054504a-7f00-4e81-88d5-598b3f44350b
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Privacy policy and cookies'
+  menu_name:
+    -
+      value: footer
+  link:
+    -
+      uri: 'https://www.cam.ac.uk/about-this-site/privacy-policy?ucam-ref=global-footer'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -47
+  expanded:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true

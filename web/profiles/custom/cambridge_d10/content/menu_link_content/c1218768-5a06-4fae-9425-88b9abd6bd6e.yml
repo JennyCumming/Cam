@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: c1218768-5a06-4fae-9425-88b9abd6bd6e
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Terms and conditions'
+  menu_name:
+    -
+      value: footer
+  link:
+    -
+      uri: 'https://www.cam.ac.uk/about-this-site/terms-and-conditions?ucam-ref=global-footer'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -45
+  expanded:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true

@@ -1,0 +1,72 @@
+uuid: cd01653e-53fa-47cf-9801-f098171aaa2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.media_lg_1x
+    - image.style.media_lg_2x
+    - image.style.media_md_1x
+    - image.style.media_md_2x
+    - image.style.media_sm_1x
+    - image.style.media_sm_2x
+    - image.style.media_xl_1x
+    - image.style.media_xl_2x
+    - image.style.media_xs_1x
+    - image.style.media_xs_2x
+  theme:
+    - cambridge_tailwind
+id: cambridge_tailwind_media_component
+label: 'Cambridge Tailwind Media Component'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: media_xl_1x
+    breakpoint_id: cambridge_tailwind.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_xl_2x
+    breakpoint_id: cambridge_tailwind.xl
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_lg_1x
+    breakpoint_id: cambridge_tailwind.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_lg_2x
+    breakpoint_id: cambridge_tailwind.lg
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_md_1x
+    breakpoint_id: cambridge_tailwind.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_md_2x
+    breakpoint_id: cambridge_tailwind.md
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_sm_1x
+    breakpoint_id: cambridge_tailwind.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_sm_2x
+    breakpoint_id: cambridge_tailwind.sm
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_xs_1x
+    breakpoint_id: cambridge_tailwind.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: media_xs_2x
+    breakpoint_id: cambridge_tailwind.xs
+    multiplier: 2x
+breakpoint_group: cambridge_tailwind
+fallback_image_style: media_xs_1x

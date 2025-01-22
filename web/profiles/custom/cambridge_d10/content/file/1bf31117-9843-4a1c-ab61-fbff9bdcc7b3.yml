@@ -1,0 +1,27 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 1bf31117-9843-4a1c-ab61-fbff9bdcc7b3
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: login.png
+  uri:
+    -
+      value: 'public://2025-01/login.png'
+  filemime:
+    -
+      value: image/png
+  filesize:
+    -
+      value: 1138536
+  status:
+    -
+      value: true
+  created:
+    -
+      value: 1737033008

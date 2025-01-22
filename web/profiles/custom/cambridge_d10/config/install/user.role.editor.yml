@@ -1,11 +1,44 @@
-uuid: b9d46228-2b8e-4be2-b33e-e110addeec3d
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.home_page
+    - node.type.page
+  module:
+    - node
+    - path
+    - simple_menu_permissions
+    - system
+    - toolbar
+    - view_unpublished
 _core:
-  default_config_hash: B6X1Gja2Iu36sj3ZCk-93mELg6ohI27eKxR7nllitbU
+  default_config_hash: pJt2ygnLmHwKjd90tdAwNjwLeyqi1CS4wTsv2Vc7-Is
 id: editor
 label: Editor
 weight: 5
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'add new links to main menu'
+  - 'administer menu'
+  - 'change own username'
+  - 'create page content'
+  - 'create url aliases'
+  - 'delete any page content'
+  - 'delete links in main menu'
+  - 'delete own page content'
+  - 'edit any home_page content'
+  - 'edit any page content'
+  - 'edit links in main menu'
+  - 'edit main menu'
+  - 'edit own page content'
+  - 'revert home_page revisions'
+  - 'revert page revisions'
+  - 'view any unpublished home_page content'
+  - 'view any unpublished page content'
+  - 'view home_page revisions'
+  - 'view main menu in menu list'
+  - 'view page revisions'
+  - 'view the administration theme'

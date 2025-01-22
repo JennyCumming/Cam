@@ -1,0 +1,36 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 9de96c9a-00e4-49b2-88b5-415047f54516
+  bundle: menu_link_content
+  default_langcode: en
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Freedom of information'
+  menu_name:
+    -
+      value: footer
+  link:
+    -
+      uri: 'https://www.information-compliance.admin.cam.ac.uk/foi?ucam-ref=global-footer'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -48
+  expanded:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true

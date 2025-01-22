@@ -1,0 +1,16 @@
+uuid: e2111322-ee11-463a-8047-520f70a7481c
+langcode: en
+status: true
+dependencies: {  }
+name: media_xl_1x
+label: 'Media XL 1X'
+effects:
+  380bb08e-5c28-454f-a6b4-71facc6dd7c0:
+    uuid: 380bb08e-5c28-454f-a6b4-71facc6dd7c0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 3840
+      height: 2160
+      anchor: center-center
+pipeline: ''

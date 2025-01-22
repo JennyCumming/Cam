@@ -12,7 +12,7 @@ third_party_settings:
   sdc_display:
     enabled: true
     component:
-      machine_name: 'cambridge_tailwind:text'
+      machine_name: 'cambridge_tailwind:prose'
       show_deprecated: null
     mappings:
       static:

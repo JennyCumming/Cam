@@ -1,0 +1,16 @@
+uuid: 53c1c291-a1ac-448e-8d77-fd11370ae4a8
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs_ee
+third_party_settings:
+  paragraphs_ee:
+    paragraphs_categories:
+      links: links
+id: link_with_icon
+label: 'Link (optional icon)'
+icon_uuid: null
+icon_default: null
+description: 'Link with (optional) icon left for footer. '
+behavior_plugins: {  }

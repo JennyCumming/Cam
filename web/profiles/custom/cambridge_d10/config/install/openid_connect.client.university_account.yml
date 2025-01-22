@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - openid_connect_windows_aad
+id: university_account
+label: 'University account'
+plugin: windows_aad
+settings:
+  client_id: DUMMY_CLIENT_ID
+  client_secret: d10
+  iss_allowed_domains: DUMMY_DOMAIN
+  authorization_endpoint_wa: 'https://api.apps.cam.ac.uk/oauth2/v1/auth'
+  token_endpoint_wa: 'https://api.apps.cam.ac.uk/oauth2/v1/token'
+  end_session_endpoint: ''
+  userinfo_endpoint_wa: ''
+  map_ad_groups_to_roles: true
+  group_mapping:
+    method: 0
+    mappings: ''
+    strict: false
+  userinfo_graph_api_wa: 0
+  userinfo_graph_api_use_other_mails: false
+  userinfo_update_email: false
+  hide_email_address_warning: false
+  subject_key: sub
+  front_channel_logout_url: ''

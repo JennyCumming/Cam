@@ -19,6 +19,7 @@ install:
   - drupal:block_content
   - drupal:breakpoint
   - cam_admin_ui_tweaks:cam_admin_ui_tweaks
+  - cam_twigextension:cam_twigextension
   - drupal:calendar
   - drupal:calendar_datetime
   - drupal:ckeditor
@@ -64,7 +65,6 @@ install:
   - drupal:field_validation
   - drupal:file
   - drupal:filter
-  - drupal:gathercontent
   - drupal:gin_login
   - drupal:gin_toolbar
   - drupal:google_tag
@@ -100,7 +100,6 @@ install:
   - drupal:menu_force
   - drupal:menu_link_content
   - drupal:menu_ui
-  - drupal:message_banner
   - drupal:metatag
   - drupal:navigation
   - drupal:node_title_help_text
@@ -199,4 +198,7 @@ themes:
   - claro
   - gin
   - cambridge_tailwind
+default_content:
+  file:
+    - 974b40d0-fd36-4646-b2bc-bb4b45ac4d60
 

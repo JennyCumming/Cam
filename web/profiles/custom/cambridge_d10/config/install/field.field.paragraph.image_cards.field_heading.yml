@@ -12,8 +12,8 @@ field_name: field_heading
 entity_type: paragraph
 bundle: image_cards
 label: 'Card group heading'
-description: "Optional heading that displays above the group of cards. Use this only if you need to and all of the cards link to the same topic. For example 'How to apply' could be a group heading for cards that link to pages about the applying process."
-required: false
+description: "Heading that displays above the group of cards. Use this only to group cards link of the same topic. For example 'How to apply' could be a group heading for cards that link to pages about the applying process."
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

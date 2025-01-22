@@ -1,0 +1,21 @@
+uuid: 92024903-d3c8-4e26-8644-b60b3cabebcd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_icon
+    - paragraphs.paragraphs_type.link_with_icon
+  module:
+    - options
+id: paragraph.link_with_icon.field_icon
+field_name: field_icon
+entity_type: paragraph
+bundle: link_with_icon
+label: Icon
+description: 'Choose from a set of predefined link icons.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

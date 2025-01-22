@@ -4,22 +4,17 @@ dependencies:
   config:
     - field.storage.node.field_paragraph
     - node.type.home_page
-    - paragraphs.paragraphs_type.featured_links
     - paragraphs.paragraphs_type.image_cards
     - paragraphs.paragraphs_type.link_grid
-    - paragraphs.paragraphs_type.text_cards
-    - paragraphs.paragraphs_type.events_from_view
-    - paragraphs.paragraphs_type.news
-    - paragraphs.paragraphs_type.compact_callout
   module:
     - entity_reference_revisions
 _core:
-  default_config_hash: EIawnG65tSxVwSJh0tQER8yqOVaK4xP4UWLdkv6yz1U
+  default_config_hash: N-mL1xY853Rci4sVpH_YWilXKXoIwqdPQbMbK7rpSRM
 id: node.home_page.field_paragraph
 field_name: field_paragraph
 entity_type: node
 bundle: home_page
-label: 'Main Content' 
+label: 'Main Content'
 description: ''
 required: false
 translatable: false
@@ -29,21 +24,34 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      featured_links: featured_links
       image_cards: image_cards
       link_grid: link_grid
-      text_cards: text_cards
-      events_from_view: events_from_view
-      news: news
-      compact_callout: compact_callout
     negate: 0
     target_bundles_drag_drop:
+      accordion:
+        weight: 30
+        enabled: false
       basic_limited:
         weight: 17
         enabled: false
+      compact_callout:
+        weight: 32
+        enabled: false
+      content_teaser:
+        weight: 33
+        enabled: false
+      document_list:
+        weight: 34
+        enabled: false
+      embedded_link:
+        weight: 35
+        enabled: false
+      events_from_view:
+        weight: 36
+        enabled: false
       featured_links:
         weight: 18
-        enabled: true
+        enabled: false
       image:
         weight: 5
         enabled: false
@@ -53,17 +61,35 @@ settings:
       image_cards:
         weight: 20
         enabled: true
+      image_link:
+        weight: 41
+        enabled: false
       image_media:
         weight: 21
         enabled: false
       layout:
         weight: 6
         enabled: false
+      link_block:
+        weight: 44
+        enabled: false
       link_grid:
         weight: 24
         enabled: true
+      news:
+        weight: 46
+        enabled: false
       notification:
         weight: 24
+        enabled: false
+      page_item:
+        weight: 48
+        enabled: false
+      promo_block:
+        weight: 49
+        enabled: false
+      questions_and_answers:
+        weight: 50
         enabled: false
       related_content:
         weight: 25
@@ -77,12 +103,15 @@ settings:
       text:
         weight: 7
         enabled: false
+      text_block:
+        weight: 55
+        enabled: false
       text_card:
         weight: 28
         enabled: false
       text_cards:
         weight: 29
-        enabled: true
+        enabled: false
       youtube:
         weight: 8
         enabled: false

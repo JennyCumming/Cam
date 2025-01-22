@@ -1,0 +1,16 @@
+uuid: 67958d12-011b-4169-a563-81370cd273be
+langcode: en
+status: true
+dependencies: {  }
+name: media_md_1x
+label: 'Media MD 1X'
+effects:
+  fbf9a7de-0e5b-4618-b246-90817cd48172:
+    uuid: fbf9a7de-0e5b-4618-b246-90817cd48172
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 720
+      anchor: center-center
+pipeline: ''

@@ -6,10 +6,11 @@ dependencies:
     - field.field.paragraph.image_card.field_featured_links_description
     - field.field.paragraph.image_card.field_heading
     - field.field.paragraph.image_card.field_image_media
-    - field.field.paragraph.image_card.field_sub_heading
     - paragraphs.paragraphs_type.image_card
   module:
     - link
+_core:
+  default_config_hash: 051mJFXkNeoG34eO3po_pzUSswa4VrSm_lV71N4ztZ8
 id: paragraph.image_card.default
 targetEntityType: paragraph
 bundle: image_card
@@ -50,13 +51,5 @@ content:
       link: true
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_sub_heading:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
     region: content
 hidden: {  }
