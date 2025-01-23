@@ -10,10 +10,13 @@ entity_type: paragraph
 bundle: related_content
 field_validation_rules:
   94c7e113-13f1-4b30-82d3-ba9610166e0c:
-    uuid: 94c7e113-13f1-4b30-82d3-ba9610166e0c
     id: item_count_field_validation_rule
     title: 'Related links have at least 2 links'
+    data:
+      min: 2
+      max: null
     weight: 1
+    uuid: 94c7e113-13f1-4b30-82d3-ba9610166e0c
     field_name: field_link
     column: uri
     error_message: 'Please ensure there are at least 2 links'
@@ -22,6 +25,3 @@ field_validation_rules:
       field: ''
       operator: ''
       value: ''
-    data:
-      min: 2
-      max: null

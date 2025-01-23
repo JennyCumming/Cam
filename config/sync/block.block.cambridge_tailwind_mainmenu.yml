@@ -23,13 +23,13 @@ settings:
   provider: menu_block
   follow: false
   follow_parent: active
+  label_link: true
+  label_type: parent
   level: 2
   depth: 0
   expand_all_items: false
   parent: 'main:'
   render_parent: false
   suggestion: main
-  label_type: parent
-  label_link: true
   hide_on_nonactive: false
 visibility: {  }

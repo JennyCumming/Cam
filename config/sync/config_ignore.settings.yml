@@ -1,4 +1,9 @@
 _core:
   default_config_hash: IgOVnECx6lbVt6JVFnadoEEugneDf3UblPZnOzov43Q
-mode: simple
-ignored_config_entities: {  }
+mode: intermediate
+ignored_config_entities:
+  import: {  }
+  export:
+    - core.extension
+    - 'migrate_plus.migration.*'
+    - system.site

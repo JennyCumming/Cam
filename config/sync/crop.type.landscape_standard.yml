@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: Rcvk4NI9gztRLOmvxmFHW97xDDpKG99UeXMo_LtNmfg
-id: landscape_standard
 label: 'Landscape standard'
+id: landscape_standard
 description: ''
 aspect_ratio: '3:2'
 soft_limit_width: null
