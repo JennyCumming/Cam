@@ -14,7 +14,7 @@ source:
   plugin: cambridge_d7_file
   scheme: public
   constants:
-    source_base_path: /code/web/d7
+    source_base_path: /var/www/html/web/d7
 process:
   fid:
     -
