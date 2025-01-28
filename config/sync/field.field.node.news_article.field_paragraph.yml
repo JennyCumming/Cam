@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_paragraph
     - node.type.news_article
     - paragraphs.paragraphs_type.image_media
+    - paragraphs.paragraphs_type.related_content
     - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
@@ -27,6 +28,7 @@ settings:
     target_bundles:
       text: text
       image_media: image_media
+      related_content: related_content
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -77,6 +79,9 @@ settings:
       link_grid:
         weight: 24
         enabled: false
+      link_with_icon:
+        weight: 47
+        enabled: false
       news:
         weight: 44
         enabled: false
@@ -94,7 +99,7 @@ settings:
         enabled: false
       related_content:
         weight: 25
-        enabled: false
+        enabled: true
       section_divider:
         weight: 27
         enabled: false

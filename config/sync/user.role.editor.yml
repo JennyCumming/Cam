@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.home_page
+    - node.type.news_article
     - node.type.page
   module:
     - node
@@ -25,21 +26,30 @@ permissions:
   - 'add new links to main menu'
   - 'administer menu'
   - 'change own username'
+  - 'create news_article content'
   - 'create page content'
   - 'create url aliases'
+  - 'delete any news_article content'
   - 'delete any page content'
   - 'delete links in main menu'
+  - 'delete news_article revisions'
+  - 'delete own news_article content'
   - 'delete own page content'
   - 'edit any home_page content'
+  - 'edit any news_article content'
   - 'edit any page content'
   - 'edit links in main menu'
   - 'edit main menu'
+  - 'edit own news_article content'
   - 'edit own page content'
   - 'revert home_page revisions'
+  - 'revert news_article revisions'
   - 'revert page revisions'
   - 'view any unpublished home_page content'
+  - 'view any unpublished news_article content'
   - 'view any unpublished page content'
   - 'view home_page revisions'
   - 'view main menu in menu list'
+  - 'view news_article revisions'
   - 'view page revisions'
   - 'view the administration theme'

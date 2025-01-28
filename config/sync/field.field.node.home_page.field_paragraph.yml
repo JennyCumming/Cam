@@ -7,6 +7,7 @@ dependencies:
     - node.type.home_page
     - paragraphs.paragraphs_type.image_cards
     - paragraphs.paragraphs_type.link_grid
+    - paragraphs.paragraphs_type.news
   module:
     - entity_reference_revisions
 _core:
@@ -27,6 +28,7 @@ settings:
     target_bundles:
       image_cards: image_cards
       link_grid: link_grid
+      news: news
     negate: 0
     target_bundles_drag_drop:
       accordion:
@@ -77,9 +79,12 @@ settings:
       link_grid:
         weight: 24
         enabled: true
+      link_with_icon:
+        weight: 47
+        enabled: false
       news:
         weight: 46
-        enabled: false
+        enabled: true
       notification:
         weight: 24
         enabled: false
