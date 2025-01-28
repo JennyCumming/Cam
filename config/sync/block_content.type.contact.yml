@@ -6,5 +6,5 @@ _core:
   default_config_hash: KPeTVxU7KRdBf7NBPA-OJpHAt1oH2Nc438gH9ARIHZw
 id: contact
 label: Contact
-revision: 0
+revision: false
 description: ''

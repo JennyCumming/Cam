@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: 7fd6XPnPBjAplvYitkE11lLJHnoNpPoTWL0znUqBeSY
-id: narrow_landscape
 label: 'Narrow landscape'
+id: narrow_landscape
 description: ''
 aspect_ratio: '16:6'
 soft_limit_width: null

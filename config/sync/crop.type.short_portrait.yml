@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: kNJuK4aFo6VPJBO0EYJNhkp3XEPT_oDiE5Ym2t2yrpA
-id: short_portrait
 label: 'Short portrait'
+id: short_portrait
 description: ''
 aspect_ratio: '3:4'
 soft_limit_width: null

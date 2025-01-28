@@ -10,10 +10,13 @@ entity_type: paragraph
 bundle: image_cards
 field_validation_rules:
   61a8cfbe-54b6-49b5-9365-eff0c47c9658:
-    uuid: 61a8cfbe-54b6-49b5-9365-eff0c47c9658
     id: item_count_field_validation_rule
     title: 'Min 2, Max 4'
+    data:
+      min: 2
+      max: 4
     weight: 1
+    uuid: 61a8cfbe-54b6-49b5-9365-eff0c47c9658
     field_name: field_card
     column: target_id
     error_message: 'Add at least 2 cards'
@@ -22,6 +25,3 @@ field_validation_rules:
       field: ''
       operator: ''
       value: ''
-    data:
-      min: 2
-      max: 4

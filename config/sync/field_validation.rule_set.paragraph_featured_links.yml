@@ -10,10 +10,13 @@ entity_type: paragraph
 bundle: featured_links
 field_validation_rules:
   5344894b-738f-456f-8ae7-586f8f2ee61d:
-    uuid: 5344894b-738f-456f-8ae7-586f8f2ee61d
     id: item_count_field_validation_rule
     title: 'Minimum 2 links'
+    data:
+      min: 2
+      max: 6
     weight: 1
+    uuid: 5344894b-738f-456f-8ae7-586f8f2ee61d
     field_name: field_link
     column: title
     error_message: 'Add at least 2 links'
@@ -22,6 +25,3 @@ field_validation_rules:
       field: ''
       operator: empty
       value: ''
-    data:
-      min: 2
-      max: 6
