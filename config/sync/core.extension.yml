@@ -17,6 +17,8 @@ module:
   calendar_datetime: 0
   cam_admin_ui_tweaks: 0
   cam_twigextension: 0
+  cambridge_migration_config: 0
+  cambridge_migrations: 0
   ckeditor: 0
   ckeditor5: 0
   ckeditor5_paste_filter: 0
@@ -131,6 +133,7 @@ module:
   paragraphs_jquery_ui_accordion: 0
   path: 0
   path_alias: 0
+  pathologic: 0
   phpass: 0
   rdf: 0
   realname: 0

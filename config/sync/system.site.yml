@@ -1,6 +1,7 @@
 _core:
   default_config_hash: UgU6ssj7WK-aROv9G8GQj7rPB0Gmj4QwW_-oiO4O9co
 langcode: en
+uuid: 232fe335-543d-4905-a970-e3da22ef3d45
 name: Hello
 mail: admin@example.com
 slogan: ''
@@ -11,4 +12,3 @@ page:
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en
-uuid: 232fe335-543d-4905-a970-e3da22ef3d45

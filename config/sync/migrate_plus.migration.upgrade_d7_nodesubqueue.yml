@@ -1,0 +1,42 @@
+uuid: cecfcfca-74f0-4765-9196-53940bbc47bb
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_nodesubqueue
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node subqueue'
+source:
+  plugin: d7_nodesubqueue
+process:
+  name:
+    -
+      plugin: get
+      source: sq_name
+  queue:
+    -
+      plugin: get
+      source: name
+  title:
+    -
+      plugin: get
+      source: title
+  items:
+    -
+      plugin: get
+      source: items
+  field_metatag:
+    -
+      plugin: d7_metatag_entities
+      source: pseudo_metatag_entities
+destination:
+  plugin: 'entity:entity_subqueue'
+migration_dependencies:
+  required:
+    - upgrade_d7_nodequeue
+  optional: {  }

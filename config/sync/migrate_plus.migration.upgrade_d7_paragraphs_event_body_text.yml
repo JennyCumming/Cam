@@ -1,0 +1,46 @@
+uuid: d1502615-4890-4df6-b6a3-5f22140eebf2
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: psrsLQvVj_mnb0P0nvIxZ4HJBdoSr683AgFURdzSfv0
+id: upgrade_d7_paragraphs_event_body_text
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Paragraphs Content'
+migration_group: migrate_drupal_7
+label: 'Paragraphs (Event body text)'
+source:
+  plugin: d7_node_complete
+  node_type: event
+process:
+  nid:
+    plugin: get
+    source: tnid
+  field_text/value:
+    -
+      plugin: extract
+      source: body
+      index:
+        - 0
+        - value
+    -
+      plugin: media_wysiwyg_filter
+    -
+      plugin: img_tag_to_embed
+  field_text/format:
+    plugin: extract
+    source: body
+    index:
+      - 0
+      - format
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: text
+migration_dependencies:
+  required: {  }
+  optional: {  }

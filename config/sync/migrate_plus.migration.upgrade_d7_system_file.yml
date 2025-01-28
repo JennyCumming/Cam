@@ -1,0 +1,34 @@
+uuid: 4f121bda-b00c-4f1a-8b78-698c85e6dbd5
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 4KRjl6Gl6fUSWOrJMYvDZ6sQhx2I5WmieWZsHrvY1R4
+id: upgrade_d7_system_file
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Drupal 7 file system configuration'
+source:
+  plugin: variable
+  variables:
+    - allow_insecure_uploads
+  source_module: system
+process:
+  allow_insecure_uploads:
+    -
+      plugin: static_map
+      source: allow_insecure_uploads
+      map:
+        - false
+        - true
+destination:
+  plugin: config
+  config_name: system.file
+migration_dependencies:
+  required: {  }
+  optional: {  }

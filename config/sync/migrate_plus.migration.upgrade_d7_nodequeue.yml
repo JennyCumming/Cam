@@ -1,0 +1,63 @@
+uuid: 7efee1ae-d803-4f31-bf18-9b8f9dc75a1e
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_nodequeue
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Node queue'
+source:
+  plugin: d7_nodequeue
+  constants:
+    target_type: node
+    entity_handler: 'default:node'
+    min_size: 0
+    act_as_queue: false
+process:
+  id:
+    -
+      plugin: get
+      source: name
+  label:
+    -
+      plugin: get
+      source: title
+  handler:
+    -
+      plugin: get
+      source: handler
+  entity_settings/target_type:
+    -
+      plugin: get
+      source: constants/target_type
+  entity_settings/handler:
+    -
+      plugin: get
+      source: constants/entity_handler
+  entity_settings/handler_settings/target_bundles:
+    -
+      plugin: get
+      source: target_bundles
+  queue_settings/min_size:
+    -
+      plugin: get
+      source: constants/min_size
+  queue_settings/max_size:
+    -
+      plugin: get
+      source: size
+  queue_settings/act_as_queue:
+    -
+      plugin: get
+      source: constants/act_as_queue
+destination:
+  plugin: 'entity:entity_queue'
+migration_dependencies:
+  required:
+    - upgrade_d7_node_type
+  optional: {  }

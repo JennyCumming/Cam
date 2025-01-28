@@ -1,0 +1,56 @@
+uuid: fd1ca169-f9b7-4a30-b5cc-dc847fe9eb62
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_field_collection_questions_and_answers
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Field Collection Content'
+migration_group: migrate_drupal_7
+label: 'Field Collections (Questions and answers)'
+source:
+  plugin: d7_field_collection_item
+  field_name: field_questions_and_answers
+process:
+  type:
+    -
+      plugin: get
+      source: bundle
+  parent_id:
+    -
+      plugin: get
+      source: parent_id
+  parent_type:
+    -
+      plugin: get
+      source: parent_type
+  parent_field_name:
+    -
+      plugin: get
+      source: field_name
+  field_answer:
+    -
+      plugin: get
+      source: field_answer
+    -
+      plugin: media_wysiwyg_filter
+  field_question:
+    -
+      plugin: get
+      source: field_question
+  field_metatag:
+    -
+      plugin: d7_metatag_entities
+      source: pseudo_metatag_entities
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: questions_and_answers
+migration_dependencies:
+  required:
+    - upgrade_d7_field_collection_type
+  optional:
+    - upgrade_d7_field_instance

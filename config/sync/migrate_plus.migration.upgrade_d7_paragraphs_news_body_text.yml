@@ -1,0 +1,46 @@
+uuid: e0bd528f-860b-4cfb-8513-d6baa4beadda
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: C39a0QmE42CUlU0Ap7sNXwhG922MRQiAQvQaL6RO4BU
+id: upgrade_d7_paragraphs_news_body_text
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Paragraphs Content'
+migration_group: migrate_drupal_7
+label: 'Paragraphs (News body text)'
+source:
+  plugin: d7_node_complete
+  node_type: news_article
+process:
+  nid:
+    plugin: get
+    source: tnid
+  field_text/value:
+    -
+      plugin: extract
+      source: body
+      index:
+        - 0
+        - value
+    -
+      plugin: media_wysiwyg_filter
+    -
+      plugin: img_tag_to_embed
+  field_text/format:
+    plugin: extract
+    source: body
+    index:
+      - 0
+      - format
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: text
+migration_dependencies:
+  required: {  }
+  optional: {  }
